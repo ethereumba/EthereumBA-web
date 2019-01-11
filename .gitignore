@@ -43,3 +43,4 @@ backend/media/
 nginx/sites-enabled/nginx.conf
 
 frontend/node_modules
+frontend/.env
