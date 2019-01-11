@@ -1,0 +1,68 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<!-- saved from url=(0037)http://localverum.news/notifications/ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--Apple-->
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="apple-touch-icon" sizes="57x57" href="{% static 'img/favicon/apple-icon-57x57.png' %}">
+        <link rel="apple-touch-icon" sizes="60x60" href="{% static 'img/favicon/apple-icon-60x60.png' %}">
+        <link rel="apple-touch-icon" sizes="72x72" href="{% static 'img/favicon/apple-icon-72x72.png' %}">
+        <link rel="apple-touch-icon" sizes="76x76" href="{% static 'img/favicon/apple-icon-76x76.png' %}">
+        <link rel="apple-touch-icon" sizes="114x114" href="{% static 'img/favicon/apple-icon-114x114.png' %}">
+        <link rel="apple-touch-icon" sizes="120x120" href="{% static 'img/favicon/apple-icon-120x120.png' %}">
+        <link rel="apple-touch-icon" sizes="144x144" href="{% static 'img/favicon/apple-icon-144x144.png' %}">
+        <link rel="apple-touch-icon" sizes="152x152" href="{% static 'img/favicon/apple-icon-152x152.png' %}">
+        <link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/favicon/apple-icon-180x180.png' %}">
+        <link rel="icon" type="image/png" sizes="192x192" href="{% static 'img/favicon/android-icon-192x192.png' %}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon/favicon-32x32.png' %}">
+        <link rel="icon" type="image/png" sizes="96x96" href="{% static 'img/favicon/favicon-96x96.png' %}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/favicon/favicon-16x16.png' %}">
+        <link rel="manifest" href="{% static 'img/favicon/manifest.json' %}">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage" content="{% static 'img/favicon/ms-icon-144x144.png' %}">
+        <meta name="theme-color" content="#ffffff">
+        <!--Import Google Icon Font-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!--Import materialize.css-->
+        <link type="text/css" rel="stylesheet" href="{% static 'css/materialize.css' %}" media="screen,projection">
+        <link type="text/css" rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+        <link type="text/css" rel="stylesheet" href="{% static 'css/custom.css' %}">
+        <link type="text/css" rel="stylesheet" href="{% static 'css/sac.css' %}">
+        <!--Let browser know website is optimized for mobile-->
+        <meta name="viewport" content="width=device-width, user-scalable=no">
+        <title>SAC</title>
+    </head>
+    <body cz-shortcut-listen="true">
+        <div>
+            <div class="page">
+                <img src="{% static 'img/pectem_shell.png' %}" class="pectem" />
+                <div class="container">
+                    <div class="row">
+                        <div class="col s12 m6 offset-m3">
+                            <img src="{% static 'img/500-icon.png' %}" class="responsive-img" />
+                            <p class="text-center error-no">
+                                <span>ERROR 500</span>
+                            </p>
+                        </div>
+                        <div class="col s12 m6 offset-m3 margin-top-50">
+                            <p class="text-center error-text">
+                                Ha ocurrido un error inseperado. ¡Lo sentimos!<br />
+                                Los administradores ya fueron notificados.
+                            </p>
+                        </div>
+                        <div class="col s12 m6 offset-m3 margin-top-50">
+                            <p class="text-center error-text">
+                                <a href="/">Inicio</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

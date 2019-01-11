@@ -1,0 +1,175 @@
+{% load staticfiles %}
+{% load i18n %}
+{% load hijack_tags %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Apple-->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="apple-touch-icon" sizes="57x57" href="{% static 'img/favicon/apple-icon-57x57.png' %}">
+    <link rel="apple-touch-icon" sizes="60x60" href="{% static 'img/favicon/apple-icon-60x60.png' %}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{% static 'img/favicon/apple-icon-72x72.png' %}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{% static 'img/favicon/apple-icon-76x76.png' %}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{% static 'img/favicon/apple-icon-114x114.png' %}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{% static 'img/favicon/apple-icon-120x120.png' %}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{% static 'img/favicon/apple-icon-144x144.png' %}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{% static 'img/favicon/apple-icon-152x152.png' %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/favicon/apple-icon-180x180.png' %}">
+    <link rel="icon" type="image/png" sizes="192x192" href="{% static 'img/favicon/android-icon-192x192.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{% static 'img/favicon/favicon-96x96.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/favicon/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'img/favicon/manifest.json' %}">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="{% static 'img/favicon/ms-icon-144x144.png' %}">
+    <meta name="theme-color" content="#ffffff">
+
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    {% block extra_before_css %}{% endblock %}
+    <link type="text/css" rel="stylesheet" href="{% static 'css/materialize.css' %}" media="screen,projection">
+    <link type="text/css" rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'css/Glyphter.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'css/common.css' %}">
+    {% if request|is_hijacked %}
+    <link rel="stylesheet" type="text/css" href="{% static 'hijack/hijack-styles.css' %}" />
+    {% endif %}
+    {% block extra_css %}{% endblock %}
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <title>{% block meta_title %}Django Template{% endblock %}</title>
+    {% block extra_head %}
+    {% endblock %}
+</head>
+<body>
+{% hijack_notification %}
+{% block header %}
+    {% if request.user.is_authenticated %}
+        <header>
+            <nav class="top-nav">
+                <div class="nav-wrapper">
+                    <div class="row">
+                        {% block nav %}
+                            <div class="col s12 l7 nav-header">
+                                <a class="button-collapse top-nav waves-light circle hide-on-large-only nav-icon no-border" data-activates="nav-mobile" href="#">
+                                    <i class="material-icons shell-red-text">menu</i>
+                                </a>
+                                {% block nav_title %}&nbsp;{% endblock %}
+                            </div>
+                        {% endblock %}
+                        <div class="col l5 hide-on-med-and-down">
+                            <ul class="right main-menu-right">
+                                {% block rightnavbar %}{% endblock %}
+                                    <li style="cursor: pointer" class="no-padding">
+                                        <a class='dropdown-button' href='#' data-activates='dropdown_apps' data-beloworigin='true' data-alignment='right' data-propagation='true' data-constrainwidth='false'>
+                                            <i class="material-icons">apps</i>
+                                        </a>
+                                    </li>
+                                <li>
+                                    <a class="chip dropdown-button user-menu" data-activates="user_menu_drop" data-beloworigin="true">
+                                        {% if request.user.profile_image %}
+                                            <img src="{{ request.user.profile_image }}" alt="{{ request.user.get_full_name }}"/>
+                                        {% else %}
+                                            <img src="{% static 'img/avatar.png' %}" alt="{{ request.user.get_full_name }}"/>
+                                        {% endif %}
+                                        <div class="username-container name">
+                                            <div class="truncate">{{ request.user.first_name|truncatechars:20 }}</div>
+                                            <div class="truncate">{{ request.user.last_name|truncatechars:20 }}</div>
+                                        </div>
+                                    </a>
+                                    <ul id="user_menu_drop" class="dropdown-content">
+                                        <li>
+                                            <a href="{% url 'core:view-profile' %}" class="truncate" target="_blank">
+                                                {% trans "Go to profile" %}
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{% url 'cas_ng_logout' %}" class="truncate">
+                                                {% trans "Log out" %}
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <ul class="side-nav fixed" id="nav-mobile" style="transform: translateX(0px);">
+                <li class="logo">
+                    <a class="brand-logo" href="/">
+                        <img src="{% static 'img/shell.png' %}" class="responsive-img"/>
+                    </a>
+                </li>
+                <li class="hide-on-large-only">
+                    <a class="waves-effect text-center" href="{% url 'core:view-profile' %}">
+                        {% if request.user.profile_image %}
+                            <img src="{{ request.user.profile_image }}" class="circle responsive-img" alt="{{ request.user.get_full_name }}">
+                        {% else %}
+                            <img src="{% static 'img/avatar.png' %}" class="circle responsive-img" alt="{{ request.user.get_full_name }}">
+                        {% endif %}
+                    </a>
+                </li>
+                <li {% if '/' == request.path %}class="active"{% endif %}>
+                    <a class="waves-effect text-center" href="/">
+                        <i class="fa fa-home side-nav-icon tooltipped" aria-hidden="true" data-position="right" data-delay="30" data-tooltip="Inicio"></i>
+                    </a>
+                </li>
+            </ul>
+        </header>
+    {% endif %}
+{% endblock %}
+<main>
+    <div>
+        <div class="page">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+</main>
+
+
+<!-- CAS APPS -->
+{% if request.user.is_authenticated %}
+<ul id='dropdown_apps' class='dropdown-content doc-dropdown z-depth-0'>
+  <li class="apps-li-container">
+      <div class="apps-container">
+          {% with tools=request.user.get_tools %}
+            {% for tool in tools %}
+                <div class="app-container">
+                    <a href="{{ tool.url }}" target="_blank">
+                        <img src="{{ tool.logo }}" />
+                        <p>{{ tool.name }}</p>
+                    </a>
+                </div>
+            {% endfor %}
+          {% endwith %}
+      </div>
+  </li>
+</ul>
+{% endif %}
+
+<!--Import jQuery before materialize.js-->
+<script type="text/javascript" src="{% static 'js/jquery-2.1.1.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/materialize.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/common.js' %}"></script>
+
+<script>
+    $(document).ready(function () {
+        // Initialize
+        $(".button-collapse").sideNav();
+        $('.tooltipped').tooltip({delay: 50});
+        $('.modal').modal();
+    });
+</script>
+{% if not request.user.is_superuser %}
+    <!--script> Analytics Script </script-->
+{% endif %}
+{% block extra_js %}{% endblock %}
+{% block external_js %}{% endblock %}
+</body>
+</html>

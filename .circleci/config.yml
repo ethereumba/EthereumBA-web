@@ -1,0 +1,129 @@
+# Python CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-python/ for more details
+#
+version: 2
+jobs:
+  test_python:
+    docker:
+    - image: python:3.6
+    - image: postgres:10.6
+      environment:
+        POSTGRES_USER: db_username
+        POSTGRES_DB: db_password
+    steps:
+      - restore_cache:
+          keys:
+            - source-v1-{{ .Branch }}-{{ .Revision }}
+            - source-v1-{{ .Branch }}-
+            - source-v1-
+      - checkout
+      - save_cache:
+          key: source-v1-{{ .Branch }}-{{ .Revision }}
+          paths:
+            - ".git"
+      - restore_cache:
+          keys:
+            - deps-v3-py-{{ .Branch }}-{{ .Revision }}
+            - deps-v3-py-{{ .Branch }}
+            - deps-v3-py-
+      - run:
+          name: add .env
+          command: mv docs/env.txt backend/.env
+
+      - run:
+          name: add local_settings.py
+          command: mv backend/backend/local_settings.py.tpl backend/backend/local_settings.py
+
+      - run:
+          name: Install dependencies
+          command: pip install -r backend/requirements.txt -r backend/requirements-docker.txt
+
+      - save_cache:
+          key: deps-v3-{{ .Environment.CIRCLE_JOB }}-{{ .Branch }}-{{ .Revision }}
+          paths:
+            - "/usr/local/lib/python3.6"
+            - "/usr/local/bin"
+      - run:
+          name: Configure locale
+          command: |
+            apt-get -qq update && apt-get -q -y upgrade && apt-get install -q -y locales
+            echo "LC_ALL=en_US.UTF-8" >> /etc/environment
+            echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
+            echo "LANG=en_US.UTF-8" > /etc/locale.conf
+            locale-gen en_US.UTF-8
+      - run:
+          name: Run tests
+          command: |
+            python backend/manage.py test backend
+  lint_python:
+    docker:
+    - image: python:3.6
+    steps:
+      - restore_cache:
+          keys:
+            - source-v1-{{ .Branch }}-{{ .Revision }}
+            - source-v1-{{ .Branch }}-
+            - source-v1-
+      - checkout
+      - save_cache:
+          key: source-v1-{{ .Branch }}-{{ .Revision }}
+          paths:
+            - ".git"
+      - restore_cache:
+          keys:
+            - deps-v3-py-{{ .Branch }}-{{ .Revision }}
+            - deps-v3-py-{{ .Branch }}
+            - deps-v3-py-
+      - run:
+          name: add .env
+          command: mv docs/env.txt .env
+
+      - run:
+          name: Install dependencies
+          command: pip install -r backend/requirements.txt -r backend/requirements-docker.txt
+
+      - save_cache:
+          key: deps-v3-{{ .Environment.CIRCLE_JOB }}-{{ .Branch }}-{{ .Revision }}
+          paths:
+            - "/usr/local/lib/python3.6"
+            - "/usr/local/bin"
+      - run:
+          name: Run pylint
+          command: pylint backend/* --rcfile=backend/pylintrc
+  lint_css_and_js:
+    docker:
+    - image: node:10
+    steps:
+    - restore_cache:
+        keys:
+          - source-v1-{{ .Branch }}-{{ .Revision }}
+          - source-v1-{{ .Branch }}-
+          - source-v1-
+    - checkout
+    - save_cache:
+        key: source-v1-{{ .Branch }}-{{ .Revision }}
+        paths:
+          - ".git"
+    - restore_cache:
+        keys:
+          - npm-deps-v1-{{ checksum "frontend/package.json" }}
+          - npm-deps-v1-
+    - run:
+        name: Install linters
+        command: npm install frontend
+    - save_cache:
+        key: npm-deps-v1-{{ checksum "frontend/package.json" }}
+        paths:
+          - node_modules
+    - run:
+        name: Run eslint
+        command: node_modules/.bin/eslint frontend
+
+workflows:
+  version: 2
+  all:
+    jobs:
+      - test_python
+      - lint_python
+      - lint_css_and_js
