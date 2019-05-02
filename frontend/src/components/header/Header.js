@@ -47,6 +47,7 @@ export default class Header extends Component {
                     </Grid>
                     <Grid item xs={3}/>
                 </Grid>
-            </div>);
+            </div>
+            );
     }
 }

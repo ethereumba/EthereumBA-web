@@ -1,0 +1,21 @@
+.social {
+    .container-social {
+        margin-top: 123px;
+        display: flex;
+        justify-content: center;
+    }
+    .box-social {
+        width: 200px;
+        margin: 10px;
+        text-align: center;
+    }
+    .meetup img {
+        width: 70px;
+    }
+    .discord img {
+        width: 30px;
+    }
+    .twitter img {
+        width: 30px;
+    }
+}

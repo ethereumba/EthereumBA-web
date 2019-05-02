@@ -1,0 +1,21 @@
+.partners {
+    .partners-logo {
+        width: 200px;
+    }
+    .partners-logo img {
+        width: 200px;
+    }
+    .container-partners {
+        display: flex;
+        justify-content: center;
+    }
+    .container-box {
+        margin-top: 50px;
+        display: flex;
+        justify-content: center;
+        width: 1200px !important;
+    }
+    .box-partners {
+        text-align: center;
+    }
+}

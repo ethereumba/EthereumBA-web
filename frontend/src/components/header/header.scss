@@ -1,24 +1,39 @@
+$break-small: 320px;
+$break-medium: 0px;
+$break-large: 1200px;
 .main-header {
-  background-color: #34246c;
-  height: 160px;
-
-  .text {
-    height: 34px;
-    width: 54px;
-    color: #FFFFFF;
-    font-family: Comfortaa;
-    font-size: 14px;
-    font-weight: bold;
-    letter-spacing: 1.1px;
-    line-height: 189px;
-    text-align: center;
-    text-decoration: none;
-  }
-
-  .logo{
-    height: 56px;
-    vertical-align: center;
-    margin-top: 60px;
-    margin-left: 20%;
-  }
+    background-color: #392670;
+    height: 140px;
+    .text {
+        height: 25px;
+        width: 54px;
+        color: #FFFFFF;
+        font-family: Comfortaa;
+        font-size: 14px;
+        font-weight: bold;
+        letter-spacing: 1.1px;
+        line-height: 148px;
+        text-align: center;
+        text-decoration: none;
+    }
+    .logo {
+        height: 56px;
+        vertical-align: center;
+        margin-top: 44px;
+        margin-left: 25%;
+    }
 }
+
+// $break-small: 320px;
+// $break-large: 1200px;
+// .profile-pic {
+//   float: left;
+//   width: 250px;
+//   @media screen and (max-width: $break-small) {
+//     width: 100px;
+//     float: none;
+//   }
+//   @media screen and (min-width: $break-large) {
+//     float: right;
+//   }
+// }

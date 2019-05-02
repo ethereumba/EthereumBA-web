@@ -1,3 +1,20 @@
-body{
-  margin:0;
+@font-face {
+    font-family: "open-sans";
+    src: url("../assets/fonts/OpenSans.woff") format("woff");
+}
+
+@font-face {
+    font-family: "open-sans-light";
+    src: url("../assets/fonts/OpenSans-light.woff") format("woff");
+}
+
+@font-face {
+    font-family: "open-sans-semibold";
+    src: url("../assets/fonts/OpenSans-semibold.woff") format("woff");
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
 }
