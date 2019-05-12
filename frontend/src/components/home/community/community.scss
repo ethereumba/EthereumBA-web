@@ -1,24 +1,65 @@
+@import "../../../styles/variables.scss";
+
 .community {
-    .container-community {
-        text-align: center;
-        padding: 10px 80px 0px 80px;
+  .container-community {
+    padding: 10px 80px 0px 80px;
+  }
+
+  .box-community {
+    margin-top: 46px;
+    width: 260px;
+    padding: 30px;
+  }
+  .card-community img {
+    width: 80px;
+  }
+  .community-text {
+    .title {
+      margin-top: 26px;
+      margin-bottom: 0;
+      font-size: 25px;
+      font-family: "Comfortaa";
+      color: $orange;
+      font-weight: 700;
+      line-height: 36px;
     }
-    .box-community {
-        width: 256px;
-        text-align: left;
-        padding: 50px;
+    .text {
+      margin-top: 16px;
+      font-family: "Comfortaa";
+      font-size: 14px;
+      font-weight: 400;
+      letter-spacing: 0.63px;
+      line-height: 24px;
+      color: $textCard;
     }
-    .card-community img {
-        width: 80px;
-    }
-    .community-text {
-        .title {
-            font-size: 25px;
-            color: red;
-            font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-        }
-        .text {
-            font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-        }
-    }
+  }
+}
+
+.title-2 {
+  text-align: center;
+  margin-top: 26px;
+  margin-bottom: 0;
+  font-size: 30px;
+  font-family: "Comfortaa";
+  color: $violetTitle;
+  font-weight: 600;
+  line-height: 36px;
+  max-width: 604px;
+}
+
+.sub-title {
+  display: flex;
+  justify-content: center;
+}
+
+.sub-title h1 {
+  margin-top: 55px;
+  color: rgba(30, 19, 70, 0.73);
+  font-family: "Comfortaa";
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 2.4px;
+  line-height: 28px;
+  text-align: center;
+  text-transform: uppercase;
 }

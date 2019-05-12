@@ -1,71 +1,11 @@
-.home {
     .main {
         background-image: url("./../../assets/mainBackground.png");
         height: 88vh;
         background-position: 50% 50%;
         background-size: cover;
     }
-    .name {
-        color: #5455fc;
-        margin: 0;
-        font-size: 30px;
-        font-family: "open-sans-semibold";
-    }
-    .sub-title p {
-        margin-top: 105px;
-        color: black;
-        text-align: center;
-        font-size: 40px;
-        font-family: "open-sans-light";
-        position: absolute;
-        left: 30%;
-        right: 30%;
-    }
-    .sub-title-2 {
-        display: flex;
-        justify-content: center;
-        align-content: center;
-        text-align: center;
-    }
-    .sub-title-2 p {
-        width: 600px;
-        margin-top: 10px;
-        color: black;
-        font-size: 30px;
-        font-family: "open-sans-light";
-        padding: 0px 20px 0 20px;
-    }
-    .title-2 {
-        display: flex;
-        justify-content: center;
-        align-content: center;
-        text-align: center;
-    }
-    .title-2 p {
-        color: #767091;
-        text-transform: uppercase;
-        margin-top: 50px;
-        font-size: 15px;
-        letter-spacing: 2px;
-        font-family: "open-sans-light";
-    }
-    .btn-view-events {
-        margin-top: 20px;
-        text-align: center;
-    }
+
     .gradient {
         background: white;
         background: linear-gradient(top, white 0%, #f0f3ff 100%);
     }
-    .footer {
-        display: flex;
-        justify-content: center;
-        align-content: center;
-        text-align: center;
-    }
-    .footer p {
-        text-transform: capitalize;
-        padding: 140px 10px 35px 10px;
-        margin: 0;
-    }
-}

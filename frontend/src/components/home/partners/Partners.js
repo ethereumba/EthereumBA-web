@@ -9,43 +9,63 @@ import rcn from "../../../assets/partners/rcn.png";
 
 import "./partners.scss";
 
+const logosPartner = [
+
+      {
+        img: zeppelin,
+        alt: 'logo zepellin'
+      },
+      {
+        img: xivis,
+        alt: 'logo xivis'
+      },
+      {
+        img: maker,
+        alt: 'logo maker'
+      },
+      {
+        img: decentraland,
+        alt: 'logo decentraland'
+      },
+      {
+        img: rcn,
+        alt: 'logo rcn'
+      }
+];
+
+
 export default class Partners extends Component {
   render() {
     return (
       <div className={"partners"}>
+
+        <div className={"sub-title"}>
+            <p>partners</p>
+        </div>
+
         <div className="container-partners">
           <Grid className="container-box" container>
+          {
+            
+          logosPartner.map(logo => {
+            return (
             <Grid item xs={6} sm={2} md={3} lg={2} className="box-partners">
               <div className={"partners-logo"}>
-                <img src={zeppelin} alt="Logo zeppelin" />
+                <img src={logo.img} alt={logo.alt} />
               </div>
             </Grid>
+            );
+          })
+        }
 
-            <Grid item xs={6} sm={2} md={3} lg={2} className="box-partners">
-              <div className={"partners-logo"}>
-                <img src={xivis} alt="Logo xivis" />
-              </div>
-            </Grid>
-
-            <Grid item xs={6} sm={2} md={3} lg={2} className="box-partners">
-              <div className={"partners-logo"}>
-                <img src={maker} alt="Logo maker" />
-              </div>
-            </Grid>
-
-            <Grid item xs={6} sm={2} md={3} lg={2} className="box-partners">
-              <div className={"partners-logo"}>
-                <img src={decentraland} alt="Logo meetup" />
-              </div>
-            </Grid>
-
-            <Grid item xs={6} sm={2} md={3} lg={2} className="box-partners">
-              <div className={"partners-logo"}>
-                <img src={rcn} alt="Logo meetup" />
-              </div>
-            </Grid>
           </Grid>
+          
         </div>
+
+                 
+        <div className="footer">
+            <p>Ethereum Buenos Aires 2019</p>
+          </div>
       </div>
     );
   }

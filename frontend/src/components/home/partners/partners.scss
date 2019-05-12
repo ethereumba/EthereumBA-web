@@ -1,21 +1,50 @@
+@import '../../../styles/variables.scss';
+
 .partners {
-    .partners-logo {
-        width: 200px;
-    }
-    .partners-logo img {
-        width: 200px;
-    }
-    .container-partners {
-        display: flex;
-        justify-content: center;
-    }
-    .container-box {
-        margin-top: 50px;
-        display: flex;
-        justify-content: center;
-        width: 1200px !important;
-    }
-    .box-partners {
-        text-align: center;
-    }
+  .partners-logo {
+    width: 200px;
+  }
+  .partners-logo img {
+    width: 200px;
+  }
+  .container-partners {
+    display: flex;
+    justify-content: center;
+  }
+  .container-box {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    width: 1200px !important;
+  }
+  .box-partners {
+    text-align: center;
+  }
+}
+
+.sub-title p {
+  margin-top: 55px;
+  color: rgba(30, 19, 70, 0.73);
+  font-family: "Comfortaa";
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 2.4px;
+  line-height: 28px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.footer {
+    display: flex;
+    justify-content: center
+}
+.footer p {
+  width: 224px;
+  color: $violetTitle;
+  font-family: "PT Mono";
+  font-size: 13px;
+  letter-spacing: 0.01px;
+  line-height: 26px;
+  text-transform: capitalize;
+  padding: 90px 10px 12px 10px;
 }
