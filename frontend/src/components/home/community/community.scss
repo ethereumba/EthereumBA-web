@@ -2,37 +2,10 @@
 
 .community {
   .container-community {
-    padding: 10px 80px 0px 80px;
+    padding: 60px 80px 0px 80px;
   }
 
-  .box-community {
-    margin-top: 46px;
-    width: 260px;
-    padding: 30px;
-  }
-  .card-community img {
-    width: 80px;
-  }
-  .community-text {
-    .title {
-      margin-top: 26px;
-      margin-bottom: 0;
-      font-size: 25px;
-      font-family: "Comfortaa";
-      color: $orange;
-      font-weight: 700;
-      line-height: 36px;
-    }
-    .text {
-      margin-top: 16px;
-      font-family: "Comfortaa";
-      font-size: 14px;
-      font-weight: 400;
-      letter-spacing: 0.63px;
-      line-height: 24px;
-      color: $textCard;
-    }
-  }
+ 
 }
 
 .title-2 {
@@ -62,4 +35,48 @@
   line-height: 28px;
   text-align: center;
   text-transform: uppercase;
+}
+
+@media (max-width: #{$desktop-959px}) {
+  
+  .title-2 {
+    font-size: 25px;
+    padding: 2%;
+  } 
+
+.community {
+  .container-community {
+    padding: 10px 0% 0% 20px;
+  }
+}
+
+}
+
+@media (min-width: #{$phone-480px}) and (max-width: #{$tablet-700px}) {
+  
+  .title-2 {
+    font-size: 25px;
+    padding: 2%;
+  } 
+
+.community {
+  .container-community {
+    padding: 10px 0% 0% 20px;
+  }
+}
+
+}
+
+@media (min-width: #{$phone-320px}) and (max-width: #{$phone-480px}) {
+  
+  .title-2 {
+    font-size: 20px;
+    padding: 2%;
+  }
+  .community {
+    .container-community {
+      padding: 10px 0% 0% 20px;
+    }
+  }
+  
 }

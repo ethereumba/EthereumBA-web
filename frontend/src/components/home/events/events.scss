@@ -15,15 +15,6 @@
   justify-content: center;
 }
 
-.title {
-  margin-top: 120px;
-  color: $violetTitle;
-  font-family: "Comfortaa";
-  font-size: 30px;
-  font-weight: bold;
-  line-height: 43px;
-}
-
 .card-home {
   display: flex;
   justify-content: center;
@@ -45,7 +36,7 @@
   display: inline-block;
   margin: 1rem;
   position: relative;
-  min-width: 380px;
+  width: 100%;
   min-height: 304px;
 }
 .card-shadow {
@@ -70,11 +61,19 @@
   letter-spacing: 2.4px;
   line-height: 28px;
 }
+
 .title {
   display: flex;
-  text-align: left;
+  text-align: center;
+  margin-top: 120px;
+  color: $violetTitle;
+  font-family: "Comfortaa";
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 43px;
 }
-.title p {
+
+.title-card p {
   display: flex;
   justify-content: space-evenly;
   font-family: "Comfortaa";
@@ -91,7 +90,7 @@
   margin-left: 12px;
   font-family: "PT Mono";
   color: $violetCard;
-  width: 300px;
+  width: 90%;
 }
 
 .button-events {
@@ -116,8 +115,6 @@
 }
 
 .button-left  {
-  display: flex;
-  justify-content: space-evenly;
   position: absolute;
   margin-top: -210px;
 }
@@ -134,3 +131,105 @@
 .button-right img {
   width: 50px;
 }
+
+@media (min-width: #{$desktop-959px}) and (max-width: #{$desktop-1200px}) {
+  .card-container {
+    padding: 30px 2% 15px 2%;
+    }
+
+  .background-events {
+    margin-top: -50px;
+    background-image: url("../../../assets/vector-coin-ethereum-10.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 40%;
+    height: 100vh;
+    max-width: 100%;
+  }
+}
+
+@media (min-width: #{$tablet-800px}) and (max-width: #{$desktop-959px}) {
+  
+  .background-events {
+    margin-top: -50px;
+    background-image: url("../../../assets/vector-coin-ethereum-10.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 70%;
+    height: 150vh;
+    max-width: 100%;
+  }
+}
+
+@media (min-width: #{$tablet-700px}) and (max-width: #{$tablet-800px}) {
+  
+  .background-events {
+    margin-top: -50px;
+    background-image: url("../../../assets/vector-coin-ethereum-10.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 70%;
+    height: 150vh;
+    max-width: 100%;
+  }
+  
+}
+
+@media (min-width: #{$phone-480px}) and (max-width: #{$tablet-700px}) {
+  
+  .background-events {
+    margin-top: -50px;
+    background-image: url("../../../assets/vector-coin-ethereum-10.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 150vh;
+    max-width: 100%;
+  }
+
+  .card-container {
+    padding: 30px 0% 15px 0%;
+  }
+  .title {
+    display: flex;
+    text-align: center;
+    margin-top: 120px;
+    color: $violetTitle;
+    font-family: "Comfortaa";
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 43px;
+    padding: 2%;
+  }
+
+}
+
+@media (min-width: #{$phone-320px}) and (max-width: #{$phone-480px}) {
+  
+  .card-container {
+    padding: 30px 0% 15px 0%;
+  }
+
+  .background-events {
+    margin-top: -50px;
+    background-image: url("../../../assets/vector-coin-ethereum-10.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 150vh;
+    max-width: 100%;
+  }
+
+  .title {
+    display: flex;
+    text-align: center;
+    margin-top: 120px;
+    color: $violetTitle;
+    font-family: "Comfortaa";
+    font-size: 25px;
+    font-weight: bold;
+    line-height: 43px;
+    padding: 2%;
+  }
+}
+

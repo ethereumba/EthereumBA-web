@@ -7,28 +7,33 @@ import maker from "../../../assets/partners/maker.png";
 import decentraland from "../../../assets/partners/decentraland.png";
 import rcn from "../../../assets/partners/rcn.png";
 
+import PartnersLogo from '../partnersLogo/PartnersLogo';
+
 import "./partners.scss";
+
+
+
 
 const logosPartner = [
 
       {
-        img: zeppelin,
+        image: zeppelin,
         alt: 'logo zepellin'
       },
       {
-        img: xivis,
+        image: xivis,
         alt: 'logo xivis'
       },
       {
-        img: maker,
+        image: maker,
         alt: 'logo maker'
       },
       {
-        img: decentraland,
+        image: decentraland,
         alt: 'logo decentraland'
       },
       {
-        img: rcn,
+        image: rcn,
         alt: 'logo rcn'
       }
 ];
@@ -36,6 +41,9 @@ const logosPartner = [
 
 export default class Partners extends Component {
   render() {
+        
+    let date = new Date().getFullYear();    
+
     return (
       <div className={"partners"}>
 
@@ -49,11 +57,9 @@ export default class Partners extends Component {
             
           logosPartner.map(logo => {
             return (
-            <Grid item xs={6} sm={2} md={3} lg={2} className="box-partners">
-              <div className={"partners-logo"}>
-                <img src={logo.img} alt={logo.alt} />
-              </div>
-            </Grid>
+
+            <PartnersLogo image={logo.image} logo={logo.alt}/>
+            
             );
           })
         }
@@ -64,7 +70,7 @@ export default class Partners extends Component {
 
                  
         <div className="footer">
-            <p>Ethereum Buenos Aires 2019</p>
+            <p>Ethereum Buenos Aires {date}</p>
           </div>
       </div>
     );

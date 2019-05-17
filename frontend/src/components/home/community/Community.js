@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Grid } from "@material-ui/core";
+import CommunityCard from "../../home/communityCard/CommunityCard";
+
 import CommunityImage1 from '../../../assets/icons/1.png'
 import CommunityImage2 from '../../../assets/icons/2.png'
 import CommunityImage3 from '../../../assets/icons/3.png'
@@ -54,13 +56,8 @@ export default class Community extends Component {
           {
             communityData.map(community => {
               return (
-          <Grid item xs={12} sm={6} md={3} lg={3} className={"box-community"}>
-            <div className={"card-community"}>
-              <img src={community.image} alt={community.title} />      
-              <p className={"title"}>{community.title}</p>
-              <p className={"text"}>{community.text}</p>
-            </div>
-          </Grid>
+          
+          <CommunityCard image={community.image} title={community.title} text={community.text}/>
     );
   })
 } 
@@ -69,3 +66,4 @@ export default class Community extends Component {
     );
   }
 }
+

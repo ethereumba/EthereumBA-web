@@ -1,3 +1,5 @@
+@import '../../../styles/variables.scss';
+
 .social {
     .container-social {
         margin-top: -30px;
@@ -19,3 +21,26 @@
         width: 30px;
     }
 }
+
+@media (min-width: #{$phone-320px}) and (max-width: #{$tablet-600px}) {
+    .social{  
+        .container-social {
+            margin-top: 300px;
+            display: flex;
+            justify-content: center;
+        }
+    }
+  }
+
+
+// @media (min-width: #{$phone-320px}) and (max-width: #{$phone-480px}) {
+//     .social{  
+//         .container-social {
+//             margin-top: 700px;
+//             display: flex;
+//             justify-content: center;
+//         }
+//     }
+//   }
+  
+  

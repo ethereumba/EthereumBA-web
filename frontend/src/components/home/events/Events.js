@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import { Grid } from "@material-ui/core";
-import Card from "@material-ui/core/Card";
-import CardContent from "@material-ui/core/CardContent";
-import Typography from "@material-ui/core/Typography";
 import Fab from "@material-ui/core/Fab";
+import EventsCard from '../eventsCard/EventsCard'
 
 import calendar from '../../../assets/icons/icon-calendar.svg';
 import left from '../../../assets/icons/baseline-keyboard_arrow_left-24px.svg'
@@ -52,29 +50,7 @@ export default class Events extends Component {
                         eventCards.map(card => {
                             return (
             
-                    <Grid item xs={12} sm={6} md={4} lg={4}>
-                        <div className={"card-home"}>
-                        <Card className="card card-shadow">
-                            <CardContent>
-                            <Typography
-                                className="container-date"
-                                color="textSecondary"
-                                gutterBottom>
-                                <img src={card.imageCalendar} alt="icon calendar" />
-                        
-                                <p className={"date"}>{card.date}</p>
-                             
-                            </Typography>
-                            <Typography className="title" variant="h5" component="h2">
-                                <p>{card.title}</p>
-                            </Typography>
-                            <Typography className="more">
-                                <p>{card.more}</p>
-                            </Typography>
-                            </CardContent>
-                        </Card>
-                            </div>
-                        </Grid>
+                              <EventsCard image={card.imageCalendar} date={card.date} title={card.title} more={card.more}/>
                     
                     );
                     })

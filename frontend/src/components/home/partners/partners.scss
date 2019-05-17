@@ -2,10 +2,10 @@
 
 .partners {
   .partners-logo {
-    width: 200px;
+    width: 100%;
   }
   .partners-logo img {
-    width: 200px;
+    width: 80%;
   }
   .container-partners {
     display: flex;
@@ -15,7 +15,7 @@
     margin-top: 20px;
     display: flex;
     justify-content: center;
-    width: 1200px !important;
+    width: 100%!important;
   }
   .box-partners {
     text-align: center;
