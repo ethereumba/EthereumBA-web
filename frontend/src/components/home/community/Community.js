@@ -51,13 +51,13 @@ export default class Community extends Component {
         <Grid
           container
           className={"container-community community-text"}
-          spacing={6}>
+          spacing={0}>
           
           {
             communityData.map(community => {
               return (
           
-          <CommunityCard image={community.image} title={community.title} text={community.text}/>
+          <CommunityCard key={community.title} image={community.image} title={community.title} text={community.text}/>
     );
   })
 } 

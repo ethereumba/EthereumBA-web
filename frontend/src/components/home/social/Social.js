@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Grid } from '@material-ui/core';
-import { withStyles } from '@material-ui/core/styles';
 
 import meetup from '../../../assets/icons/logo--script.svg';
 import discord from '../../../assets/icons/discord-brands.svg';
@@ -39,7 +38,7 @@ export default class Social extends Component {
 
                 iconSocial.map(social => {
                         return (
-                    <Grid item xs={3} sm={2} md={2} lg={1} className="box-social">
+                    <Grid key={social.icon} item xs={3} sm={2} md={2} lg={1} className="box-social">
                         <div className={social.class}>
                             <img src={social.icon} alt="social"/>
                         </div>

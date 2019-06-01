@@ -11,7 +11,7 @@ export default class Header extends Component {
             <div className={"main-header"}>
                 <Grid container>
                     <Grid item xs={3}>
-                        <img src={logo} className={"logo"}/>
+                        <img src={logo} className={"logo"} alt={"logo"}/>
                     </Grid>
                     <Grid item xs={6}>
                         <Grid container>

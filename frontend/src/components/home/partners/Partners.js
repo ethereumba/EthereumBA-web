@@ -58,7 +58,7 @@ export default class Partners extends Component {
           logosPartner.map(logo => {
             return (
 
-            <PartnersLogo image={logo.image} logo={logo.alt}/>
+            <PartnersLogo key={logo.image} image={logo.image} logo={logo.alt}/>
             
             );
           })

@@ -1,0 +1,1 @@
+const apiUrl = 'http://www.mocky.io/v2/5ce83421350000c511cf643e'

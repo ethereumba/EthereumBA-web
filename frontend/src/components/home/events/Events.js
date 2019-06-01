@@ -12,18 +12,21 @@ import "./events.scss";
 
 const eventCards = [
   {
+    id: 1,
     imageCalendar: calendar,
     date: '07 FEB 2018',
     title: 'Ethereum BSAS #3 Meetup',
     more: 'Ethereum is about bringing together like minds around...'
   },
   {
+    id: 2,
     imageCalendar: calendar,
     date: '07 FEB 2018',
     title: 'Ethereum BSAS #4 Meetup',
     more: 'How Plasma Tvs And Lcd Tvs Differ Lorem ipsum dol…'
   },
   {
+    id: 3,
     imageCalendar: calendar,
     date: '07 FEB 2018',
     title: 'Smart Contrats #5 Meetup',
@@ -44,13 +47,13 @@ export default class Events extends Component {
                     </div>
 
                     <div className="cards-events">
-                    <Grid container className="card-container" spacing={6}>
+                    <Grid container className="card-container">
                     
                     {
                         eventCards.map(card => {
                             return (
             
-                              <EventsCard image={card.imageCalendar} date={card.date} title={card.title} more={card.more}/>
+                              <EventsCard key={card.id} image={card.imageCalendar} date={card.date} title={card.title} more={card.more}/>
                     
                     );
                     })
@@ -59,10 +62,10 @@ export default class Events extends Component {
                     </div>
 
                 <div className={"button-left"} >
-                  <a><img className={"left"} src={left} alt="boton izquierda" /></a>
+                  <button><img className={"left"} src={left} alt="boton izquierda" /></button>
                 </div>
                 <div className={"button-right"} >
-                  <a><img className={"right"} src={rigth} alt="boton derecha"/></a>
+                  <button><img className={"right"} src={rigth} alt="boton derecha"/></button>
                 </div>
 
                 </div>
