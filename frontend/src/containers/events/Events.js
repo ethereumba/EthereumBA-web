@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
-import { Link } from 'react-router-dom';
+import HeaderWhite from '../../components/headerWhite/HeaderWhite';
 
 export default class Events extends Component {
     render() {
         return (
             <div>
-                Events<br />
-                <Link to={'/'}>Home</Link>
+                <HeaderWhite />
+
             </div>
         );
     }

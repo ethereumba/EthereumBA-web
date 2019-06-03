@@ -3,14 +3,14 @@ import {Grid} from '@material-ui/core';
 import logo from '../../assets/ethBuenosAires.png';
 import { Link } from 'react-router-dom'
 
-import './header.scss'
+import './headerWhite.scss'
 
 
 
-export default class HeaderWhite extends Component {
+export default class Header extends Component {
     render() {
         return (
-            <div className={"main-header"}>
+            <div className="main-header-2">
                 <Grid container>
                     <Grid item xs={3}>
                         <img src={logo} className={"logo"} alt={"logo"}/>

@@ -1,0 +1,27 @@
+@import '../../../styles/variables.scss';
+
+
+.categories {
+  padding: 50px 90px 0 89px;
+  }
+  
+.box-categories {
+  display: flex;
+  align-items: center;
+  padding: 0 0 0 0;
+}
+.img-down {
+  display: inline;
+  width: 25px;
+  margin-top: -40px;
+}
+
+.text-categoria {
+  display: inline;
+  font-size: 15px;
+  font-family: "Comfortaa";
+  font-weight: 700;
+  line-height: 10px;
+  margin-left: 7.93px;
+  margin-top: -20px;
+}
