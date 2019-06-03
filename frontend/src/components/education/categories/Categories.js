@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Grid } from "@material-ui/core";
 import down from "../../../assets/icons/baseline-keyboard_arrow_down-24px.svg";
 import LinkCard from "../../common/linkCard/LinkCard";
-import Skeleton from "react-loading-skeleton";
 import "./categories.scss";
 
 const axios = require("axios");
@@ -19,27 +18,48 @@ export default class Categories extends Component {
   };
 
   formatData = data => {
-    let categories1 = [];
-    let categories2 = [];
-    let categories3 = [];
-
-    const filterCategories1 = data.filter(
+    let categorias = {};
+    // category is a variable temporal
+    let category1 = [];
+    let category2 = [];
+    let category3 = [];
+    
+    // Category 1
+    const filter1 = data.filter(
       categories => categories.category === "Categoria 1"
     );
-    categories1.push(filterCategories1);
-    this.setState({ entries1: filterCategories1 });
+    category1.push(filter1);
+    categorias.categoria1 = filter1;
 
-    const filterCategories2 = data.filter(
+    for (var i = 0; i < category1[0].length; i++) {
+      delete category1[0][i].category;
+    }
+    this.setState({ entries1: categorias.categoria1 });
+
+    // Category 2
+    const filter2 = data.filter(
       categories => categories.category === "Categoria 2"
     );
-    categories2.push(filterCategories2);
-    this.setState({ entries2: filterCategories2 });
+    category2.push(filter2);
+    categorias.categoria2 = filter2;
 
-    const filterCategories3 = data.filter(
+    for (var i = 0; i < category2[0].length; i++) {
+      delete category2[0][i].category;
+    }
+    this.setState({ entries2: categorias.categoria2 });
+
+    // Category 3
+    const filter3 = data.filter(
       categories => categories.category === "Categoria 3"
     );
-    categories3.push(filterCategories3);
-    this.setState({ entries3: filterCategories3 });
+    category3.push(filter3);
+    categorias.categoria3 = filter3;
+
+    for (var i = 0; i < category3[0].length; i++) {
+      delete category3[0][i].category;
+    }
+    this.setState({ entries3: categorias.categoria3 });
+
   };
 
   _fetchData = async () => {
@@ -56,7 +76,7 @@ export default class Categories extends Component {
   render() {
     return (
       <div>
-        <Grid item xs={12} className={"categories"}>
+       <Grid item xs={12} className={"categories"}>
           <div className="box-categories">
             <img src={down} alt="down" className="img-down" />
             <p className="text-categoria">CATEGORIA 1</p>
@@ -72,7 +92,7 @@ export default class Categories extends Component {
             );
           })}
         </Grid>
-
+ 
         <Grid item xs={12} className={"categories"}>
           <div className="box-categories">
             <img src={down} alt="down" className="img-down" />
@@ -104,6 +124,7 @@ export default class Categories extends Component {
             );
           })}
         </Grid>
+
       </div>
     );
   }
