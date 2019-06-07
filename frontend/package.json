@@ -11,6 +11,7 @@
     "express": "^4.15.5",
     "image-promise": "^5.0.1",
     "install": "^0.12.2",
+    "lodash": "^4.17.11",
     "node-sass": "^4.11.0",
     "npm": "^4.6.1",
     "raven-js": "^3.19.1",
