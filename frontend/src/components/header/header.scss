@@ -1,6 +1,30 @@
 $break-small: 320px;
 $break-medium: 0px;
 $break-large: 1200px;
+
+.main-header-white {
+    background-color: white;
+    height: 140px;
+    .text {
+        height: 25px;
+        width: 54px;
+        color: rgb(0, 0, 0);
+        font-family: Comfortaa;
+        font-size: 14px;
+        font-weight: bold;
+        letter-spacing: 1.1px;
+        line-height: 148px;
+        text-align: center;
+        text-decoration: none;
+    }
+    .logo {
+        height: 56px;
+        vertical-align: center;
+        margin-top: 44px;
+        margin-left: 25%;
+    }
+}
+
 .main-header {
     background-color:#5b4e9400;
     height: 140px;

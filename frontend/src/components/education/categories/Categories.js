@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import { Grid } from "@material-ui/core";
-import down from "../../../assets/icons/baseline-keyboard_arrow_down-24px.svg";
-import LinkCard from "../../common/linkCard/LinkCard";
 import "./categories.scss";
 import _groupBy from 'lodash/groupBy'
 import _forEach from 'lodash/forEach'
+import Category from "../category/Category";
 
 
 const axios = require("axios");
@@ -23,18 +22,10 @@ export default class Categories extends Component {
   formatData = data => {
     let arrayCategory = {};
 
-    let dataFormatterd = data.map(d => d.category)
-    let categories = new Set(dataFormatterd);
-    this.setState({categories: categories})
-    console.log(categories);
-    
     arrayCategory = _groupBy(data, 'category');
     this.setState({ arrayCategory: arrayCategory });
-    console.log(arrayCategory)
-    
+
   };
-
-
 
   _fetchData = async () => {
     try {
@@ -48,40 +39,22 @@ export default class Categories extends Component {
   };
 
   render() {
-    console.
-    // console.log(categories);
-    
-    // _forEach(categories = (category, key) => {
-      //   console.log(key)
-      // })
-      
-      
+    let {arrayCategory} = this.state
+    let categoryKeys = Object.keys(arrayCategory)
+
       return (
       <div>
        <Grid item xs={12} className={"categories"}> 
-       <div className="box-categories">
-         <img src={down} alt="down" className="img-down" />
-          
-          {categories.map(category => {
+          {categoryKeys.map(key => {
+            let entries = arrayCategory[key]
             return (
               
-              <p className="text-categoria"></p>
+              <Category  title={key} entries={entries}/>
               
               )
             })
           }
 
-          </div> 
-
-          {/* {categories.map(category => {
-            return (
-              <LinkCard
-                key={category.title}
-                title={category.title}
-                url={category.url}
-              />
-            );
-          })} */}
         </Grid>
       </div>
     );

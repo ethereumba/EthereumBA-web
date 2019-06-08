@@ -9,8 +9,9 @@ import './header.scss'
 
 export default class HeaderWhite extends Component {
     render() {
+        let className = this.props.white ? 'main-header-white' : 'main-header'
         return (
-            <div className={"main-header"}>
+            <div className={className}>
                 <Grid container>
                     <Grid item xs={3}>
                         <img src={logo} className={"logo"} alt={"logo"}/>
