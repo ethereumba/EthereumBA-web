@@ -1,4 +1,22 @@
+@import '../../../styles/variables.scss';
+
 .categories {
-  padding: 50px 90px 0 89px;
+  padding: 0px 0px 0 134px;
   }
   
+
+@media (max-width: #{$desktop-1200px}) {
+    .categories {
+      padding: 00px 0px 0 90px;
+      }
+  }
+
+  @media (max-width: #{$tablet-800px}) {
+    .categories {
+      padding: 0px 0px 0 50px;
+      }
+  }
+
+  .finish {
+    height: 250px;
+  }

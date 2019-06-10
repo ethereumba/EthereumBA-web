@@ -1,14 +1,17 @@
 @import '../../../styles/variables.scss';
 
 .box-categories {
-  display: flex;
-  align-items: center;
-  padding: 0 0 0 0;
+  margin-bottom: 50px;
 }
 .img-down {
+  margin-top: -5px;
   display: inline;
-  width: 25px;
-  margin-top: -40px;
+  width: 30px;
+}
+
+.text-button {
+  display: flex;
+  align-items: center;
 }
 
 .text-categoria {
@@ -18,5 +21,22 @@
   font-weight: 700;
   line-height: 10px;
   margin-left: 7.93px;
-  margin-top: -20px;
+}
+
+.fade-enter{
+  opacity: 0;
+}
+
+.fade-enter-active {
+  opacity: 1;
+  transition: opacity 400ms ease-out
+}
+
+.fade-leave {
+  opacity: 1;
+}
+
+.fade-leave-active {
+  opacity: 0;
+  transition: opacity 400ms ease-out
 }

@@ -1,9 +1,11 @@
+@import "../../styles/variables.scss";
+
 $break-small: 320px;
 $break-medium: 0px;
 $break-large: 1200px;
 
 .main-header-white {
-    background-color: white;
+    background-color: $background;
     height: 140px;
     .text {
         height: 25px;

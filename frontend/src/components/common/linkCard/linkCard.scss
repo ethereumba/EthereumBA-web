@@ -1,13 +1,16 @@
 @import "../../../styles/variables.scss";
 
 .text-categoria {
-  margin-top: -20px;
+  color: $categoryText;
   display: inline;
   font-size: 15px;
   font-family: "Comfortaa";
   font-weight: 700;
   line-height: 10px;
   margin-left: 7.93px;
+  letter-spacing: 1.36px;
+  line-height: 10px;
+  text-transform: uppercase;
 }
 
 .text-linkCard {
@@ -34,4 +37,80 @@
   margin-top: 10px;
   min-width: 1173px;
   height: 54px;
+}
+
+.card-shadow {
+  box-shadow: 0 3px 17px 1px #ECECEC;
+}
+
+.card-shadow:hover {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.034), 0 10px 10px rgba(0, 0, 0, 0.027);
+}
+
+
+@media (max-width: #{$desktop-1200px}) {
+    .container-linkCard {
+      margin-top: 10px;
+      max-width: 610px;
+      min-width: 1010px;
+      height: 54px;
+    }
+}
+
+@media (max-width: #{$desktop-1440px}) {
+  .container-linkCard {
+    margin-top: 10px;
+    max-width: 680px;
+    height: 54px;
+  }
+  .text-linkCard {
+    color: $orange;
+    font-family: "Comfortaa";
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    line-height: 27px;
+    margin-left: 16px;
+    max-width: 690px;
+  }
+}
+
+@media (max-width: #{$desktop-1920px}) {
+  .container-linkCard {
+    margin-top: 10px;
+    max-width: 1520px;
+    height: 54px;
+  }
+
+  .text-linkCard {
+    color: $orange;
+    font-family: "Comfortaa";
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    line-height: 27px;
+    margin-left: 16px;
+    max-width: 990px;
+  }
+  
+}
+
+@media (max-width: #{$tablet-800px}) {
+  .container-linkCard {
+    margin-top: 10px;
+    min-width: 700px;
+    height: 54px;
+  }
+
+  .text-linkCard {
+    color: $orange;
+    font-family: "Comfortaa";
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    line-height: 27px;
+    margin-left: 16px;
+    max-width: 490px;
+  }
+  
 }

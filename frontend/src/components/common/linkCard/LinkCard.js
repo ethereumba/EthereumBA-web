@@ -6,10 +6,10 @@ import './linkCard.scss'
 
 
 
-const LinkCard = ({ title, url}) => (
+const LinkCard = ({ title, url }) => (
     <Grid item xs={12} sm={6} md={3} lg={3} className={"box-linkCard"}>
 
-<Card className="container-linkCard">
+<div className="container-linkCard card-shadow">
       <div className="center-item">
         <p className="text-linkCard" component="p">
             {title}
@@ -18,7 +18,7 @@ const LinkCard = ({ title, url}) => (
             {url}
         </p>
       </div>    
-</Card>
+</div>
 
 
       </Grid>

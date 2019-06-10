@@ -4,6 +4,7 @@ import "./categories.scss";
 import _groupBy from 'lodash/groupBy'
 import _forEach from 'lodash/forEach'
 import Category from "../category/Category";
+import Search from "../../common/search/Search";
 
 
 const axios = require("axios");
@@ -44,7 +45,9 @@ export default class Categories extends Component {
 
       return (
       <div>
+
        <Grid item xs={12} className={"categories"}> 
+       <Search />
           {categoryKeys.map(key => {
             let entries = arrayCategory[key]
             return (
@@ -54,8 +57,8 @@ export default class Categories extends Component {
               )
             })
           }
-
         </Grid>
+        <div className="finish"/>
       </div>
     );
   }

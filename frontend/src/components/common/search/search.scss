@@ -1,0 +1,43 @@
+@import '../../../styles/variables.scss';
+
+.container-search {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.search {
+    position: relative;
+    top: 15px;
+    display: flex;
+    padding: 10px;
+    border: 0.8px solid rgba(30,19,70,0.18);
+    background-color: $background;
+    height: 20px;	
+    width: 303px;
+    border-radius: 3.2px;
+    margin-right: 100px;
+}
+
+.search[type=text] {
+    color: rgba(30, 19, 70, 0.774);
+    font-family: "Comfortaa";
+    font-size: 15px;
+  }
+
+::placeholder {
+    color: rgba(30,19,70,0.18);
+    font-family: "Comfortaa";
+    font-size: 15px;
+}
+
+*:focus {
+    outline: none;
+}
+
+.container-search .img-search {
+    z-index: 1000;
+    position: relative;
+    top: 15px;
+    left: 310px;
+}
+

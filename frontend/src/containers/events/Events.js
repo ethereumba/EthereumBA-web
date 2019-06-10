@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
-import HeaderWhite from '../../components/headerWhite/HeaderWhite';
+import Header from '../../components/header/Header'
 
 export default class Events extends Component {
     render() {
         return (
             <div>
-                <HeaderWhite />
+                <Header white/>
 
             </div>
         );
