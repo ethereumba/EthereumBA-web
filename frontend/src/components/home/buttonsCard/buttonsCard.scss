@@ -1,0 +1,84 @@
+@import "../../../styles/variables.scss";
+
+.button-card {
+    display: flex;
+    justify-content: space-between
+}
+.button-left {
+    display: inline;
+    position: relative;
+    top: -210px;
+    cursor: pointer;
+}
+
+.button-left img {
+    width: 50px;
+}
+
+.button-right {
+    display: inline;
+    position: relative;
+    top: -210px;
+    cursor: pointer;
+}
+
+.button-right img {
+    width: 50px;
+}
+
+@media (max-width: #{$tablet-800px}) {
+
+    .button-left {
+        display: inline;
+        position: relative;
+        top: -550px;
+        cursor: pointer;
+    }
+    
+    .button-right {
+        display: inline;
+        position: relative;
+        top: -550px;
+        cursor: pointer;
+    }
+
+    
+  }
+
+  @media (max-width: #{$desktop-959px}) {
+
+    .button-left {
+        display: inline;
+        position: relative;
+        top: -550px;
+        cursor: pointer;
+    }
+    
+    .button-right {
+        display: inline;
+        position: relative;
+        top: -550px;
+        cursor: pointer;
+    }
+
+    
+  }
+
+  @media (min-width: #{$desktop-1200px}) {
+
+    .button-left {
+        display: inline;
+        position: relative;
+        top: -550px;
+        cursor: pointer;
+    }
+    
+    .button-right {
+        display: inline;
+        position: relative;
+        top: -550px;
+        cursor: pointer;
+    }
+
+    
+  }

@@ -7,14 +7,14 @@ import './linkCard.scss'
 
 
 const LinkCard = ({ title, url }) => (
-    <Grid item xs={12} sm={6} md={3} lg={3} className={"box-linkCard"}>
+    <Grid item md={12} className="box-linkCard">
 
 <div className="container-linkCard card-shadow">
       <div className="center-item">
-        <p className="text-linkCard" component="p">
+        <p className="text-linkCard">
             {title}
         </p>
-        <p className="text-linkCard-2" component="p">
+        <p className="text-linkCard-2">
             {url}
         </p>
       </div>    
