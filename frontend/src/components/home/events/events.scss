@@ -37,26 +37,27 @@
     li {
       list-style: none;
       margin: 10px;
-      color: $violetTitle;
+      border-radius: 20px;
+      background-color: transparent;
+      border: 1px solid grey;
+      &.slick-active {
+        border-color: $orange;
+        background-color: $orange;
+      }
       button {
-        border: 1px solid $violetSubtitle;
+        visibility: hidden;
         border-radius: 20px;
         height: 25px;
         width: 25px;
-        background: transparent;
         cursor: pointer;
-        &:hover {
-          background-color: white;
-        }
       }
     }
   }
 }
 
 .background-events {
-  margin-top: -50px;
   background-image: url('../../../assets/home-eth-shape.png');
-  background-position: center;
+  background-position: center 10%;
   background-repeat: no-repeat;
   background-size: 30%;
   height: 100vh;
@@ -66,6 +67,9 @@
 .center {
   display: flex;
   justify-content: center;
+  .title {
+    margin: 8% 0 5% 0;
+  }
 }
 
 .card-home {
@@ -147,7 +151,7 @@
 }
 
 .button-events {
-  margin-top: 20px;
+  margin-top: 5%;
   text-align: center;
 }
 
@@ -167,19 +171,28 @@
   text-align: center !important;
 }
 
-@media (min-width: #{$desktop-959px}) and (max-width: #{$desktop-1200px}) {
-  .card-container {
-    padding: 30px 2% 15px 2%;
-  }
-
+@media (min-width: 1700px) and (max-width: #{$desktop-1920px}) {
   .background-events {
-    margin-top: -50px;
-    background-image: url('../../../assets/home-eth-shape.png');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 40%;
-    height: 100vh;
-    max-width: 100%;
+    background-size: 32%;
+  }
+}
+@media (min-width: #{$desktop-1440px}) and (max-width: 1700px) {
+  .background-events {
+    background-size: 34%;
+  }
+}
+@media (min-width: 1350px) and (max-width: #{$desktop-1440px}) {
+  .background-events {
+    background-size: 36%;
+  }
+}
+
+@media (min-width: #{$desktop-959px}) and (max-width: 1350px) {
+  // .card-container {
+  //   padding: 30px 2% 15px 2%;
+  // }
+  .background-events {
+    background-size: 38%;
   }
 }
 

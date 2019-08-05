@@ -37,7 +37,7 @@ export default class Events extends Component {
   render() {
     const settings = {
       arrows: true,
-      dots: true,
+      dots: false,
       infinite: true,
       speed: 500,
       slidesToShow: 3,
@@ -56,6 +56,7 @@ export default class Events extends Component {
           settings: {
             slidesToShow: 1,
             arrows: false,
+            dots: true,
           },
         },
       ],
@@ -70,6 +71,17 @@ export default class Events extends Component {
 
             <div className="cards-events">
               <Slider {...settings}>
+                {eventCards.map(card => {
+                  return (
+                    <EventsCard
+                      key={card.id}
+                      image={card.imageCalendar}
+                      date={card.date}
+                      title={card.title}
+                      more={card.more}
+                    />
+                  )
+                })}
                 {eventCards.map(card => {
                   return (
                     <EventsCard
