@@ -1,8 +1,61 @@
-@import "../../../styles/variables.scss";
+@import '../../../styles/variables.scss';
+
+.cards-events {
+  padding: 0 5%;
+}
+.slick-slider {
+  position: relative;
+  .slick-arrow {
+    position: absolute;
+    top: 36%;
+    padding: 0;
+    height: 50px;
+    opacity: 0.7;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    &.slick-prev {
+      left: -4%;
+    }
+    &.slick-next {
+      right: -4%;
+    }
+  }
+
+  .slick-list {
+    overflow: hidden;
+    .slick-track {
+      display: flex !important;
+    }
+  }
+
+  .slick-dots {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    li {
+      list-style: none;
+      margin: 10px;
+      color: $violetTitle;
+      button {
+        border: 1px solid $violetSubtitle;
+        border-radius: 20px;
+        height: 25px;
+        width: 25px;
+        background: transparent;
+        cursor: pointer;
+        &:hover {
+          background-color: white;
+        }
+      }
+    }
+  }
+}
 
 .background-events {
   margin-top: -50px;
-  background-image: url("../../../assets/vector-coin-ethereum-10.png");
+  background-image: url('../../../assets/home-eth-shape.png');
   background-position: center;
   background-repeat: no-repeat;
   background-size: 30%;
@@ -40,11 +93,11 @@
   min-height: 304px;
 }
 .card-shadow {
-  box-shadow: 0px 5px 20px -5px #ECECEC;
+  box-shadow: 0px 5px 20px -5px #ececec;
 }
 
 .card-shadow:hover {
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
 .container-date img {
@@ -55,7 +108,7 @@
   margin-top: -27px;
   margin-left: 55px;
   color: $orange;
-  font-family: "Comfortaa";
+  font-family: 'Comfortaa';
   font-size: 15px;
   font-weight: bold;
   letter-spacing: 2.4px;
@@ -67,7 +120,7 @@
   text-align: center;
   margin-top: 120px;
   color: $violetTitle;
-  font-family: "Comfortaa";
+  font-family: 'Comfortaa';
   font-size: 30px;
   font-weight: bold;
   line-height: 43px;
@@ -76,7 +129,7 @@
 .title-card p {
   display: flex;
   justify-content: space-evenly;
-  font-family: "Comfortaa";
+  font-family: 'Comfortaa';
   color: $violetCard;
   font-weight: 700;
   margin-top: 10px;
@@ -88,7 +141,7 @@
 .more p {
   margin-top: 70px;
   margin-left: 12px;
-  font-family: "PT Mono";
+  font-family: 'PT Mono';
   color: $violetCard;
   width: 90%;
 }
@@ -106,7 +159,7 @@
   height: 49px !important;
   text-transform: capitalize !important;
   color: #ffffff !important;
-  font-family: "Comfortaa" !important;
+  font-family: 'Comfortaa' !important;
   font-size: 19px !important;
   font-weight: 400 !important;
   letter-spacing: 0.43px !important;
@@ -117,11 +170,11 @@
 @media (min-width: #{$desktop-959px}) and (max-width: #{$desktop-1200px}) {
   .card-container {
     padding: 30px 2% 15px 2%;
-    }
+  }
 
   .background-events {
     margin-top: -50px;
-    background-image: url("../../../assets/vector-coin-ethereum-10.png");
+    background-image: url('../../../assets/home-eth-shape.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: 40%;
@@ -131,10 +184,9 @@
 }
 
 @media (min-width: #{$tablet-800px}) and (max-width: #{$desktop-959px}) {
-  
   .background-events {
     margin-top: -50px;
-    background-image: url("../../../assets/vector-coin-ethereum-10.png");
+    background-image: url('../../../assets/home-eth-shape.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: 70%;
@@ -144,24 +196,21 @@
 }
 
 @media (min-width: #{$tablet-700px}) and (max-width: #{$tablet-800px}) {
-  
   .background-events {
     margin-top: -50px;
-    background-image: url("../../../assets/vector-coin-ethereum-10.png");
+    background-image: url('../../../assets/home-eth-shape.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: 70%;
     height: 150vh;
     max-width: 100%;
   }
-  
 }
 
 @media (min-width: #{$phone-480px}) and (max-width: #{$tablet-700px}) {
-  
   .background-events {
     margin-top: -50px;
-    background-image: url("../../../assets/vector-coin-ethereum-10.png");
+    background-image: url('../../../assets/home-eth-shape.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100%;
@@ -177,24 +226,22 @@
     text-align: center;
     margin-top: 120px;
     color: $violetTitle;
-    font-family: "Comfortaa";
+    font-family: 'Comfortaa';
     font-size: 30px;
     font-weight: bold;
     line-height: 43px;
     padding: 2%;
   }
-
 }
 
 @media (min-width: #{$phone-300px}) and (max-width: #{$phone-480px}) {
-  
   .card-container {
     padding: 30px 0% 15px 0%;
   }
 
   .background-events {
     margin-top: -50px;
-    background-image: url("../../../assets/vector-coin-ethereum-10.png");
+    background-image: url('../../../assets/home-eth-shape.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100%;
@@ -207,11 +254,10 @@
     text-align: center;
     margin-top: 120px;
     color: $violetTitle;
-    font-family: "Comfortaa";
+    font-family: 'Comfortaa';
     font-size: 25px;
     font-weight: bold;
     line-height: 43px;
     padding: 2%;
   }
 }
-
