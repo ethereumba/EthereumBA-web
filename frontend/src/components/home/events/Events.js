@@ -6,6 +6,7 @@ import Slider from 'react-slick'
 import Prev from '../../../assets/icons/chevron-left.svg'
 import Next from '../../../assets/icons/chevron-right.svg'
 import calendar from '../../../assets/icons/icon-calendar.svg'
+import Social from '../social/Social'
 
 import './events.scss'
 
@@ -82,17 +83,6 @@ export default class Events extends Component {
                     />
                   )
                 })}
-                {eventCards.map(card => {
-                  return (
-                    <EventsCard
-                      key={card.id}
-                      image={card.imageCalendar}
-                      date={card.date}
-                      title={card.title}
-                      more={card.more}
-                    />
-                  )
-                })}
               </Slider>
             </div>
           </div>
@@ -103,6 +93,7 @@ export default class Events extends Component {
             </Fab>
           </div>
         </div>
+        <Social />
       </div>
     )
   }
