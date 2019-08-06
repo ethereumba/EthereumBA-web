@@ -1,0 +1,14 @@
+.background {
+  background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.2418) 0%,
+      rgba(218, 218, 254, 0.2418) 43.38%,
+      rgba(152, 174, 255, 0.1014) 73.11%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    url('../../../assets/city-background.png');
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: 100% auto;
+  min-height: 100vh;
+}

@@ -1,7 +1,7 @@
 @import '../../../styles/variables.scss';
 
 .box-categories {
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 }
 .img-down {
   margin-top: -5px;
@@ -17,19 +17,19 @@
 .text-categoria {
   display: inline;
   font-size: 15px;
-  font-family: "Comfortaa";
+  font-family: 'Comfortaa';
   font-weight: 700;
   line-height: 10px;
   margin-left: 7.93px;
 }
 
-.fade-enter{
+.fade-enter {
   opacity: 0;
 }
 
 .fade-enter-active {
   opacity: 1;
-  transition: opacity 400ms ease-out
+  transition: opacity 400ms ease-out;
 }
 
 .fade-leave {
@@ -38,5 +38,5 @@
 
 .fade-leave-active {
   opacity: 0;
-  transition: opacity 400ms ease-out
+  transition: opacity 400ms ease-out;
 }
