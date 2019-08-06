@@ -6,8 +6,6 @@ This template include the following:
   *  basic django requirements
   *  docker yml files for local development, testing server and production server
   *  common css and js files located in `core/static`
-  *  custom user model, with CAS authentication
-  *  `CasService Class` for common operations with CAS server
 
 First steps:
 

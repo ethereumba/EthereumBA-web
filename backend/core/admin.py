@@ -15,10 +15,10 @@ class CustomUserAdmin(UserAdmin):
     readonly_fields = ('last_login', 'date_joined')
     fieldsets = (
         (
-            _('Personal Info (CAS)'),
+            _('Personal Info'),
             {
                 'fields': (
-                    'first_name', 'last_name', 'email', 'profile_image', 'cas_permissions',
+                    'first_name', 'last_name', 'email', 'profile_image',
                 )
             }
         ),

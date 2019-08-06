@@ -162,5 +162,8 @@ dev-restart:
 	docker-compose -f development.yml build
 	docker-compose -f development.yml up -d web nginx postgres node
 
-deploy-dev:
+clean-nginx-conf:
+	rm -f nginx/sites-enabled/nginx.conf
+
+deploy-dev:clean-nginx-conf
 	make clean build up set-django FILE=docker-compose.yml
