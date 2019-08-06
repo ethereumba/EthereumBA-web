@@ -57,9 +57,9 @@
 
 .background-events {
   background-image: url('../../../assets/home-eth-shape.png');
-  background-position: center 10%;
+  background-position: center 30%;
   background-repeat: no-repeat;
-  background-size: 30%;
+  background-size: 500px;
   height: 100vh;
   max-width: 100%;
 }
@@ -68,7 +68,7 @@
   display: flex;
   justify-content: center;
   .title {
-    margin: 8% 0 5% 0;
+    margin: 16vh 0 8vh 0;
   }
 }
 
@@ -151,7 +151,7 @@
 }
 
 .button-events {
-  margin-top: 5%;
+  margin-top: 4vh;
   text-align: center;
 }
 
@@ -169,108 +169,4 @@
   letter-spacing: 0.43px !important;
   line-height: 39px !important;
   text-align: center !important;
-}
-
-@media (min-width: 1700px) and (max-width: #{$desktop-1920px}) {
-  .background-events {
-    background-size: 32%;
-  }
-}
-@media (min-width: #{$desktop-1440px}) and (max-width: 1700px) {
-  .background-events {
-    background-size: 34%;
-  }
-}
-@media (min-width: 1350px) and (max-width: #{$desktop-1440px}) {
-  .background-events {
-    background-size: 36%;
-  }
-}
-
-@media (min-width: #{$desktop-959px}) and (max-width: 1350px) {
-  // .card-container {
-  //   padding: 30px 2% 15px 2%;
-  // }
-  .background-events {
-    background-size: 38%;
-  }
-}
-
-@media (min-width: #{$tablet-800px}) and (max-width: #{$desktop-959px}) {
-  .background-events {
-    margin-top: -50px;
-    background-image: url('../../../assets/home-eth-shape.png');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 70%;
-    height: 150vh;
-    max-width: 100%;
-  }
-}
-
-@media (min-width: #{$tablet-700px}) and (max-width: #{$tablet-800px}) {
-  .background-events {
-    margin-top: -50px;
-    background-image: url('../../../assets/home-eth-shape.png');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 70%;
-    height: 150vh;
-    max-width: 100%;
-  }
-}
-
-@media (min-width: #{$phone-480px}) and (max-width: #{$tablet-700px}) {
-  .background-events {
-    margin-top: -50px;
-    background-image: url('../../../assets/home-eth-shape.png');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 100%;
-    height: 150vh;
-    max-width: 100%;
-  }
-
-  .card-container {
-    padding: 30px 0% 15px 0%;
-  }
-  .title {
-    display: flex;
-    text-align: center;
-    margin-top: 120px;
-    color: $violetTitle;
-    font-family: 'Comfortaa';
-    font-size: 30px;
-    font-weight: bold;
-    line-height: 43px;
-    padding: 2%;
-  }
-}
-
-@media (min-width: #{$phone-300px}) and (max-width: #{$phone-480px}) {
-  .card-container {
-    padding: 30px 0% 15px 0%;
-  }
-
-  .background-events {
-    margin-top: -50px;
-    background-image: url('../../../assets/home-eth-shape.png');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 100%;
-    height: 150vh;
-    max-width: 100%;
-  }
-
-  .title {
-    display: flex;
-    text-align: center;
-    margin-top: 120px;
-    color: $violetTitle;
-    font-family: 'Comfortaa';
-    font-size: 25px;
-    font-weight: bold;
-    line-height: 43px;
-    padding: 2%;
-  }
 }
