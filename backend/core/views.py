@@ -1,5 +1,6 @@
 import datetime
 
+from rest_framework import status
 from rest_framework_jwt.serializers import JSONWebTokenSerializer
 from rest_framework_jwt.settings import api_settings
 from rest_framework_jwt.views import JSONWebTokenAPIView
