@@ -45,6 +45,7 @@ INSTALLED_APPS = [
 
     # Basic app
     'core',
+    'events',
 
     # Third-party apps
     'rest_framework',
