@@ -10,6 +10,18 @@
   @media (max-width: 960px) {
     padding: 0px 5%;
   }
+
+  &__emptyState {
+    font-size: 22px;
+    font-family: 'Comfortaa';
+    font-weight: 700;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    color: $categoryText;
+  }
 }
 
 // @media (max-width: #{$desktop-1200px}) {
