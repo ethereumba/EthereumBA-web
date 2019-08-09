@@ -23,9 +23,9 @@ $break-large: 1200px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    img {
-      margin: 0;
+    align-items: flex-start;
+    .logo {
+      margin: 0 0 0 134px;
       height: 56px;
       width: auto;
     }
@@ -36,20 +36,14 @@ $break-large: 1200px;
     font-family: Comfortaa;
     font-size: 14px;
     font-weight: bold;
-    letter-spacing: 1.1px;
+    letter-spacing: 1px;
     line-height: 148px;
     text-align: center;
     text-decoration: none;
     &.selected {
       padding-bottom: 10px;
-      border-bottom: 1.8px solid $violetCard;
+      border-bottom: 2px solid $violetCard;
     }
-  }
-  .logo {
-    height: 56px;
-    vertical-align: center;
-    margin-top: 44px;
-    margin-left: 25%;
   }
 }
 
