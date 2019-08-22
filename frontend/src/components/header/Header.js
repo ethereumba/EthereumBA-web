@@ -15,7 +15,7 @@ export default class HeaderWhite extends Component {
       <div className={this.props.white ? 'main-header-white' : 'main-header'}>
         <Grid container>
           <Grid item xs={3} className="header-logo">
-            <img src={lightTheme ? logoLight : logo} className={'logo'} alt={'Etherium Buenos Aires'} />
+            <img src={lightTheme ? logoLight : logo} className={'logo'} alt={'Ethereum Buenos Aires'} />
           </Grid>
           <Grid item xs={6} className="menu-container">
             <Grid container className="menu">
