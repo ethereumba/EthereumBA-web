@@ -1,42 +1,51 @@
 @import '../../../styles/variables.scss';
 
 .container-search {
-    display: flex;
-    justify-content: flex-end;
+  display: flex;
+  justify-content: flex-end;
+  height: 70px;
+  padding: 0px 15%;
+  overflow-y: auto;
+
+  @media (max-width: 1366px) {
+    padding: 0px 10%;
+  }
+  @media (max-width: 960px) {
+    padding: 0px 5%;
+  }
 }
 
 .search {
-    position: relative;
-    top: 15px;
-    display: flex;
-    padding: 10px;
-    border: 0.8px solid rgba(30,19,70,0.18);
-    background-color: $background;
-    height: 20px;	
-    width: 303px;
-    border-radius: 3.2px;
+  position: relative;
+  top: 15px;
+  display: flex;
+  padding: 10px;
+  border: 0.8px solid rgba(30, 19, 70, 0.18);
+  background-color: $background;
+  height: 20px;
+  width: 303px;
+  border-radius: 3.2px;
 }
 
-.search[type=text] {
-    color: rgba(30, 19, 70, 0.774);
-    font-family: "Comfortaa";
-    font-size: 15px;
-  }
+.search[type='text'] {
+  color: rgba(30, 19, 70, 0.774);
+  font-family: 'Comfortaa';
+  font-size: 15px;
+}
 
 ::placeholder {
-    color: rgba(30,19,70,0.18);
-    font-family: "Comfortaa";
-    font-size: 15px;
+  color: rgba(30, 19, 70, 0.18);
+  font-family: 'Comfortaa';
+  font-size: 15px;
 }
 
 *:focus {
-    outline: none;
+  outline: none;
 }
 
 .container-search .img-search {
-    z-index: 1000;
-    position: relative;
-    top: 15px;
-    left: 310px;
+  z-index: 1000;
+  position: relative;
+  top: 0px;
+  left: 310px;
 }
-

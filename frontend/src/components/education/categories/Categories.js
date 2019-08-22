@@ -1,17 +1,25 @@
 import React, { Component } from 'react'
 import { Grid } from '@material-ui/core'
+import './categories.scss'
 import _groupBy from 'lodash/groupBy'
 import _forEach from 'lodash/forEach'
-import axios from 'axios'
-
 import Category from '../category/Category'
-import Search from '../../common/search/Search'
-import './categories.scss'
+import CircularProgress from '@material-ui/core/CircularProgress'
+import { withStyles } from '@material-ui/core/styles'
 
-export default class Categories extends Component {
+const axios = require('axios')
+
+const styles = () => ({
+  progress: {
+    position: 'absolute',
+    top: 'calc(50vh - 20px)',
+    left: 'calc(50vw - 20px)',
+  },
+})
+class Categories extends Component {
   state = {
-    categories: [],
     arrayCategory: [],
+    xhr: false,
   }
 
   componentDidMount = async () => {
@@ -19,36 +27,45 @@ export default class Categories extends Component {
   }
 
   formatData = data => {
-    let arrayCategory = {}
-
+    let arrayCategory = {},
+      emptyState = false
     arrayCategory = _groupBy(data, 'category')
-    this.setState({ arrayCategory: arrayCategory })
+    if (arrayCategory === undefined || arrayCategory === {}) {
+      emptyState = true
+    }
+    this.setState({ arrayCategory, emptyState })
   }
 
   _fetchData = async () => {
+    this.setState({ xhr: true })
     try {
-      const response = await axios.get('http://www.mocky.io/v2/5ce83421350000c511cf643e')
+      const response = await axios.get('http://www.mocky.io/v2/5d49cd68320000e47d600eca')
       this.formatData(response.data)
     } catch (error) {
       console.error(error)
+    } finally {
+      this.setState({ xhr: false })
     }
   }
 
   render() {
-    const { arrayCategory } = this.state
-    const categoryKeys = Object.keys(arrayCategory)
+    let { arrayCategory, xhr, emptyState } = this.state
+    let categoryKeys = Object.keys(arrayCategory)
+    const { classes } = this.props
 
     return (
-      <div>
-        <Grid item xs={12} className={'categories'}>
-          <Search />
-          {categoryKeys.map(key => {
-            const entries = arrayCategory[key]
+      <div className={'categories'}>
+        {xhr && <CircularProgress className={classes.progress} />}
+        {!xhr &&
+          !emptyState &&
+          categoryKeys.map(key => {
+            let entries = arrayCategory[key]
             return <Category title={key} entries={entries} />
           })}
-        </Grid>
-        <div className="finish" />
+        {!xhr && emptyState && <div className="categories__emptyState">No hay datos cargados aún</div>}
       </div>
     )
   }
 }
+
+export default withStyles(styles)(Categories)
