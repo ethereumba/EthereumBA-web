@@ -11,7 +11,6 @@ const EventsCard = ({ id, image, date, title, more }) => (
         <div className="container-date">
           <div>
             <img src={image} alt="icon calendar" />
-
             <p className="date">{date}</p>
           </div>
 
@@ -19,9 +18,6 @@ const EventsCard = ({ id, image, date, title, more }) => (
             <p>{title}</p>
           </div>
 
-          <div className="more">
-            <p>{more}</p>
-          </div>
         </div>
       </div>
     </div>

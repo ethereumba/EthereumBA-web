@@ -116,7 +116,6 @@
   color: $orange;
   font-family: 'Comfortaa';
   font-size: 15px;
-  font-weight: bold;
   letter-spacing: 2.4px;
   line-height: 28px;
 }
@@ -128,7 +127,6 @@
   color: $violetTitle;
   font-family: 'Comfortaa';
   font-size: 30px;
-  font-weight: bold;
   line-height: 43px;
 }
 
@@ -137,12 +135,12 @@
   justify-content: space-evenly;
   font-family: 'Comfortaa';
   color: $violetCard;
-  font-weight: 700;
+  font-weight: 600;
   margin-top: 10px;
   margin-left: 15px;
-  line-height: 33px;
-  font-size: 28px;
-  width: 250px;
+  line-height: 35px;
+  font-size: 24px;
+  width: 325px;
 }
 .more p {
   margin-top: 70px;
@@ -159,7 +157,7 @@
 
 .btn-view {
   background-color: $orange !important;
-  box-shadow: 0 2px 4px 0 #cfcfcf !important;
+  box-shadow: none !important;
   border-radius: 29.5px !important;
   width: 224px !important;
   height: 49px !important;

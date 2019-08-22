@@ -41,12 +41,13 @@ export default class Community extends Component {
       <div className={'community'}>
         <Grid item xs={12}>
           <div className={'sub-title'}>
-            <h1>ETHEREUM BUENOS AIRES</h1>
+            <h1>LEARN + SHARE + BUILD</h1>
           </div>
 
           <div className={'center'}>
             <p className={'title-2'}>
-              A ground swell of diverse intelligences who are committed to #buidling the decentralized future
+                Ethereum Buenos Aires is about empowering participants to shape this new world, while cementing the
+                South American region as a thriving hub of Ethereum blockchain innovation.
             </p>
           </div>
         </Grid>

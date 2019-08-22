@@ -12,6 +12,12 @@
   }
   @media (max-width: 960px) {
     padding: 0px 5%;
+    margin-left: -36px;
+  }
+
+  @media (max-width: 568px) {
+    padding: 0px 2%;
+    margin-left: -26px;
   }
 }
 
