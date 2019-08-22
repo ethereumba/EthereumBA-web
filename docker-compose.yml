@@ -47,8 +47,8 @@ services:
     build: ./nginx
     container_name: eth-buenos-aires-nginx
     environment:
-      REACT_DEFAULT_HOST: 'remove.localhost'
-      API_DEFAULT_HOST: 'localhost'
+      REACT_DEFAULT_HOST: 'localhost'
+      API_DEFAULT_HOST: 'api.localhost'
     ports:
       - "80:80"
       - "443:443"
