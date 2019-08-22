@@ -14,6 +14,9 @@ urlpatterns = [
 
     # Core
     url(r'api/v1/', include('core.urls')),
+
+    # Events
+    url(r'api/v1/', include('events.urls')),
 ]
 
 if 'rosetta' in settings.INSTALLED_APPS:
