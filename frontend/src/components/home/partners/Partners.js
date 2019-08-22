@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+
 import zeppelin from '../../../assets/partners/zeppelin.png'
 import xivis from '../../../assets/partners/xivis.png'
 import maker from '../../../assets/partners/maker.png'
@@ -10,29 +11,29 @@ import './partners.scss'
 const logosPartner = [
   {
     image: zeppelin,
-    alt: 'logo zepellin',
+    alt: 'Zepellin'
   },
   {
     image: xivis,
-    alt: 'logo xivis',
+    alt: 'Xivis',
   },
   {
     image: maker,
-    alt: 'logo maker',
+    alt: 'Maker',
   },
   {
     image: decentraland,
-    alt: 'logo decentraland',
+    alt: 'Decentraland',
   },
   {
     image: rcn,
-    alt: 'logo rcn',
-  },
+    alt: 'RCN'
+  }
 ]
 
 export default class Partners extends Component {
   render() {
-    let date = new Date().getFullYear()
+    const date = new Date().getFullYear()
 
     return (
       <div className={'partners'}>
@@ -41,13 +42,11 @@ export default class Partners extends Component {
         </div>
 
         <div className="container-partners">
-          {logosPartner.map(logo => {
-            return (
-              <div className="partners-logo">
-                <img key={logo.image} src={logo.image} alt={logo.alt} />
-              </div>
-            )
-          })}
+            {logosPartner.map(logo => {
+                return (<div className={'partners-logo'}>
+                    <img src={logo.image} alt={logo.alt} key={logo.image} />
+                </div>)
+            })}
         </div>
 
         <div className="footer">

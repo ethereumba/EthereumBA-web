@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { Grid } from '@material-ui/core'
 import Fab from '@material-ui/core/Fab'
+
 import EventsCard from '../eventsCard/EventsCard'
 import Slider from 'react-slick'
 import Prev from '../../../assets/icons/chevron-left.svg'
@@ -76,6 +76,7 @@ export default class Events extends Component {
                   return (
                     <EventsCard
                       key={card.id}
+                      id={card.id}
                       image={card.imageCalendar}
                       date={card.date}
                       title={card.title}
