@@ -1,15 +1,19 @@
+
 import React, { Component, Fragment } from 'react'
-import down from '../../../assets/icons/baseline-keyboard_arrow_down-24px.svg'
-import LinkCard from '../../common/linkCard/LinkCard'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+import PropTypes from 'prop-types'
+
+import Search from '../../common/search/Search'
+import LinkCard from '../../common/linkCard/LinkCard'
+import down from '../../../assets/icons/baseline-keyboard_arrow_down-24px.svg'
 
 import './category.scss'
-import Search from '../../common/search/Search'
 
 export default class Category extends Component {
   state = {
     visible: true,
   }
+
 
   _fadeOutButton = () => {
     let visibleChange = this.state.visible
@@ -21,7 +25,7 @@ export default class Category extends Component {
   }
 
   render() {
-    let { title, entries } = this.props
+    const { title, entries } = this.props
     let { visible } = this.state
     return (
       <div className="box-categories">
@@ -45,4 +49,9 @@ export default class Category extends Component {
       </div>
     )
   }
+}
+
+Category.propTypes = {
+  title: PropTypes.string,
+  entries: PropTypes.array,
 }

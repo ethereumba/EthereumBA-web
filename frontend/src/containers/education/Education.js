@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+
 import Header from '../../components/header/Header'
 import Background from '../../components/common/background/Background'
 import Search from '../../components/common/search/Search'
@@ -10,7 +11,7 @@ export default class Education extends Component {
   render() {
     return (
       <Background>
-        <Header white />
+        <Header white selected={'education'} />
         <Search />
         <Categories />
       </Background>
