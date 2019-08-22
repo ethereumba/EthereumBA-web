@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
-import { Grid } from '@material-ui/core'
 import Fab from '@material-ui/core/Fab'
 
-import ButtonsCard from '../buttonsCard/ButtonsCard'
 import EventsCard from '../eventsCard/EventsCard'
+import Slider from 'react-slick'
+import Prev from '../../../assets/icons/chevron-left.svg'
+import Next from '../../../assets/icons/chevron-right.svg'
 import calendar from '../../../assets/icons/icon-calendar.svg'
+import Social from '../social/Social'
+
 import './events.scss'
 
 const eventCards = [
@@ -33,6 +36,32 @@ const eventCards = [
 
 export default class Events extends Component {
   render() {
+    const settings = {
+      arrows: true,
+      dots: false,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      prevArrow: <img src={Prev} alt="Atrás" />,
+      nextArrow: <img src={Next} alt="Siguiente" />,
+      responsive: [
+        {
+          breakpoint: 1200,
+          settings: {
+            slidesToShow: 2,
+          },
+        },
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 1,
+            arrows: false,
+            dots: true,
+          },
+        },
+      ],
+    }
     return (
       <div className={'background-events'}>
         <div className={'events'}>
@@ -42,7 +71,7 @@ export default class Events extends Component {
             </div>
 
             <div className="cards-events">
-              <Grid container className="card-container">
+              <Slider {...settings}>
                 {eventCards.map(card => {
                   return (
                     <EventsCard
@@ -55,11 +84,9 @@ export default class Events extends Component {
                     />
                   )
                 })}
-              </Grid>
+              </Slider>
             </div>
           </div>
-
-          <ButtonsCard />
 
           <div className={'button-events'}>
             <Fab variant="extended" size="large" color="primary" aria-label="Add" className={'btn-view'}>
@@ -67,6 +94,7 @@ export default class Events extends Component {
             </Fab>
           </div>
         </div>
+        <Social />
       </div>
     )
   }

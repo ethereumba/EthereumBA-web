@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Grid } from '@material-ui/core'
 
+
 import meetup from '../../../assets/icons/logo--script.svg'
 import discord from '../../../assets/icons/discord-brands.svg'
 import twitter from '../../../assets/icons/twitter-brands.svg'
@@ -10,18 +11,18 @@ const iconSocial = [
   {
     icon: meetup,
     class: 'meetup img',
-    name: 'Meetup',
+    name: 'Meetup'
   },
   {
     icon: discord,
     class: 'discord img',
-    name: 'Discord',
+    name: 'Discord'
   },
   {
     icon: twitter,
     class: 'twitter img',
-    name: 'Twitter',
-  },
+    name: 'Twitter'
+  }
 ]
 
 export default class Social extends Component {

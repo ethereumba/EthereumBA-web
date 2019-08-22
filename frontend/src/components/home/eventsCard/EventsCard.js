@@ -1,11 +1,11 @@
 import React from 'react'
 import { Grid } from '@material-ui/core'
+
 import PropTypes from 'prop-types'
 
 import './eventsCard.scss'
 
 const EventsCard = ({ id, image, date, title, more }) => (
-  <Grid key={id} item xs={12} sm={6} md={4} lg={4}>
     <div className="card-home">
       <div className="card card-shadow">
         <div className="container-date">
@@ -25,7 +25,6 @@ const EventsCard = ({ id, image, date, title, more }) => (
         </div>
       </div>
     </div>
-  </Grid>
 )
 
 EventsCard.propTypes = {

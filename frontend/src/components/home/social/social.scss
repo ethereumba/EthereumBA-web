@@ -1,40 +1,34 @@
 @import '../../../styles/variables.scss';
 
 .social {
-    .container-social {
-        margin-top: -30px;
-        display: flex;
-        justify-content: center;
-    }
-    .box-social {
-        width: 200px;
-        margin: 10px;
-        text-align: center;
-    }
-    .meetup img {
-        width: 70px;
-    }
-    .discord img {
-        width: 30px;
-    }
-    .twitter img {
-        width: 30px;
-    }
-}
-
-@media (min-width: #{$phone-300px}) and (max-width: #{$tablet-600px}) {
-    .social{  
-        .container-social {
-            margin-top: -50px;
-            display: flex;
-            justify-content: center;
-        }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 140px;
+  .container-social {
+    display: flex;
+    justify-content: space-between;
+    width: 270px;
+  }
+  .img {
+    img {
+      height: 35px;
     }
   }
+}
 
+// @media (min-width: #{$phone-300px}) and (max-width: #{$tablet-600px}) {
+//   .social {
+//     .container-social {
+//       margin-top: -50px;
+//       display: flex;
+//       justify-content: center;
+//     }
+//   }
+// }
 
 // @media (min-width: #{$phone-300px}) and (max-width: #{$phone-480px}) {
-//     .social{  
+//     .social{
 //         .container-social {
 //             margin-top: 700px;
 //             display: flex;
@@ -42,5 +36,3 @@
 //         }
 //     }
 //   }
-  
-  

@@ -1,6 +1,7 @@
 @import '../../../styles/variables.scss';
 
 .community {
+  margin-top: 140px;
   .container-community {
     padding: 60px 80px 0px 80px;
   }
@@ -14,7 +15,7 @@
   font-family: 'Comfortaa';
   color: $violetTitle;
   font-weight: 600;
-  line-height: 36px;
+  line-height: 43px;
   max-width: 604px;
 }
 
@@ -24,7 +25,7 @@
 }
 
 .sub-title h1 {
-  margin-top: 55px;
+  margin: 0;
   color: rgba(30, 19, 70, 0.73);
   font-family: 'Comfortaa';
   font-size: 15px;
@@ -35,40 +36,41 @@
   text-transform: uppercase;
 }
 
-@media (max-width: #{$desktop-959px}) {
-  .title-2 {
-    font-size: 25px;
-    padding: 2%;
-  }
+// @media (max-width: #{$desktop-959px}) {
+//   .title-2 {
+//     font-size: 25px;
+//     padding: 2%;
+//   }
 
-  .community {
-    .container-community {
-      padding: 10px 0% 0% 20px;
-    }
-  }
-}
+//   .community {
+//     .container-community {
+//       padding: 10px 0% 0% 20px;
+//     }
+//   }
+// }
 
-@media (min-width: #{$phone-480px}) and (max-width: #{$tablet-700px}) {
-  .title-2 {
-    font-size: 25px;
-    padding: 2%;
-  }
+// @media (min-width: #{$phone-480px}) and (max-width: #{$tablet-700px}) {
+//   .title-2 {
+//     font-size: 25px;
+//     padding: 2%;
+//   }
 
-  .community {
-    .container-community {
-      padding: 10px 0% 0% 20px;
-    }
-  }
-}
+//   .community {
+//     .container-community {
+//       padding: 10px 0% 0% 20px;
+//     }
+//   }
+// }
 
-@media (min-width: #{$phone-300px}) and (max-width: #{$phone-480px}) {
-  .title-2 {
-    font-size: 20px;
-    padding: 2%;
-  }
-  .community {
-    .container-community {
-      padding: 10px 0% 0% 20px;
-    }
-  }
-}
+// @media (min-width: #{$phone-300px}) and (max-width: #{$phone-480px}) {
+//   .title-2 {
+//     font-size: 20px;
+//     padding: 2%;
+//   }
+//   .community {
+//     .container-community {
+//       padding: 10px 0% 0% 20px;
+//     }
+//   }
+// }
+

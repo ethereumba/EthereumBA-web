@@ -1,30 +1,30 @@
 @import '../../../styles/variables.scss';
 
 .box-community {
-    margin-top: 46px;
-    width: 260px;
-    padding: 30px;
+  margin-top: 46px;
+  width: 260px;
+  padding: 30px;
+}
+.card-community img {
+  height: 80px;
+}
+.community-text {
+  .title {
+    margin-top: 26px;
+    margin-bottom: 0;
+    font-size: 25px;
+    font-family: 'Comfortaa';
+    color: $orange;
+    font-weight: 700;
+    line-height: 36px;
   }
-  .card-community img {
-    width: 80px;
+  .text {
+    margin-top: 16px;
+    font-family: 'Comfortaa';
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.63px;
+    line-height: 24px;
+    color: $textCard;
   }
-  .community-text {
-    .title {
-      margin-top: 26px;
-      margin-bottom: 0;
-      font-size: 25px;
-      font-family: "Comfortaa";
-      color: $orange;
-      font-weight: 700;
-      line-height: 36px;
-    }
-    .text {
-      margin-top: 16px;
-      font-family: "Comfortaa";
-      font-size: 14px;
-      font-weight: 400;
-      letter-spacing: 0.63px;
-      line-height: 24px;
-      color: $textCard;
-    }
-  }
+}
