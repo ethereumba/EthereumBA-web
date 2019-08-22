@@ -7,28 +7,54 @@ $break-large: 1200px;
 .main-header,
 .main-header-white {
   height: 140px;
+
+  .MuiGrid-container-1 {
+    flex-wrap: unset;
+    user-select: none;
+    @media (max-width: 1000px) {
+      flex-wrap: wrap;
+    }
+  }
+
   .menu-container {
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @media (max-width: 1000px) {
+      height: 80px;
+    }
   }
+
   .menu {
     display: flex;
     align-items: center;
     justify-content: space-between;
     max-width: 600px;
     padding: 0 30px;
+    flex-direction: row;
   }
   .header-logo {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+
+    @media (max-width: 1000px) {
+      flex-direction: row;
+    }
     .logo {
       margin: 0 0 0 134px;
       height: 56px;
       width: auto;
+
+      @media (max-width: 1000px) {
+        margin: 15px 0 0 100px;
+        height: 37px;
+        width: auto;
+      }
     }
+
   }
   .text {
     height: 25px;
@@ -40,6 +66,11 @@ $break-large: 1200px;
     line-height: 148px;
     text-align: center;
     text-decoration: none;
+
+    @media (max-width: 1000px) {
+      font-size: 13px;
+    }
+
     &.selected {
       padding-bottom: 10px;
       border-bottom: 2px solid $violetCard;

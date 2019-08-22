@@ -15,21 +15,21 @@ const eventCards = [
     id: 1,
     imageCalendar: calendar,
     date: '07 FEB 2018',
-    title: 'Ethereum BSAS #3 Meetup',
+    title: '#3 Ethereum Buenos Aires: Smart Contracts Upgrades & DeFi',
     more: 'Ethereum is about bringing together like minds around...',
   },
   {
     id: 2,
     imageCalendar: calendar,
     date: '07 FEB 2018',
-    title: 'Ethereum BSAS #4 Meetup',
+    title: '#4 Ethereum Buenos Aires: Escalando un mercado basado en Blockchain',
     more: 'How Plasma Tvs And Lcd Tvs Differ Lorem ipsum dol…',
   },
   {
     id: 3,
     imageCalendar: calendar,
     date: '07 FEB 2018',
-    title: 'Smart Contrats #5 Meetup',
+    title: '#5 Ethereum Buenos Aires: Lightning + DeFi',
     more: 'Ethereum is about bringing together like minds around...',
   },
 ]
@@ -67,7 +67,7 @@ export default class Events extends Component {
         <div className={'events'}>
           <div className="card-events">
             <div className={'center'}>
-              <p className={'title'}>Build the decentralized future</p>
+              <p className={'title'}>Upcoming events</p>
             </div>
 
             <div className="cards-events">
@@ -89,12 +89,12 @@ export default class Events extends Component {
           </div>
 
           <div className={'button-events'}>
-            <Fab variant="extended" size="large" color="primary" aria-label="Add" className={'btn-view'}>
+            <Fab variant="extended" size="large" color="primary" aria-label="Add" className={'btn-view'} href={"/events"}>
               View All Events
             </Fab>
           </div>
         </div>
-        <Social />
+        {/*<Social />*/}
       </div>
     )
   }
