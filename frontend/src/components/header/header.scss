@@ -8,7 +8,7 @@ $break-large: 1200px;
 .main-header-white {
   height: 140px;
 
-  .MuiGrid-container-1 {
+  .container {
     flex-wrap: unset;
     user-select: none;
     @media (max-width: 1000px) {

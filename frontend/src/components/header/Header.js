@@ -13,7 +13,7 @@ export default class HeaderWhite extends Component {
 
     return (
       <div className={this.props.white ? 'main-header-white' : 'main-header'}>
-        <Grid container>
+        <Grid container className="container">
           <Grid item xs={3} className="header-logo">
               <Link to={"/"}>
                 <img src={lightTheme ? logoLight : logo} className={'logo'}  alt={'Ethereum Buenos Aires'} />
