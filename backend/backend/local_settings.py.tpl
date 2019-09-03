@@ -33,8 +33,3 @@ EMAIL_FROM_ADDRESS = 'django.cas.server@gmail.com'
 # Development server
 if os.getenv('DEVSERVER', 'true') == 'true':
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-
-
-CAS_SERVER_URL = 'http://cas.vonpix.com'
-CAS_VERSION = '3'
-CAS_API_KEY = os.getenv('CAS_API_KEY', '1')

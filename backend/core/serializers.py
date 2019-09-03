@@ -24,7 +24,7 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ('id', 'username', 'first_name', 'last_name', 'email', 'profile_image', 'groups', 'get_tools', 'is_active')
+        fields = ('id', 'username', 'first_name', 'last_name', 'email', 'profile_image', 'groups', 'is_active')
 
 
 class UserEditSerializer(serializers.ModelSerializer):

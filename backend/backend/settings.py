@@ -45,10 +45,10 @@ INSTALLED_APPS = [
 
     # Basic app
     'core',
+    'events',
 
     # Third-party apps
-'rest_framework',
-    'django_cas_ng',
+    'rest_framework',
     'hijack',
     'compat',
     'corsheaders',
@@ -184,10 +184,11 @@ LOGIN_URL = '/login'
 LOGIN_REDIRECT_URL = '/'
 
 AUTHENTICATION_BACKENDS = (
-    'core.backends.CustomCASBackend',
     'django.contrib.auth.backends.ModelBackend',
 )
 
 HIJACK_LOGIN_REDIRECT_URL = '/'
 HIJACK_LOGOUT_REDIRECT_URL = '/'
 HIJACK_ALLOW_GET_REQUESTS = True
+
+FRONTEND_URL = os.getenv('FRONTEND_URL', None)

@@ -3,8 +3,6 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 
-from django_cas_ng import views as ng_views
-
 
 urlpatterns = [
 
@@ -14,13 +12,11 @@ urlpatterns = [
     # HIJACK
     url(r'^hijack/', include('hijack.urls')),
 
-    # CAS Authentication
-    url(r'^login$', ng_views.LoginView.as_view(), name='cas_ng_login'),
-    url(r'^logout$', ng_views.LogoutView.as_view(), name='cas_ng_logout'),
-
-
     # Core
     url(r'api/v1/', include('core.urls')),
+
+    # Events
+    url(r'api/v1/', include('events.urls')),
 ]
 
 if 'rosetta' in settings.INSTALLED_APPS:
