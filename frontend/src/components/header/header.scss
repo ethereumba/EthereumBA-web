@@ -4,36 +4,109 @@ $break-small: 320px;
 $break-medium: 0px;
 $break-large: 1200px;
 
-.main-header,
-.main-header-white {
+/* Position and sizing of burger button */
+.bm-burger-button {
+  position: fixed;
+  width: 36px;
+  height: 30px;
+  right: 36px;
+  top: 36px;
+}
+
+/* Color/shape of burger icon bars */
+.bm-burger-bars {
+  background: white;
+}
+
+/* Color/shape of burger icon bars on hover*/
+.bm-burger-bars-hover {
+  // background: #a90000;
+}
+
+/* Position and sizing of clickable cross button */
+.bm-cross-button {
+  height: 24px;
+  width: 24px;
+  top: 71px !important;
+  right: 69px !important;
+}
+
+/* Color/shape of close button cross */
+.bm-cross {
+  background: white;
+  height: 30px !important;
+}
+
+/*
+Sidebar wrapper styles
+Note: Beware of modifying this element as it can break the animations - you should not need to touch it in most cases
+*/
+.bm-menu-wrap {
+  position: fixed;
+  height: 100%;
+}
+
+/* General sidebar styles */
+.bm-menu {
+  background: $violetCard;
+  padding: 175px 69px 0;
+  background: $violetCard;
+  padding: 175px 60px 0;
+}
+
+/* Wrapper for item list */
+.bm-item-list {
+  color: white;
+}
+
+/* Individual item */
+.bm-item {
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  line-height: 69px;
+  font-weight: bold;
+  font-size: 23px;
+  letter-spacing: 2px;
+  text-align: right;
+}
+
+/* Styling of overlay */
+.bm-overlay {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.main-header {
   height: 140px;
+  background: blue;
 
   .container {
-    flex-wrap: unset;
-    user-select: none;
-    @media (max-width: 1000px) {
-      flex-wrap: wrap;
-    }
-  }
-
-  .menu-container {
     display: flex;
-    justify-content: center;
-    align-items: center;
-
-    @media (max-width: 1000px) {
-      height: 80px;
-    }
-  }
-
-  .menu {
-    display: flex;
-    align-items: center;
     justify-content: space-between;
-    max-width: 600px;
-    padding: 0 30px;
-    flex-direction: row;
+    height: 100%;
+    // @media (max-width: 1000px) {
+    //   flex-wrap: wrap;
+    // }
   }
+
+  // .menu-container {
+  //   display: flex;
+  //   justify-content: center;
+  //   align-items: center;
+
+  //   @media (max-width: 1000px) {
+  //     height: 80px;
+  //   }
+  // }
+
+  // .menu {
+  //   display: flex;
+  //   align-items: center;
+  //   justify-content: space-between;
+  //   max-width: 600px;
+  //   padding: 0 30px;
+  //   flex-direction: row;
+  // }
   .header-logo {
     display: flex;
     flex-direction: column;
@@ -54,54 +127,25 @@ $break-large: 1200px;
         width: auto;
       }
     }
-
   }
-  .text {
-    height: 25px;
-    width: 54px;
-    font-family: Comfortaa;
-    font-size: 14px;
-    font-weight: bold;
-    letter-spacing: 1px;
-    line-height: 148px;
-    text-align: center;
-    text-decoration: none;
+  // .text {
+  //   height: 25px;
+  //   width: 54px;
+  //   font-family: Comfortaa;
+  //   font-size: 14px;
+  //   font-weight: bold;
+  //   letter-spacing: 1px;
+  //   line-height: 148px;
+  //   text-align: center;
+  //   text-decoration: none;
 
-    @media (max-width: 1000px) {
-      font-size: 13px;
-    }
+  //   @media (max-width: 1000px) {
+  //     font-size: 13px;
+  //   }
 
-    &.selected {
-      padding-bottom: 10px;
-      border-bottom: 2px solid $violetCard;
-    }
-  }
+  //   &.selected {
+  //     padding-bottom: 10px;
+  //     border-bottom: 2px solid $violetCard;
+  //   }
+  // }
 }
-
-.main-header-white {
-  background-color: $background;
-  .text {
-    color: rgb(0, 0, 0);
-  }
-}
-
-.main-header {
-  background-color: #5b4e9400;
-  .text {
-    color: #ffffff;
-  }
-}
-
-// $break-small: 320px;
-// $break-large: 1200px;
-// .profile-pic {
-//   float: left;
-//   width: 250px;
-//   @media screen and (max-width: $break-small) {
-//     width: 100px;
-//     float: none;
-//   }
-//   @media screen and (min-width: $break-large) {
-//     float: right;
-//   }
-// }

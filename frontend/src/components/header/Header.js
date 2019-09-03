@@ -1,44 +1,38 @@
 import React, { Component } from 'react'
-import { Grid } from '@material-ui/core'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
+import { slide as Menu } from 'react-burger-menu'
 
+/* Components */
 import logo from '../../assets/ethBuenosAires.png'
-import logoLight from '../../assets/ethBuenosAires-light.svg'
+// import logoLight from '../../assets/ethBuenosAires-light.svg'
 import './header.scss'
 
 export default class HeaderWhite extends Component {
   render() {
-    const { white: lightTheme, selected } = this.props
+    // const { white: lightTheme, selected } = this.props
 
     return (
-      <div className={this.props.white ? 'main-header-white' : 'main-header'}>
-        <Grid container className="container">
-          <Grid item xs={3} className="header-logo">
-              <Link to={"/"}>
-                <img src={lightTheme ? logoLight : logo} className={'logo'}  alt={'Ethereum Buenos Aires'} />
-              </Link>
-          </Grid>
-          <Grid item xs={12} className="menu-container">
-            <Grid container className="menu">
-              <Grid className="menu-item">
-                <Link to="/events" className={`text ${selected === 'events' ? 'selected' : ''}`}>
-                  EVENTS
-                </Link>
-              </Grid>
-              <Grid className="menu-item">
-                <Link to="/education" className={`text ${selected === 'education' ? 'selected' : ''}`}>
-                  EDUCATION
-                </Link>
-              </Grid>
-              <Grid className="menu-item">
-                <Link to="/ecosystem" className={`text ${selected === 'ecosystem' ? 'selected' : ''}`}>
-                  ECOSYSTEM
-                </Link>
-              </Grid>
-            </Grid>
-          </Grid>
-        </Grid>
+      // <div className={this.props.white ? 'main-header-white' : 'main-header'}>
+      <div className='main-header'>
+        <div className='container'>
+          <div className='header-logo'>
+            <Link to={'/'}>
+              <img src={logo} className={'logo'} alt={'Ethereum Buenos Aires'} />
+            </Link>
+          </div>
+          <Menu>
+            <Link to='/' className='menu-item'>
+              HOME
+            </Link>
+            <Link to='/events' className='menu-item'>
+              EVENTS
+            </Link>
+            <Link to='/education' className='menu-item'>
+              EDUCATION
+            </Link>
+          </Menu>
+        </div>
       </div>
     )
   }
