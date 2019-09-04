@@ -5,15 +5,11 @@ import { slide as Menu } from 'react-burger-menu'
 
 /* Components */
 import logo from '../../assets/ethBuenosAires.png'
-// import logoLight from '../../assets/ethBuenosAires-light.svg'
 import './header.scss'
 
 export default class HeaderWhite extends Component {
   render() {
-    // const { white: lightTheme, selected } = this.props
-
     return (
-      // <div className={this.props.white ? 'main-header-white' : 'main-header'}>
       <div className='main-header'>
         <div className='container'>
           <div className='header-logo'>
@@ -21,17 +17,19 @@ export default class HeaderWhite extends Component {
               <img src={logo} className={'logo'} alt={'Ethereum Buenos Aires'} />
             </Link>
           </div>
-          <Menu>
-            <Link to='/' className='menu-item'>
-              HOME
-            </Link>
-            <Link to='/events' className='menu-item'>
-              EVENTS
-            </Link>
-            <Link to='/education' className='menu-item'>
-              EDUCATION
-            </Link>
-          </Menu>
+          <div className='menu'>
+            <Menu right>
+              <Link to='/' className='menu-item'>
+                HOME
+              </Link>
+              <Link to='/events' className='menu-item'>
+                EVENTS
+              </Link>
+              <Link to='/education' className='menu-item'>
+                EDUCATION
+              </Link>
+            </Menu>
+          </div>
         </div>
       </div>
     )

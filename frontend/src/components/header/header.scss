@@ -4,18 +4,25 @@ $break-small: 320px;
 $break-medium: 0px;
 $break-large: 1200px;
 
+.menu {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
 /* Position and sizing of burger button */
 .bm-burger-button {
   position: fixed;
   width: 36px;
-  height: 30px;
-  right: 36px;
-  top: 36px;
+  height: 22px;
+  right: 69px;
+  top: 59px;
 }
 
 /* Color/shape of burger icon bars */
 .bm-burger-bars {
   background: white;
+  height: 15% !important;
 }
 
 /* Color/shape of burger icon bars on hover*/
@@ -25,9 +32,9 @@ $break-large: 1200px;
 
 /* Position and sizing of clickable cross button */
 .bm-cross-button {
-  height: 24px;
-  width: 24px;
-  top: 71px !important;
+  height: 25px;
+  width: 42px;
+  top: 49px !important;
   right: 69px !important;
 }
 
@@ -69,6 +76,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
   font-size: 23px;
   letter-spacing: 2px;
   text-align: right;
+  font-family: Comfortaa;
 }
 
 /* Styling of overlay */
@@ -78,74 +86,35 @@ Note: Beware of modifying this element as it can break the animations - you shou
 
 .main-header {
   height: 140px;
-  background: blue;
+  background: transparent;
 
   .container {
     display: flex;
     justify-content: space-between;
     height: 100%;
-    // @media (max-width: 1000px) {
-    //   flex-wrap: wrap;
-    // }
   }
 
-  // .menu-container {
-  //   display: flex;
-  //   justify-content: center;
-  //   align-items: center;
-
-  //   @media (max-width: 1000px) {
-  //     height: 80px;
-  //   }
-  // }
-
-  // .menu {
-  //   display: flex;
-  //   align-items: center;
-  //   justify-content: space-between;
-  //   max-width: 600px;
-  //   padding: 0 30px;
-  //   flex-direction: row;
-  // }
   .header-logo {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
 
-    @media (max-width: 1000px) {
-      flex-direction: row;
-    }
+    // @media (max-width: 1000px) {
+    //   flex-direction: row;
+    // }
     .logo {
-      margin: 0 0 0 134px;
+      margin: 0 0 0 69px;
       height: 56px;
       width: auto;
+      position: relative;
+      z-index: 10;
 
-      @media (max-width: 1000px) {
-        margin: 15px 0 0 100px;
-        height: 37px;
-        width: auto;
-      }
+      // @media (max-width: 1000px) {
+      //   margin: 15px 0 0 100px;
+      //   height: 37px;
+      //   width: auto;
+      // }
     }
   }
-  // .text {
-  //   height: 25px;
-  //   width: 54px;
-  //   font-family: Comfortaa;
-  //   font-size: 14px;
-  //   font-weight: bold;
-  //   letter-spacing: 1px;
-  //   line-height: 148px;
-  //   text-align: center;
-  //   text-decoration: none;
-
-  //   @media (max-width: 1000px) {
-  //     font-size: 13px;
-  //   }
-
-  //   &.selected {
-  //     padding-bottom: 10px;
-  //     border-bottom: 2px solid $violetCard;
-  //   }
-  // }
 }

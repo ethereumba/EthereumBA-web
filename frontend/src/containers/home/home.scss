@@ -3,11 +3,26 @@
 }
 
 .main {
-  background-image: url('./../../assets/mainBackground.png');
-  height: 88vh;
-  background-position: 50% 50%;
-  background-size: cover;
   margin-top: -140px;
+  position: relative;
+
+  img {
+    width: 100%;
+  }
+  .main__text {
+    position: absolute;
+    width: 100%;
+    top: 35%;
+    text-align: center;
+    h4 {
+      margin: 0;
+      font-size: 30px;
+      line-height: 48px;
+      color: white;
+      font-weight: bold;
+      font-family: Comfortaa;
+    }
+  }
 }
 
 .gradient {
