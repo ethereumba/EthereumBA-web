@@ -26,19 +26,37 @@ const iconSocial = [
 
 export default class Social extends Component {
   render() {
+    const date = new Date().getFullYear()
+
     return (
       <div className='social'>
-        <Grid className='container-social' container>
+        {/* <Grid className='container-social' container>
           {iconSocial.map(social => {
             return (
               <Grid key={social.icon} item xs={3} sm={2} md={2} lg={1} className='box-social'>
                 <div className={social.class}>
                   <img src={social.icon} alt={social.name} />
                 </div>
-              </Grid>
+              </Grid> */}
+        {/* <div className={'sub-title'}>
+          <p>get in touch</p>
+        </div> */}
+
+        <div className='container-social' container>
+          {iconSocial.map(social => {
+            return (
+              // <Grid key={social.icon} item xs={3} sm={2} md={2} lg={1} className='box-social'>
+              <div className={`${social.class} box-social`}>
+                <img src={social.icon} alt={social.name} />
+              </div>
+              // </Grid>
             )
           })}
-        </Grid>
+        </div>
+
+        <div className='footer'>
+          <p>Ethereum Buenos Aires {date}</p>
+        </div>
       </div>
     )
   }
