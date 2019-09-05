@@ -67,7 +67,7 @@ export default class Events extends Component {
         <div className={'events'}>
           <div className='card-events'>
             <div className={'center'}>
-              <p className={'title'}>Upcoming events</p>
+              <p className={'title'}>Our meetups</p>
             </div>
 
             <div className='cards-events'>

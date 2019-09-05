@@ -11,33 +11,27 @@
   }
   .container-partners {
     display: flex;
-    height: 60px;
-    justify-content: center;
+    height: auto;
+    justify-content: space-between;
     align-items: center;
-    width: 70%;
+    padding: 0 80px;
     flex-wrap: wrap;
     margin-top: 40px;
     @media (max-width: 1200px) {
-      width: 75%;
-    }
-    @media (max-width: 992px) {
-      width: 85%;
-    }
-    @media (max-width: 768px) {
-      width: 85%;
+      width: 90%;
+      padding: 0;
     }
     .partners-logo {
-      margin-left: 50px;
-      margin-bottom: 20px;
+      flex: 1;
       display: flex;
       justify-content: center;
       align-items: center;
-      @media (max-width: 1200px) {
-        margin-left:18px;
-      }
+      min-width: 150px;
+      height: 60px;
+      margin: 20px 0;
       img {
-        width:100%;
-
+        max-height: 100%;
+        width: auto;
       }
     }
   }
@@ -58,7 +52,7 @@
 .footer {
   display: flex;
   justify-content: center;
-  margin: 140px;
+  margin: 80px;
   margin-bottom: 40px;
 }
 .footer p {
