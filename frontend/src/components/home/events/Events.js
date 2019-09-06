@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import Fab from '@material-ui/core/Fab'
 
+import Button from '../../common/button/Button'
 import EventsCard from '../eventsCard/EventsCard'
 import Slider from 'react-slick'
 import Prev from '../../../assets/icons/chevron-left.svg'
@@ -43,8 +43,8 @@ export default class Events extends Component {
       speed: 500,
       slidesToShow: 3,
       slidesToScroll: 1,
-      prevArrow: <img src={Prev} alt="Atrás" />,
-      nextArrow: <img src={Next} alt="Siguiente" />,
+      prevArrow: <img src={Prev} alt='Atrás' />,
+      nextArrow: <img src={Next} alt='Siguiente' />,
       responsive: [
         {
           breakpoint: 1200,
@@ -65,12 +65,12 @@ export default class Events extends Component {
     return (
       <div className={'background-events'}>
         <div className={'events'}>
-          <div className="card-events">
+          <div className='card-events'>
             <div className={'center'}>
               <p className={'title'}>Upcoming events</p>
             </div>
 
-            <div className="cards-events">
+            <div className='cards-events'>
               <Slider {...settings}>
                 {eventCards.map(card => {
                   return (
@@ -89,12 +89,9 @@ export default class Events extends Component {
           </div>
 
           <div className={'button-events'}>
-            <Fab variant="extended" size="large" color="primary" aria-label="Add" className={'btn-view'} href={"/events"}>
-              View All Events
-            </Fab>
+            <Button title={'View All Events'} href={'/events'} />
           </div>
         </div>
-        {/*<Social />*/}
       </div>
     )
   }

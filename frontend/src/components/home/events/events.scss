@@ -1,7 +1,20 @@
 @import '../../../styles/variables.scss';
 
+.title {
+  display: flex;
+  text-align: center;
+  font-family: 'Comfortaa';
+  font-size: 30px;
+  line-height: 43px;
+}
+
 .cards-events {
   padding: 0 5%;
+
+  .title {
+    margin-top: 120px;
+    color: $violetTitle;
+  }
 }
 .slick-slider {
   position: relative;
@@ -120,16 +133,6 @@
   line-height: 28px;
 }
 
-.title {
-  display: flex;
-  text-align: center;
-  margin-top: 120px;
-  color: $violetTitle;
-  font-family: 'Comfortaa';
-  font-size: 30px;
-  line-height: 43px;
-}
-
 .title-card p {
   display: flex;
   justify-content: space-evenly;
@@ -152,21 +155,6 @@
 
 .button-events {
   margin-top: 60px;
-  text-align: center;
-}
-
-.btn-view {
-  background-color: $orange !important;
-  box-shadow: none !important;
-  border-radius: 29.5px !important;
-  width: 224px !important;
-  height: 49px !important;
-  text-transform: capitalize !important;
-  color: #ffffff !important;
-  font-family: 'Comfortaa' !important;
-  font-size: 19px !important;
-  font-weight: 400 !important;
-  letter-spacing: 0.43px !important;
-  line-height: 39px !important;
-  text-align: center !important;
+  display: flex;
+  justify-content: center;
 }

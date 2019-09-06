@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Grid } from '@material-ui/core'
 
+import Stats from '../stats/Stats'
 import CommunityCard from '../../home/communityCard/CommunityCard'
 import CommunityImage1 from '../../../assets/icons/1.png'
 import CommunityImage2 from '../../../assets/icons/2.png'
@@ -39,18 +40,20 @@ export default class Community extends Component {
   render() {
     return (
       <div className={'community'}>
-        <Grid item xs={12}>
+        <div className='community__header'>
           <div className={'sub-title'}>
             <h1>LEARN + SHARE + BUILD</h1>
           </div>
 
           <div className={'center'}>
             <p className={'title-2'}>
-                Ethereum Buenos Aires is about empowering participants to shape this new world, while cementing the
-                South American region as a thriving hub of Ethereum blockchain innovation.
+              Ethereum Buenos Aires is about empowering participants to shape this new world, while cementing the South
+              American region as a thriving hub of Ethereum blockchain innovation.
             </p>
           </div>
-        </Grid>
+        </div>
+
+        <Stats />
 
         <Grid container className={'container-community community-text'} spacing={0}>
           {communityData.map(community => {

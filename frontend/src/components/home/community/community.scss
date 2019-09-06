@@ -2,9 +2,13 @@
 
 .community {
   margin-top: 140px;
+
+  &__header {
+    margin-bottom: 110px;
+  }
   .container-community {
     padding: 60px 80px 0px 80px;
-    
+
     @media (max-width: 768px) {
       padding: 60px 20px 0px 20px;
     }
@@ -90,4 +94,3 @@
 //     }
 //   }
 // }
-
