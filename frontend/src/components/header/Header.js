@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { slide as Menu } from 'react-burger-menu'
 
 /* Components */
-import logo from '../../assets/ethBuenosAires.png'
+import Logo from '../../assets/temporary-white-logo.svg'
 import './header.scss'
 
 export default class HeaderWhite extends Component {
@@ -14,7 +14,7 @@ export default class HeaderWhite extends Component {
         <div className='container'>
           <div className='header-logo'>
             <Link to={'/'}>
-              <img src={logo} className={'logo'} alt={'Ethereum Buenos Aires'} />
+              <img src={Logo} className={'logo'} alt={'Ethereum Buenos Aires'} />
             </Link>
           </div>
           <div className='menu'>

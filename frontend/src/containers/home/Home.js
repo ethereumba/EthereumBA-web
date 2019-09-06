@@ -4,11 +4,8 @@ import Header from './../../components/header/Header'
 import Community from '../../components/home/community/Community'
 import Partners from '../../components/home/partners/Partners'
 import Events from '../../components/home/events/Events'
-<<<<<<< HEAD
 import Social from '../../components/home/social/Social'
-=======
 import Background from '../../assets/temporary-home-banner.png'
->>>>>>> ETHBA-38 WIP restyle home main banner
 
 import './home.scss'
 
