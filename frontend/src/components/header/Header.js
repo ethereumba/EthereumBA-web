@@ -9,15 +9,19 @@ import './header.scss'
 
 export default class Header extends Component {
   render() {
+    const { logo, lightTheme } = this.props
+
     return (
       <div className='main-header'>
         <div className='container'>
-          <div className='header-logo'>
-            <Link to={'/'}>
-              <img src={Logo} className={'logo'} alt={'Ethereum Buenos Aires'} />
-            </Link>
-          </div>
-          <div className='menu'>
+          {logo && (
+            <div className='header-logo'>
+              <Link to={'/'}>
+                <img src={Logo} className={'logo'} alt={'Ethereum Buenos Aires'} />
+              </Link>
+            </div>
+          )}
+          <div className={`menu ${lightTheme ? 'lightTheme' : ''}`}>
             <Menu right>
               <Link to='/' className='menu-item'>
                 HOME
@@ -37,6 +41,6 @@ export default class Header extends Component {
 }
 
 Header.propTypes = {
-  white: PropTypes.bool,
-  selected: PropTypes.string,
+  logo: PropTypes.bool,
+  lightTheme: PropTypes.bool,
 }

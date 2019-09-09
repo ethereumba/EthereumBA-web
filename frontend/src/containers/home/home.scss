@@ -2,29 +2,6 @@
   z-index: 1000;
 }
 
-.main {
-  margin-top: -140px;
-  position: relative;
-
-  img {
-    width: 100%;
-  }
-  .main__text {
-    position: absolute;
-    width: 100%;
-    top: 35%;
-    text-align: center;
-    h4 {
-      margin: 0;
-      font-size: 30px;
-      line-height: 48px;
-      color: white;
-      font-weight: bold;
-      font-family: Comfortaa;
-    }
-  }
-}
-
 .gradient {
   background: white;
   background: linear-gradient(to bottom, white 0%, #f0f3ff 100%);

@@ -18,6 +18,12 @@ $break-large: 1200px;
       justify-content: flex-end;
     }
   }
+
+  &.lightTheme {
+    .bm-burger-bars {
+      background: $violetCard;
+    }
+  }
 }
 
 /* Position and sizing of burger button */

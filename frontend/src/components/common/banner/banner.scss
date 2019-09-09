@@ -1,0 +1,31 @@
+@import '../../../styles/variables.scss';
+
+.banner {
+  margin-top: -140px;
+  position: relative;
+
+  img {
+    width: 100%;
+  }
+  .banner__text {
+    position: absolute;
+    width: 100%;
+    top: 35%;
+    text-align: center;
+    &.lightTheme {
+      top: 22%;
+      h4 {
+        color: $violetCard;
+      }
+    }
+    h4 {
+      margin: 0;
+      font-size: 30px;
+      line-height: 48px;
+      white-space: pre-wrap;
+      color: white;
+      font-weight: bold;
+      font-family: Comfortaa;
+    }
+  }
+}

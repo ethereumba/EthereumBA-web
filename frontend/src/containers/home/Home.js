@@ -5,25 +5,20 @@ import Community from '../../components/home/community/Community'
 import Partners from '../../components/home/partners/Partners'
 import Events from '../../components/home/events/Events'
 import Social from '../../components/home/social/Social'
-import Background from '../../assets/temporary-home-banner.png'
-
+import Background from '../../assets/home-main-banner.svg'
+import Banner from '../../components/common/banner/Banner'
 import './home.scss'
+
+const homeBannerText = `Ethereum Buenos Aires is a forum for
+developers, entrepreneurs, and enthusiasts
+to learn about and develop for Ethereum`
 
 export default class Home extends Component {
   render() {
     return (
       <div>
-        <Header className='header-home' />
-        <div className={'main'}>
-          <img src={Background} />
-          <div className='main__text'>
-            <h4>
-              Ethereum Buenos Aires is a forum for <br />
-              developers, entrepreneurs, and enthusiasts <br />
-              to learn about and develop for Ethereum
-            </h4>
-          </div>
-        </div>
+        <Header logo />
+        <Banner text={homeBannerText} background={Background} />
         <div className='gradient'>
           <Events />
           <Community />
