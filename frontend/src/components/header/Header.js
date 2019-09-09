@@ -7,7 +7,7 @@ import { slide as Menu } from 'react-burger-menu'
 import Logo from '../../assets/temporary-white-logo.svg'
 import './header.scss'
 
-export default class HeaderWhite extends Component {
+export default class Header extends Component {
   render() {
     return (
       <div className='main-header'>
@@ -36,7 +36,7 @@ export default class HeaderWhite extends Component {
   }
 }
 
-HeaderWhite.propTypes = {
+Header.propTypes = {
   white: PropTypes.bool,
   selected: PropTypes.string,
 }
