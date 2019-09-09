@@ -4,7 +4,7 @@ import { Grid } from '@material-ui/core'
 
 import './eventCard.scss'
 
-const EventsCard = ({ id, image, date, title, more }) => (
+const EventCard = ({ id, image, date, title, more }) => (
   <div className='card-home'>
     <div className='card card-shadow'>
       <div className='container-date'>
@@ -21,7 +21,7 @@ const EventsCard = ({ id, image, date, title, more }) => (
   </div>
 )
 
-EventsCard.propTypes = {
+EventCard.propTypes = {
   id: PropTypes.number,
   image: PropTypes.string,
   date: PropTypes.string,
@@ -29,4 +29,4 @@ EventsCard.propTypes = {
   more: PropTypes.string,
 }
 
-export default EventsCard
+export default EventCard
