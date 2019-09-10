@@ -8,8 +8,8 @@ import './eventCard.scss'
 const EventCard = ({ id, date, title, more, hasPassed }) => (
   <div className='card-home'>
     <div className='card card-shadow'>
-      <div className='container-date'>
-        <EventDate date={date} />
+      <div className='card-container'>
+        <EventDate date={date} hasPassed={hasPassed} />
 
         <div className={`title-card ${hasPassed ? 'past' : ''}`} variant='h5' component='h2'>
           <p>{title}</p>

@@ -63,35 +63,11 @@
 }
 
 .card-shadow {
-  box-shadow: 0 3px 17px 1px #ececec;
+  box-shadow: 2px 11px 20px 1px rgba(31, 41, 108, 0.07);
   background-color: white;
-  border-radius: 5.6px;
+  border-radius: 8px;
 }
 
 .card-shadow:hover {
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.034), 0 10px 10px rgba(0, 0, 0, 0.027);
+  box-shadow: 2px 11px 20px 1px rgba(31, 41, 108, 0.1);
 }
-
-// @media (max-width: #{$tablet-800px}) {
-//   .text-linkCard {
-//     color: $orange;
-//     font-family: 'Comfortaa';
-//     font-size: 15px;
-//     font-weight: 700;
-//     letter-spacing: 1px;
-//     line-height: 27px;
-//     margin-left: 16px;
-//     max-width: 490px;
-//   }
-// }
-
-// @media (max-width: #{$desktop-1200px}) {
-//     .container-linkCard {
-//       margin-top: 10px;
-//       max-width: 610px;
-//       min-width: 1010px;
-//       height: 54px;
-//     }
-// }
-
-// }

@@ -1,6 +1,7 @@
 @import '../../styles/variables.scss';
 
 .events {
+  background: white;
   &__subtitle {
     padding: 0 5%;
     h4 {
@@ -14,10 +15,15 @@
     }
   }
 
-  &__past-events {
-    &__container {
-      padding-left: calc(5% - 16px);
-      padding-right: calc(5% - 16px);
-    }
+  &__container {
+    padding-left: calc(5% - 16px);
+    padding-right: calc(5% - 16px);
+  }
+
+  &__upcoming-events {
+    margin-top: -350px;
+    position: relative;
+    z-index: 10;
+    background: transparent;
   }
 }
