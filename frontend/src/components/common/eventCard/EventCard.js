@@ -2,18 +2,16 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Grid } from '@material-ui/core'
 
+import EventDate from '../../common/eventDetails/EventDate'
 import './eventCard.scss'
 
-const EventCard = ({ id, image, date, title, more }) => (
+const EventCard = ({ id, date, title, more, hasPassed }) => (
   <div className='card-home'>
     <div className='card card-shadow'>
       <div className='container-date'>
-        <div>
-          <img src={image} alt='icon calendar' />
-          <p className='date'>{date}</p>
-        </div>
+        <EventDate date={date} />
 
-        <div className='title-card' variant='h5' component='h2'>
+        <div className={`title-card ${hasPassed ? 'past' : ''}`} variant='h5' component='h2'>
           <p>{title}</p>
         </div>
       </div>

@@ -1,3 +1,82 @@
+@import '../../../styles/variables.scss';
+
+.card-home {
+  display: flex;
+  justify-content: center;
+}
+.card-container {
+  padding: 30px 7% 15px 7%;
+}
+.icon-calendar {
+  margin-left: 10px;
+  width: 25px;
+}
+.back-card {
+  z-index: 1000;
+  background: white;
+}
+.card {
+  background: #fff;
+  border-radius: 2px;
+  display: inline-block;
+  margin: 1rem;
+  position: relative;
+  width: 100%;
+  height: 280px;
+
+  @media (max-width: 992px) {
+    height: 300px;
+  }
+}
+.card-shadow {
+  box-shadow: 0px 5px 20px -5px #ececec;
+}
+
+.card-shadow:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
 .container-date {
   padding: 15px;
+  div:first-child {
+    display: flex;
+    align-items: flex-end;
+    margin-top: 25px;
+  }
+}
+
+.container-date img {
+  margin: 0 25px;
+}
+.date {
+  margin: 0;
+  color: $orange;
+  font-family: 'Comfortaa';
+  font-size: 15px;
+  letter-spacing: 2.4px;
+  line-height: 28px;
+}
+.title-card {
+  &.past {
+    p {
+      color: $pastGrey;
+    }
+  }
+}
+.title-card p {
+  display: flex;
+  justify-content: space-evenly;
+  font-family: 'Comfortaa';
+  color: $violetCard;
+  font-weight: 600;
+  margin: 30px;
+  line-height: 35px;
+  font-size: 24px;
+}
+.more p {
+  margin-top: 70px;
+  margin-left: 12px;
+  font-family: 'PT Mono';
+  color: $violetCard;
+  width: 90%;
 }

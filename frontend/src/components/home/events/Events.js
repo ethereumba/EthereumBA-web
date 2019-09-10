@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
 
 import Button from '../../common/button/Button'
-import EventsCard from '../eventsCard/EventsCard'
+import EventCard from '../../common/eventCard/EventCard'
 import Slider from 'react-slick'
 import Prev from '../../../assets/icons/chevron-left.svg'
 import Next from '../../../assets/icons/chevron-right.svg'
-import calendar from '../../../assets/icons/icon-calendar.svg'
 import Social from '../social/Social'
 
 import './events.scss'
@@ -13,21 +12,18 @@ import './events.scss'
 const eventCards = [
   {
     id: 1,
-    imageCalendar: calendar,
     date: '07 FEB 2018',
     title: '#3 Ethereum Buenos Aires: Smart Contracts Upgrades & DeFi',
     more: 'Ethereum is about bringing together like minds around...',
   },
   {
     id: 2,
-    imageCalendar: calendar,
     date: '07 FEB 2018',
     title: '#4 Ethereum Buenos Aires: Escalando un mercado basado en Blockchain',
     more: 'How Plasma Tvs And Lcd Tvs Differ Lorem ipsum dol…',
   },
   {
     id: 3,
-    imageCalendar: calendar,
     date: '07 FEB 2018',
     title: '#5 Ethereum Buenos Aires: Lightning + DeFi',
     more: 'Ethereum is about bringing together like minds around...',
@@ -73,16 +69,7 @@ export default class Events extends Component {
             <div className='cards-events'>
               <Slider {...settings}>
                 {eventCards.map(card => {
-                  return (
-                    <EventsCard
-                      key={card.id}
-                      id={card.id}
-                      image={card.imageCalendar}
-                      date={card.date}
-                      title={card.title}
-                      more={card.more}
-                    />
-                  )
+                  return <EventCard key={card.id} id={card.id} date={card.date} title={card.title} more={card.more} />
                 })}
               </Slider>
             </div>
