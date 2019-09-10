@@ -1,7 +1,7 @@
 import React from 'react'
 import { Grid } from '@material-ui/core'
 
-import getCardBackground from '../../../utils/utils'
+import getCardBackground from '../../../utils/helpers'
 import Button from '../../common/button/Button'
 import EventDetails from '../../common/eventDetails/EventDetails'
 import './upcomingEventCard.scss'
