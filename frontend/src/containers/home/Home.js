@@ -17,16 +17,18 @@ to learn about and develop for Ethereum`
 
 class Home extends Component {
   componentDidMount() {
-    dispatch(requestEvents)
+    this.props.requestEvents()
   }
 
   render() {
+    const { events } = this.props
+
     return (
       <div>
         <Header logo />
         <Banner text={homeBannerText} background={Background} />
         <div className='gradient'>
-          <Events />
+          <Events events={events} />
           <Community />
           <Partners />
           <Social />
@@ -38,8 +40,17 @@ class Home extends Component {
 
 const mapStateToProps = state => {
   return {
-    events: state.events,
+    events: state.events.data,
   }
 }
 
-export default connect(mapStateToProps)(Home)
+const mapDispatchToProps = dispatch => {
+  return {
+    requestEvents: () => dispatch(requestEvents()),
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Home)

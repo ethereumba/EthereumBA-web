@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Grid } from '@material-ui/core'
+import { connect } from 'redux'
 
 import Header from '../../components/header/Header'
 import Banner from '../../components/common/banner/Banner'
@@ -49,7 +50,7 @@ const upcomingEvents = [
     address: 'El Salvador 5218, Buenos Aires',
   },
 ]
-export default class Events extends Component {
+class Events extends Component {
   render() {
     return (
       <div className={'events'}>
@@ -92,3 +93,5 @@ export default class Events extends Component {
     )
   }
 }
+
+export default Events

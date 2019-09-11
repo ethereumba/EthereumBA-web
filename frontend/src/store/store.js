@@ -6,8 +6,9 @@ import { createBrowserHistory } from 'history'
 const history = createBrowserHistory()
 
 function configureStore() {
-  const store = createStore(createRootReducer(), applyMiddleware(thunk))
-  return store
+  const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+  const store = createStore(createRootReducer(), composeEnhancers(applyMiddleware(thunk)))
+  return { store }
 }
 
 export { configureStore as default, history }

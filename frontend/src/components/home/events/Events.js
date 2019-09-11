@@ -6,9 +6,9 @@ import Slider from 'react-slick'
 import Prev from '../../../assets/icons/chevron-left.svg'
 import Next from '../../../assets/icons/chevron-right.svg'
 import Social from '../social/Social'
-
 import './events.scss'
 
+// To be deleted once we have a dateFormatter helper
 const eventCards = [
   {
     id: 1,
@@ -22,12 +22,12 @@ const eventCards = [
     title: '#4 Ethereum Buenos Aires: Escalando un mercado basado en Blockchain',
     more: 'How Plasma Tvs And Lcd Tvs Differ Lorem ipsum dol…',
   },
-  {
-    id: 3,
-    date: '07 FEB 2018',
-    title: '#5 Ethereum Buenos Aires: Lightning + DeFi',
-    more: 'Ethereum is about bringing together like minds around...',
-  },
+  // {
+  //   id: 3,
+  //   date: '07 FEB 2018',
+  //   title: '#5 Ethereum Buenos Aires: Lightning + DeFi',
+  //   more: 'Ethereum is about bringing together like minds around...',
+  // },
 ]
 
 export default class Events extends Component {
@@ -58,6 +58,9 @@ export default class Events extends Component {
         },
       ],
     }
+
+    const { events } = this.props
+
     return (
       <div className={'background-events'}>
         <div className={'events'}>
@@ -68,15 +71,24 @@ export default class Events extends Component {
 
             <div className='cards-events'>
               <Slider {...settings}>
-                {eventCards.map(card => {
-                  return <EventCard key={card.id} id={card.id} date={card.date} title={card.title} more={card.more} />
-                })}
+                {events.length > 0 &&
+                  events.map(event => {
+                    return (
+                      <EventCard
+                        key={event.id}
+                        id={event.id}
+                        date={event.date}
+                        title={event.title}
+                        more={event.description}
+                      />
+                    )
+                  })}
               </Slider>
             </div>
           </div>
 
           <div className={'button-events'}>
-            <Button title={'View All Events'} href={'/events'} />
+            <Button title={'View All Events'} url={'/events'} />
           </div>
         </div>
       </div>

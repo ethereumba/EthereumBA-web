@@ -1,8 +1,20 @@
+import axios from 'axios'
+
+import API_ROUTES from '../../utils/api'
 import { EVENTS_REQUEST, EVENTS_SUCCESS, EVENTS_FAILURE } from './constants'
 
 const requestEvents = () => {
-  return {
-    type: EVENTS_REQUEST,
+  return dispatch => {
+    dispatch({ type: EVENTS_REQUEST })
+    axios
+      .get(API_ROUTES.events)
+      .then(res => {
+        const events = res.data
+        dispatch(requestEventsSuccess(events))
+      })
+      .catch(err => {
+        console.log('error', err)
+      })
   }
 }
 
