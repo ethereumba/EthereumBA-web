@@ -3,21 +3,37 @@
 .banner {
   margin-top: -140px;
   position: relative;
+  overflow: hidden;
+  height: 600px;
+  display: flex;
+
+  &.top {
+    img {
+      object-position: center top;
+    }
+  }
 
   img {
-    width: 100%;
+    min-width: 100vw;
+    height: 100%;
+    object-fit: cover;
+    object-position: center bottom;
   }
+
   .banner__text {
     position: absolute;
     width: 100%;
     top: 35%;
     text-align: center;
+
     &.lightTheme {
-      top: 22%;
+      top: 28%;
+
       h4 {
         color: $violetCard;
       }
     }
+
     h4 {
       margin: 0;
       font-size: 30px;

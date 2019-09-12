@@ -26,7 +26,7 @@ class Events extends Component {
     return (
       <div className={'events'}>
         <Header lightTheme />
-        <Banner text={eventsBannerText} background={Background} lightTheme />
+        <Banner text={eventsBannerText} background={Background} lightTheme positionTop />
 
         <div className='events__upcoming-events'>
           <div className='events__subtitle'>
