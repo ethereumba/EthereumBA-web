@@ -31,7 +31,7 @@ const Stats = ({}) => {
         </div>
 
         <div className='stats__btn'>
-          <Button title={'Join us on Meetup'} url={''} />
+          <Button title={'Join us on Meetup'} url={'https://www.meetup.com/ethereum-ba/'} anchor />
         </div>
       </div>
     </div>

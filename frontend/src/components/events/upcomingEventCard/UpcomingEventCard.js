@@ -6,7 +6,7 @@ import Button from '../../common/button/Button'
 import EventDetails from '../../common/eventDetails/EventDetails'
 import './upcomingEventCard.scss'
 
-const UpcomingEventCard = ({ id, title, date, time, address, hasPassed }) => {
+const UpcomingEventCard = ({ id, title, date, time, address, hasPassed, url }) => {
   return (
     <Grid item xs={12} md={6}>
       <div className='card-event'>
@@ -23,7 +23,7 @@ const UpcomingEventCard = ({ id, title, date, time, address, hasPassed }) => {
                 <EventDetails date={date} time={time} address={address} hasPassed={hasPassed} />
               </div>
               <div className={'upcoming-event__body__cta'}>
-                <Button title='join meetup' url={''} />
+                <Button title='join meetup' url={url} anchor />
               </div>
             </div>
           </div>

@@ -25,7 +25,7 @@ class Home extends Component {
 
     return (
       <div>
-        <Header logo />
+        <Header />
         <Banner text={homeBannerText} background={Background} />
         <div className='gradient'>
           <Events events={events} />

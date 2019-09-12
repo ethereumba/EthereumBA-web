@@ -5,22 +5,22 @@ import { slide as Menu } from 'react-burger-menu'
 
 /* Components */
 import Logo from '../../assets/temporary-white-logo.svg'
+import LightThemeLogo from '../../assets/ethBuenosAires-light.svg'
 import './header.scss'
 
 export default class Header extends Component {
   render() {
-    const { logo, lightTheme } = this.props
+    const { lightTheme } = this.props
 
     return (
       <div className='main-header'>
         <div className='container'>
-          {logo && (
-            <div className='header-logo'>
-              <Link to={'/'}>
-                <img src={Logo} className={'logo'} alt={'Ethereum Buenos Aires'} />
-              </Link>
-            </div>
-          )}
+          <div className='header-logo'>
+            <Link to={'/'}>
+              <img src={lightTheme ? LightThemeLogo : Logo} className={'logo'} alt={'Ethereum Buenos Aires'} />
+            </Link>
+          </div>
+
           <div className={`menu ${lightTheme ? 'lightTheme' : ''}`}>
             <Menu right>
               <Link to='/' className='menu-item'>
@@ -28,9 +28,6 @@ export default class Header extends Component {
               </Link>
               <Link to='/events' className='menu-item'>
                 EVENTS
-              </Link>
-              <Link to='/education' className='menu-item'>
-                EDUCATION
               </Link>
             </Menu>
           </div>

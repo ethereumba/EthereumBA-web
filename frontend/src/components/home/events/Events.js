@@ -1,43 +1,18 @@
 import React, { Component } from 'react'
+import { Grid } from '@material-ui/core'
 
 import Button from '../../common/button/Button'
 import EventCard from '../../common/eventCard/EventCard'
-import Slider from 'react-slick'
-import Prev from '../../../assets/icons/chevron-left.svg'
-import Next from '../../../assets/icons/chevron-right.svg'
-import Social from '../social/Social'
 import './events.scss'
 
 export default class Events extends Component {
   render() {
-    const settings = {
-      arrows: true,
-      dots: false,
-      infinite: true,
-      speed: 500,
-      slidesToShow: 3,
-      slidesToScroll: 1,
-      prevArrow: <img src={Prev} alt='Atrás' />,
-      nextArrow: <img src={Next} alt='Siguiente' />,
-      responsive: [
-        {
-          breakpoint: 1200,
-          settings: {
-            slidesToShow: 2,
-          },
-        },
-        {
-          breakpoint: 768,
-          settings: {
-            slidesToShow: 1,
-            arrows: false,
-            dots: true,
-          },
-        },
-      ],
-    }
-
     const { events } = this.props
+
+    let eventsToDisplay = events.length > 0 && events.length <= 3 && events
+    if (events.length > 3) {
+      eventsToDisplay = events.slice(events.length - 3, events.length)
+    }
 
     return (
       <div className={'background-events'}>
@@ -48,20 +23,20 @@ export default class Events extends Component {
             </div>
 
             <div className='cards-events'>
-              <Slider {...settings}>
-                {events.length > 0 &&
-                  events.map(event => {
-                    return (
+              <Grid container className='events__container'>
+                {eventsToDisplay &&
+                  eventsToDisplay.map(event => (
+                    <Grid item xs={12} md={6} lg={4}>
                       <EventCard
                         key={event.id}
                         id={event.id}
-                        date={event.date}
                         title={event.title}
+                        date={event.date}
                         hasPassed={event.hasPassed}
                       />
-                    )
-                  })}
-              </Slider>
+                    </Grid>
+                  ))}
+              </Grid>
             </div>
           </div>
 

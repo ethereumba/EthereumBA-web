@@ -5,9 +5,9 @@ import { Grid } from '@material-ui/core'
 import EventDate from '../../common/eventDetails/EventDate'
 import './eventCard.scss'
 
-const EventCard = ({ id, date, title, hasPassed }) => (
+const EventCard = ({ id, date, title, hasPassed, url }) => (
   <div className='card-home'>
-    <div className='card card-shadow'>
+    <a href={url} target='_blank' className='card card-shadow'>
       <div className='card-container'>
         <EventDate date={date} hasPassed={hasPassed} />
 
@@ -15,7 +15,7 @@ const EventCard = ({ id, date, title, hasPassed }) => (
           <p>{title}</p>
         </div>
       </div>
-    </div>
+    </a>
   </div>
 )
 
@@ -24,6 +24,7 @@ EventCard.propTypes = {
   image: PropTypes.string,
   date: PropTypes.string,
   title: PropTypes.string,
+  url: PropTypes.string,
 }
 
 export default EventCard
