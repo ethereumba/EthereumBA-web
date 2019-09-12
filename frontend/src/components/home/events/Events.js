@@ -8,28 +8,6 @@ import Next from '../../../assets/icons/chevron-right.svg'
 import Social from '../social/Social'
 import './events.scss'
 
-// To be deleted once we have a dateFormatter helper
-const eventCards = [
-  {
-    id: 1,
-    date: '07 FEB 2018',
-    title: '#3 Ethereum Buenos Aires: Smart Contracts Upgrades & DeFi',
-    more: 'Ethereum is about bringing together like minds around...',
-  },
-  {
-    id: 2,
-    date: '07 FEB 2018',
-    title: '#4 Ethereum Buenos Aires: Escalando un mercado basado en Blockchain',
-    more: 'How Plasma Tvs And Lcd Tvs Differ Lorem ipsum dol…',
-  },
-  // {
-  //   id: 3,
-  //   date: '07 FEB 2018',
-  //   title: '#5 Ethereum Buenos Aires: Lightning + DeFi',
-  //   more: 'Ethereum is about bringing together like minds around...',
-  // },
-]
-
 export default class Events extends Component {
   render() {
     const settings = {
@@ -79,7 +57,7 @@ export default class Events extends Component {
                         id={event.id}
                         date={event.date}
                         title={event.title}
-                        more={event.description}
+                        hasPassed={event.hasPassed}
                       />
                     )
                   })}

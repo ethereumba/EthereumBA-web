@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { Grid } from '@material-ui/core'
-import { connect } from 'redux'
+import { connect } from 'react-redux'
 
+import { requestEvents } from '../../modules/events/actions'
 import Header from '../../components/header/Header'
 import Banner from '../../components/common/banner/Banner'
 import Background from '../../assets/events-main-banner.svg'
@@ -13,45 +14,50 @@ const eventsBannerText = `Our events are open to anyone interested
 on the subject, regardless of previous
 experience`
 
-const pastEvents = [
-  {
-    id: 1,
-    date: '07 FEB 2018',
-    title: '#3 Ethereum Buenos Aires: Smart Contracts Upgrades & DeFi',
-    more: 'Ethereum is about bringing together like minds around...',
-  },
-  {
-    id: 2,
-    date: '07 FEB 2018',
-    title: '#4 Ethereum Buenos Aires: Escalando un mercado basado en Blockchain',
-    more: 'How Plasma Tvs And Lcd Tvs Differ Lorem ipsum dol…',
-  },
-  {
-    id: 3,
-    date: '07 FEB 2018',
-    title: '#5 Ethereum Buenos Aires: Lightning + DeFi',
-    more: 'Ethereum is about bringing together like minds around...',
-  },
-]
+// const pastEvents = [
+//   {
+//     id: 1,
+//     date: '07 FEB 2018',
+//     title: '#3 Ethereum Buenos Aires: Smart Contracts Upgrades & DeFi',
+//     more: 'Ethereum is about bringing together like minds around...',
+//   },
+//   {
+//     id: 2,
+//     date: '07 FEB 2018',
+//     title: '#4 Ethereum Buenos Aires: Escalando un mercado basado en Blockchain',
+//     more: 'How Plasma Tvs And Lcd Tvs Differ Lorem ipsum dol…',
+//   },
+//   {
+//     id: 3,
+//     date: '07 FEB 2018',
+//     title: '#5 Ethereum Buenos Aires: Lightning + DeFi',
+//     more: 'Ethereum is about bringing together like minds around...',
+//   },
+// ]
 
-const upcomingEvents = [
-  {
-    id: '10',
-    title: 'Ethereum Buenos Aires: xDai + Experimental',
-    date: 'Jue 26 Ago',
-    time: '19:00 hs',
-    address: 'El Salvador 5218, Buenos Aires',
-  },
-  {
-    id: '11',
-    title: 'Ethereum Buenos Aires: Escalando un mercado basado en Blockchain',
-    date: 'Jue 29 Ago',
-    time: '19:00 hs',
-    address: 'El Salvador 5218, Buenos Aires',
-  },
-]
+// const upcomingEvents = [
+//   {
+//     id: '10',
+//     title: 'Ethereum Buenos Aires: xDai + Experimental',
+//     date: 'Jue 26 Ago',
+//     time: '19:00 hs',
+//     address: 'El Salvador 5218, Buenos Aires',
+//   },
+//   {
+//     id: '11',
+//     title: 'Ethereum Buenos Aires: Escalando un mercado basado en Blockchain',
+//     date: 'Jue 29 Ago',
+//     time: '19:00 hs',
+//     address: 'El Salvador 5218, Buenos Aires',
+//   },
+// ]
 class Events extends Component {
+  componentDidMount() {
+    this.props.requestEvents()
+  }
+
   render() {
+    const { pastEvents, upcomingEvents } = this.props
     return (
       <div className={'events'}>
         <Header lightTheme />
@@ -63,16 +69,18 @@ class Events extends Component {
           </div>
           <Grid container className='events__container'>
             {upcomingEvents &&
-              upcomingEvents.map(event => (
-                <UpcomingEventCard
-                  id={event.id}
-                  title={event.title}
-                  date={event.date}
-                  time={event.time}
-                  address={event.address}
-                  hasPassed
-                />
-              ))}
+              upcomingEvents.map(event => {
+                const address = `${event.place_street} ${event.place_number}, ${event.place_city}`
+                return (
+                  <UpcomingEventCard
+                    id={event.id}
+                    title={event.title}
+                    date={event.date}
+                    time={event.time}
+                    address={address}
+                  />
+                )
+              })}
           </Grid>
         </div>
 
@@ -84,7 +92,7 @@ class Events extends Component {
             {pastEvents &&
               pastEvents.map(event => (
                 <Grid item xs={12} md={6} lg={4}>
-                  <EventCard id={event.id} title={event.title} date={event.date} />
+                  <EventCard id={event.id} title={event.title} date={event.date} hasPassed={event.hasPassed} />
                 </Grid>
               ))}
           </Grid>
@@ -94,4 +102,20 @@ class Events extends Component {
   }
 }
 
-export default Events
+const mapStateToProps = state => {
+  return {
+    pastEvents: state.events.pastEvents,
+    upcomingEvents: state.events.upcomingEvents,
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    requestEvents: () => dispatch(requestEvents()),
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Events)

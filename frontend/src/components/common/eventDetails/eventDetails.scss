@@ -12,7 +12,24 @@
 
 .event-datail {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+
+  &.past {
+    span {
+      color: $pastGrey;
+    }
+  }
+
+  &.event-date {
+    span {
+      text-transform: capitalize;
+    }
+  }
+
+  img {
+    height: 23px;
+  }
+
   span {
     margin-left: 15px;
     font-family: Comfortaa;
@@ -20,6 +37,6 @@
     font-weight: bold;
     color: $violetTitle;
     white-space: pre-line;
-    line-height: 24px;
+    line-height: 23px;
   }
 }
