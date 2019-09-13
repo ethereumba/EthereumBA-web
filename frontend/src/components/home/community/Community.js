@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Grid } from '@material-ui/core'
 
-import Stats from '../stats/Stats'
+import Stats from '../../common/stats/Stats'
 import CommunityCard from '../../home/communityCard/CommunityCard'
 import CommunityImage1 from '../../../assets/icons/1.png'
 import CommunityImage2 from '../../../assets/icons/2.png'

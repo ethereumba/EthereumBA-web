@@ -15,6 +15,7 @@ const getCardBackground = id => upcomingEventCardBackgrounds[id % upcomingEventC
 const hasPassed = date => {
   const dateToCompareTo = new Date(date)
   const today = new Date()
+  // TODO: today is still upcomings
   const hasEventPassed = today > dateToCompareTo
   return hasEventPassed
 }

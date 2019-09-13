@@ -10,6 +10,7 @@ import Banner from '../../components/common/banner/Banner'
 import Background from '../../assets/events-main-banner.svg'
 import UpcomingEventCard from '../../components/events/upcomingEventCard/UpcomingEventCard'
 import EventCard from '../../components/common/eventCard/EventCard'
+import Button from '../../components/common/button/Button'
 import './events.scss'
 
 const eventsBannerText = `Our events are open to anyone interested
@@ -17,12 +18,45 @@ on the subject, regardless of previous
 experience`
 
 class Events extends Component {
+  constructor() {
+    super()
+
+    this.state = {
+      eventsShown: 0,
+      showMore: false,
+      page: 1,
+    }
+  }
+
   componentDidMount() {
     this.props.requestEvents()
   }
 
+  getMoreEvents = () => {
+    const { nextApi } = this.props
+    this.props.requestEvents(nextApi)
+    this.setState(prevState => ({ page: prevState.page + 1 }))
+  }
+
+  componentDidUpdate(prevProps) {
+    const { totalEventsCount, currentFetchEvents } = this.props
+    const availableEventsInCurrentFetch = currentFetchEvents.length
+    const eventsShown =
+      eventsShown === 0 ? availableEventsInCurrentFetch : this.state.eventsShown + availableEventsInCurrentFetch
+    const showMore = totalEventsCount > eventsShown
+
+    if (prevProps.currentFetchEvents !== currentFetchEvents) {
+      this.setState({
+        showMore: showMore,
+        eventsShown: eventsShown,
+      })
+    }
+  }
+
   render() {
     const { pastEvents, upcomingEvents } = this.props
+    const { showMore } = this.state
+
     return (
       <div className={'events'}>
         <Header lightTheme />
@@ -68,6 +102,10 @@ class Events extends Component {
                 </Grid>
               ))}
           </Grid>
+
+          <div className='events__past-events__btn'>
+            {showMore && <Button onClick={this.getMoreEvents} title={'view more'} button />}
+          </div>
         </div>
 
         <Stats />
@@ -78,14 +116,17 @@ class Events extends Component {
 
 const mapStateToProps = state => {
   return {
+    currentFetchEvents: state.events.data,
     pastEvents: state.events.pastEvents,
     upcomingEvents: state.events.upcomingEvents,
+    totalEventsCount: state.events.totalEventsCount,
+    nextApi: state.events.nextApi,
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    requestEvents: () => dispatch(requestEvents()),
+    requestEvents: nextApi => dispatch(requestEvents(nextApi)),
   }
 }
 

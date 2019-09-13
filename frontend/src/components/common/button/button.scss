@@ -13,4 +13,11 @@
   letter-spacing: 0.43px;
   text-align: center;
   cursor: pointer;
+  border: none;
+
+  &.secondary-button {
+    border: 1px solid $orange;
+    background-color: white;
+    color: $orange;
+  }
 }

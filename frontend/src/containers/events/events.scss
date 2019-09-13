@@ -33,5 +33,15 @@
 
   &__past-events {
     margin-bottom: 110px;
+
+    &__btn {
+      display: flex;
+      justify-content: center;
+      height: 93px;
+
+      button {
+        margin-top: 40px;
+      }
+    }
   }
 }

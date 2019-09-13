@@ -8,11 +8,14 @@ import './events.scss'
 export default class Events extends Component {
   render() {
     const { events } = this.props
+    const eventsLength = events.length
 
-    let eventsToDisplay = events.length > 0 && events.length <= 3 && events
-    if (events.length > 3) {
-      eventsToDisplay = events.slice(events.length - 3, events.length)
+    let eventsToDisplay = eventsLength > 0 && eventsLength <= 3 && events
+    if (eventsLength > 3) {
+      eventsToDisplay = events.slice(0, 3)
     }
+
+    const orderedEventsToDisplay = eventsToDisplay && [...eventsToDisplay].reverse()
 
     return (
       <div className={'background-events'}>
@@ -24,8 +27,8 @@ export default class Events extends Component {
 
             <div className='cards-events'>
               <Grid container className='events__container'>
-                {eventsToDisplay &&
-                  eventsToDisplay.map(event => (
+                {orderedEventsToDisplay &&
+                  orderedEventsToDisplay.map(event => (
                     <Grid item xs={12} md={6} lg={4}>
                       <EventCard
                         key={event.id}

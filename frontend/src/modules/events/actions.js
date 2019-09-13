@@ -3,11 +3,12 @@ import axios from 'axios'
 import API_ROUTES from '../../utils/api'
 import { EVENTS_REQUEST, EVENTS_SUCCESS, EVENTS_FAILURE } from './constants'
 
-const requestEvents = () => {
+const requestEvents = nextApi => {
   return dispatch => {
     dispatch({ type: EVENTS_REQUEST })
+    const eventsUrl = nextApi ? nextApi : API_ROUTES.events
     axios
-      .get(API_ROUTES.events)
+      .get(eventsUrl)
       .then(res => {
         const events = res.data
         dispatch(requestEventsSuccess(events))

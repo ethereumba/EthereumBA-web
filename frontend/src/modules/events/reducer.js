@@ -3,7 +3,7 @@ import { getChronologicallyOrderedEvents, getFilteredEvents } from '../../utils/
 import { EVENTS_REQUEST, EVENTS_SUCCESS, EVENTS_FAILURE } from './constants'
 
 const initialState = {
-  data: {},
+  data: [],
   loading: false,
 }
 
@@ -14,14 +14,18 @@ const EventsReducer = (state = initialState, action) => {
     }
     case EVENTS_SUCCESS: {
       const chronologicallyOrderEvents = getChronologicallyOrderedEvents(action.payload.results)
-      const filteredEvents = getFilteredEvents(chronologicallyOrderEvents)
+      const { count, next } = action.payload
+      const data = state.data ? [...state.data].concat(chronologicallyOrderEvents) : chronologicallyOrderEvents
+      const filteredEvents = getFilteredEvents(data)
       const { pastEvents, upcomingEvents } = filteredEvents
       return {
         ...state,
-        data: chronologicallyOrderEvents,
+        data: data,
         pastEvents,
         upcomingEvents,
         loading: false,
+        totalEventsCount: count,
+        nextApi: next,
       }
     }
     case EVENTS_FAILURE: {
