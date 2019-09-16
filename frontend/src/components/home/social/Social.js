@@ -37,7 +37,7 @@ export default class Social extends Component {
           <p>get in touch</p>
         </div>
 
-        <div className='container-social' container>
+        <div className='container-social'>
           {iconSocial.map(social => {
             return (
               <div key={social.icon} className={`${social.class} box-social`}>

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Grid } from '@material-ui/core'
 import { connect } from 'react-redux'
 
-import { requestEvents } from '../../modules/events/actions'
+import { requestEvents, requestMoreEvents } from '../../modules/events/actions'
 
 import Stats from '../../components/common/stats/Stats'
 import Header from '../../components/header/Header'
@@ -24,7 +24,6 @@ class Events extends Component {
     this.state = {
       eventsShown: 0,
       showMore: false,
-      page: 1,
     }
   }
 
@@ -34,18 +33,18 @@ class Events extends Component {
 
   getMoreEvents = () => {
     const { nextApi } = this.props
-    this.props.requestEvents(nextApi)
-    this.setState(prevState => ({ page: prevState.page + 1 }))
+    this.props.requestMoreEvents(nextApi)
   }
 
   componentDidUpdate(prevProps) {
     const { totalEventsCount, currentFetchEvents } = this.props
-    const availableEventsInCurrentFetch = currentFetchEvents.length
-    const eventsShown =
-      eventsShown === 0 ? availableEventsInCurrentFetch : this.state.eventsShown + availableEventsInCurrentFetch
-    const showMore = totalEventsCount > eventsShown
 
     if (prevProps.currentFetchEvents !== currentFetchEvents) {
+      const availableEventsInCurrentFetch = currentFetchEvents.length
+      const eventsShown =
+        eventsShown === 0 ? availableEventsInCurrentFetch : this.state.eventsShown + availableEventsInCurrentFetch
+      const showMore = totalEventsCount > eventsShown
+
       this.setState({
         showMore: showMore,
         eventsShown: eventsShown,
@@ -68,10 +67,11 @@ class Events extends Component {
           </div>
           <Grid container className='events__container'>
             {upcomingEvents &&
-              upcomingEvents.map(event => {
+              upcomingEvents.map((event, i) => {
                 const address = `${event.place_street} ${event.place_number}, ${event.place_city}`
                 return (
                   <UpcomingEventCard
+                    key={`events-upcoming__${event.id}-${i}`}
                     id={event.id}
                     title={event.title}
                     date={event.date}
@@ -90,8 +90,8 @@ class Events extends Component {
           </div>
           <Grid container className='events__container'>
             {pastEvents &&
-              pastEvents.map(event => (
-                <Grid item xs={12} md={6} lg={4}>
+              pastEvents.map((event, i) => (
+                <Grid item xs={12} md={6} lg={4} key={`events-past__${event.id}-${i}`}>
                   <EventCard
                     id={event.id}
                     title={event.title}
@@ -126,7 +126,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    requestEvents: nextApi => dispatch(requestEvents(nextApi)),
+    requestEvents: () => dispatch(requestEvents()),
+    requestMoreEvents: nextApi => dispatch(requestMoreEvents(nextApi)),
   }
 }
 

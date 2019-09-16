@@ -28,15 +28,9 @@ export default class Events extends Component {
             <div className='cards-events'>
               <Grid container className='events__container'>
                 {orderedEventsToDisplay &&
-                  orderedEventsToDisplay.map(event => (
-                    <Grid item xs={12} md={6} lg={4}>
-                      <EventCard
-                        key={event.id}
-                        id={event.id}
-                        title={event.title}
-                        date={event.date}
-                        hasPassed={event.hasPassed}
-                      />
+                  orderedEventsToDisplay.map((event, i) => (
+                    <Grid item xs={12} md={6} lg={4} key={`home-events__${event.id}-${i}`}>
+                      <EventCard id={event.id} title={event.title} date={event.date} hasPassed={event.hasPassed} />
                     </Grid>
                   ))}
               </Grid>
