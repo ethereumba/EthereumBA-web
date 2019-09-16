@@ -16,6 +16,7 @@
 }
 .slick-slider {
   position: relative;
+
   .slick-arrow {
     position: absolute;
     top: 40%;
@@ -25,9 +26,11 @@
     cursor: pointer;
     background: transparent;
     border: none;
+
     &.slick-prev {
       left: -4%;
     }
+
     &.slick-next {
       right: -4%;
     }
@@ -35,6 +38,7 @@
 
   .slick-list {
     overflow: hidden;
+
     .slick-track {
       display: flex !important;
 
@@ -49,16 +53,19 @@
     justify-content: center;
     align-items: center;
     padding: 0;
+
     li {
       list-style: none;
       margin: 10px;
       border-radius: 20px;
       background-color: transparent;
       border: 1px solid grey;
+
       &.slick-active {
         border-color: $orange;
         background-color: $orange;
       }
+
       button {
         visibility: hidden;
         border-radius: 20px;
@@ -89,15 +96,13 @@
 .center {
   display: flex;
   justify-content: center;
+
   .title {
     margin: 140px 0 40px 0;
   }
 }
 
 .button-events {
-  // margin-top: 60px;
-  // display: flex;
-  // justify-content: center;
   margin-top: 40px;
   text-align: center;
 }

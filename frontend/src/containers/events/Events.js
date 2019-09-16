@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { Grid } from '@material-ui/core'
 import { connect } from 'react-redux'
 
@@ -112,6 +113,69 @@ class Events extends Component {
       </div>
     )
   }
+}
+
+Events.propTypes = {
+  currentFetchEvents: PropTypes.arrayOf(
+    PropTypes.shape({
+      date: PropTypes.string,
+      description: PropTypes.string,
+      hasPassed: PropTypes.bool,
+      id: PropTypes.number,
+      meetup_url: PropTypes.string,
+      photos: PropTypes.array,
+      place_city: PropTypes.string,
+      place_number: PropTypes.string,
+      place_street: PropTypes.string,
+      sponsors: PropTypes.array,
+      talks: PropTypes.array,
+      time: PropTypes.string,
+      title: PropTypes.string,
+    })
+  ).isRequired,
+  pastEvents: PropTypes.arrayOf(
+    PropTypes.shape({
+      date: PropTypes.string,
+      description: PropTypes.string,
+      hasPassed: PropTypes.bool,
+      id: PropTypes.number,
+      meetup_url: PropTypes.string,
+      photos: PropTypes.array,
+      place_city: PropTypes.string,
+      place_number: PropTypes.string,
+      place_street: PropTypes.string,
+      sponsors: PropTypes.array,
+      talks: PropTypes.array,
+      time: PropTypes.string,
+      title: PropTypes.string,
+    })
+  ),
+  upcomingEvents: PropTypes.arrayOf(
+    PropTypes.shape({
+      date: PropTypes.string,
+      description: PropTypes.string,
+      hasPassed: PropTypes.bool,
+      id: PropTypes.number,
+      meetup_url: PropTypes.string,
+      photos: PropTypes.array,
+      place_city: PropTypes.string,
+      place_number: PropTypes.string,
+      place_street: PropTypes.string,
+      sponsors: PropTypes.array,
+      talks: PropTypes.array,
+      time: PropTypes.string,
+      title: PropTypes.string,
+    })
+  ),
+  totalEventsCount: PropTypes.number,
+  nextApi: PropTypes.string,
+}
+
+Events.defaultProps = {
+  pastEvents: [],
+  upcomingEvents: [],
+  totalEventsCount: 0,
+  nextApi: '',
 }
 
 const mapStateToProps = state => {

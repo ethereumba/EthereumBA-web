@@ -14,8 +14,8 @@ const EventsReducer = (state = initialState, action) => {
     }
 
     case EVENTS_SUCCESS: {
-      const chronologicallyOrderEvents = getChronologicallyOrderedEvents(action.payload.results)
-      const { count, next } = action.payload
+      const { count, next, results } = action.payload
+      const chronologicallyOrderEvents = getChronologicallyOrderedEvents(results)
       const filteredEvents = getFilteredEvents(chronologicallyOrderEvents)
       const { pastEvents, upcomingEvents } = filteredEvents
       return {
@@ -30,8 +30,8 @@ const EventsReducer = (state = initialState, action) => {
     }
 
     case MORE_EVENTS_SUCCESS: {
-      const chronologicallyOrderEvents = getChronologicallyOrderedEvents(action.payload.results)
-      const { count, next } = action.payload
+      const { count, next, results } = action.payload
+      const chronologicallyOrderEvents = getChronologicallyOrderedEvents(results)
       const data = [...state.data].concat(chronologicallyOrderEvents)
       const filteredEvents = getFilteredEvents(data)
       const { pastEvents, upcomingEvents } = filteredEvents

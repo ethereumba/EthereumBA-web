@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 
 import './button.scss'
@@ -19,6 +20,21 @@ const Button = ({ title, url, anchor, button, onClick }) => {
       {title}
     </Link>
   )
+}
+
+Button.propTypes = {
+  title: PropTypes.string.isRequired,
+  url: PropTypes.string,
+  anchor: PropTypes.bool,
+  button: PropTypes.bool,
+  onClick: PropTypes.func,
+}
+
+Button.defaultProps = {
+  url: '',
+  anchor: false,
+  button: false,
+  onClick: () => {},
 }
 
 export default Button

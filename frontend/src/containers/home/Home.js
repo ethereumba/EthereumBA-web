@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
 import Header from './../../components/header/Header'
@@ -36,6 +37,17 @@ class Home extends Component {
       </div>
     )
   }
+}
+
+Home.propTypes = {
+  events: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      title: PropTypes.string,
+      date: PropTypes.string,
+      hasPassed: PropTypes.bool,
+    })
+  ).isRequired,
 }
 
 const mapStateToProps = state => {

@@ -62,31 +62,34 @@ const logosPartner = [
   },
 ]
 
-export default class Partners extends Component {
-  render() {
-    return (
-      <div className={'partners'}>
-        <div className={'sub-title'}>
-          <p>partners</p>
-        </div>
-
-        <div className='container-partners'>
-          {logosPartner.map(logo => {
-            return (
-              <div className={'partners-logo'} key={`partners-logo__${logo.url}`}>
-                <a href={logo.url} target='_blank'>
-                  <img
-                    src={logo.image}
-                    alt={logo.alt}
-                    key={logo.image}
-                    style={{ height: logo.height, width: logo.width }}
-                  />
-                </a>
-              </div>
-            )
-          })}
-        </div>
+const Partners = () => {
+  return (
+    <div className={'partners'}>
+      <div className={'sub-title'}>
+        <p>partners</p>
       </div>
-    )
-  }
+
+      <div className='container-partners'>
+        {logosPartner.map(logo => {
+          return (
+            <div className={'partners-logo'} key={`partners-logo__${logo.url}`}>
+              <a href={logo.url} target='_blank'>
+                <img
+                  src={logo.image}
+                  alt={logo.alt}
+                  key={logo.image}
+                  style={{
+                    height: logo.height,
+                    width: logo.width,
+                  }}
+                />
+              </a>
+            </div>
+          )
+        })}
+      </div>
+    </div>
+  )
 }
+
+export default Partners

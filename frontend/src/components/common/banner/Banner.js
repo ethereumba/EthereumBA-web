@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import './banner.scss'
 
@@ -12,6 +13,18 @@ const Banner = ({ background, text, lightTheme, positionTop }) => {
       </div>
     </div>
   )
+}
+
+Banner.propTypes = {
+  background: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+  lightTheme: PropTypes.bool,
+  positionTop: PropTypes.bool,
+}
+
+Banner.defaultProps = {
+  lightTheme: false,
+  positionTop: false,
 }
 
 export default Banner
