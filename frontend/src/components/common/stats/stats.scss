@@ -1,0 +1,70 @@
+@import '../../../styles/variables.scss';
+
+.stats {
+  &--background {
+    background: url('../../../assets/stats.png') no-repeat;
+    background-size: cover;
+    height: 100%;
+  }
+
+  &__title {
+    display: flex;
+    justify-content: center;
+    padding: 60px 0;
+
+    .title {
+      display: flex;
+      text-align: center;
+      color: white;
+      font-family: 'Comfortaa';
+      font-size: 30px;
+      line-height: 43px;
+      margin: 0;
+    }
+  }
+
+  &__container {
+    display: flex;
+    justify-content: center;
+
+    &__stat {
+      height: 140px;
+      width: 140px;
+      border-radius: 70px;
+      background: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0 20px;
+
+      span {
+        color: $violetCard;
+        font-family: 'Comfortaa';
+        width: 80%;
+        text-align: center;
+
+        &:first-child {
+          height: 50%;
+          font-size: 30px;
+          display: flex;
+          justify-content: center;
+          align-items: flex-end;
+          font-size: 30px;
+          font-weight: bold;
+        }
+
+        &:last-child {
+          line-height: 16px;
+          font-size: 14px;
+          margin-top: 6px;
+        }
+      }
+    }
+  }
+
+  &__btn {
+    display: flex;
+    justify-content: center;
+    margin: 60px 0;
+  }
+}

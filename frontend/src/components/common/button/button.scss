@@ -1,0 +1,23 @@
+@import '../../../styles/variables.scss';
+
+.custom-button {
+  color: white;
+  background-color: $orange;
+  text-decoration: none;
+  font-family: Comfortaa;
+  padding: 15px 30px;
+  border-radius: 30px;
+  text-transform: capitalize;
+  font-size: 19px;
+  font-weight: 400;
+  letter-spacing: 0.43px;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+
+  &.secondary-button {
+    border: 1px solid $orange;
+    background-color: white;
+    color: $orange;
+  }
+}

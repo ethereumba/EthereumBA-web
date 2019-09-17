@@ -1,10 +1,22 @@
 @import '../../../styles/variables.scss';
 
+.title {
+  display: flex;
+  text-align: center;
+  font-family: 'Comfortaa';
+  font-size: 30px;
+  line-height: 43px;
+}
+
 .cards-events {
-  padding: 0 5%;
+  .title {
+    margin-top: 120px;
+    color: $violetTitle;
+  }
 }
 .slick-slider {
   position: relative;
+
   .slick-arrow {
     position: absolute;
     top: 40%;
@@ -14,9 +26,11 @@
     cursor: pointer;
     background: transparent;
     border: none;
+
     &.slick-prev {
       left: -4%;
     }
+
     &.slick-next {
       right: -4%;
     }
@@ -24,8 +38,13 @@
 
   .slick-list {
     overflow: hidden;
+
     .slick-track {
       display: flex !important;
+
+      .slick-cloned {
+        display: none;
+      }
     }
   }
 
@@ -34,16 +53,19 @@
     justify-content: center;
     align-items: center;
     padding: 0;
+
     li {
       list-style: none;
       margin: 10px;
       border-radius: 20px;
       background-color: transparent;
       border: 1px solid grey;
+
       &.slick-active {
         border-color: $orange;
         background-color: $orange;
       }
+
       button {
         visibility: hidden;
         border-radius: 20px;
@@ -57,116 +79,30 @@
 
 .background-events {
   background-image: url('../../../assets/home-eth-shape.png');
-  background-position: center 30%;
+  background-position: center;
   background-repeat: no-repeat;
   background-size: 500px;
-  height: auto;
+  height: 900px;
   max-width: 100%;
   display: flex;
   flex-direction: column;
+
+  .events {
+    height: 900px;
+    background-color: transparent;
+  }
 }
 
 .center {
   display: flex;
   justify-content: center;
+
   .title {
-    margin: 120px 0 60px 0;
+    margin: 140px 0 40px 0;
   }
 }
 
-.card-home {
-  display: flex;
-  justify-content: center;
-}
-.card-container {
-  padding: 30px 7% 15px 7%;
-}
-.icon-calendar {
-  margin-left: 10px;
-  width: 25px;
-}
-.back-card {
-  z-index: 1000;
-  background: white;
-}
-.card {
-  background: #fff;
-  border-radius: 2px;
-  display: inline-block;
-  margin: 1rem;
-  position: relative;
-  width: 100%;
-  min-height: 304px;
-}
-.card-shadow {
-  box-shadow: 0px 5px 20px -5px #ececec;
-}
-
-.card-shadow:hover {
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-}
-
-.container-date img {
-  margin-top: 25px;
-  margin-left: 15px;
-}
-.date {
-  margin-top: -27px;
-  margin-left: 55px;
-  color: $orange;
-  font-family: 'Comfortaa';
-  font-size: 15px;
-  letter-spacing: 2.4px;
-  line-height: 28px;
-}
-
-.title {
-  display: flex;
-  text-align: center;
-  margin-top: 120px;
-  color: $violetTitle;
-  font-family: 'Comfortaa';
-  font-size: 30px;
-  line-height: 43px;
-}
-
-.title-card p {
-  display: flex;
-  justify-content: space-evenly;
-  font-family: 'Comfortaa';
-  color: $violetCard;
-  font-weight: 600;
-  margin-top: 10px;
-  margin-left: 15px;
-  line-height: 35px;
-  font-size: 24px;
-  width: 325px;
-}
-.more p {
-  margin-top: 70px;
-  margin-left: 12px;
-  font-family: 'PT Mono';
-  color: $violetCard;
-  width: 90%;
-}
-
 .button-events {
-  margin-top: 60px;
+  margin-top: 40px;
   text-align: center;
-}
-
-.btn-view {
-  background-color: $orange !important;
-  box-shadow: none !important;
-  border-radius: 29.5px !important;
-  width: 224px !important;
-  height: 49px !important;
-  text-transform: capitalize !important;
-  color: #ffffff !important;
-  font-family: 'Comfortaa' !important;
-  font-size: 19px !important;
-  font-weight: 400 !important;
-  letter-spacing: 0.43px !important;
-  line-height: 39px !important;
-  text-align: center !important;
 }
