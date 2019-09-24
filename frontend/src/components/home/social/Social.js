@@ -1,45 +1,57 @@
 import React, { Component } from 'react'
 import { Grid } from '@material-ui/core'
 
-
-import meetup from '../../../assets/icons/logo--script.svg'
-import discord from '../../../assets/icons/discord-brands.svg'
-import twitter from '../../../assets/icons/twitter-brands.svg'
+import Meetup from '../../../assets/social/meetup.svg'
+import Youtube from '../../../assets/social/youtube.svg'
+import Telegram from '../../../assets/social/telegram.svg'
 import './social.scss'
 
 const iconSocial = [
   {
-    icon: meetup,
+    icon: Meetup,
     class: 'meetup img',
-    name: 'Meetup'
+    name: 'Meetup',
+    url: 'https://www.meetup.com/ethereum-ba/',
   },
   {
-    icon: discord,
-    class: 'discord img',
-    name: 'Discord'
+    icon: Youtube,
+    class: 'youtube img',
+    name: 'Youtube',
+    url: 'https://www.youtube.com/channel/UCSFiCr8d3ej_pC57E75pPew',
   },
   {
-    icon: twitter,
-    class: 'twitter img',
-    name: 'Twitter'
-  }
+    icon: Telegram,
+    class: 'telegram img',
+    name: 'Telegram',
+    url: 'https://t.me/ethbuenosaires',
+  },
 ]
 
 export default class Social extends Component {
   render() {
+    const date = new Date().getFullYear()
+
     return (
-      <div className="social">
-        <Grid className="container-social" container>
+      <div className='social'>
+        <div className={'sub-title'}>
+          <p>get in touch</p>
+        </div>
+
+        <div className='container-social'>
           {iconSocial.map(social => {
             return (
-              <Grid key={social.icon} item xs={3} sm={2} md={2} lg={1} className="box-social">
-                <div className={social.class}>
+              <div key={social.icon} className={`${social.class} box-social`}>
+                <a href={social.url} target='_blank'>
                   <img src={social.icon} alt={social.name} />
-                </div>
-              </Grid>
+                </a>
+              </div>
             )
           })}
-        </Grid>
+        </div>
+
+        <div className='footer'>
+          <p>Ethereum Buenos Aires {date}</p>
+        </div>
       </div>
     )
   }
