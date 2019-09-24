@@ -7,6 +7,7 @@ import { requestEvents, requestMoreEvents } from '../../modules/events/actions'
 
 import Stats from '../../components/common/stats/Stats'
 import Header from '../../components/header/Header'
+import Social from '../../components/common/social/Social'
 import Banner from '../../components/common/banner/Banner'
 import Background from '../../assets/events-main-banner.svg'
 import UpcomingEventCard from '../../components/events/upcomingEventCard/UpcomingEventCard'
@@ -110,6 +111,8 @@ class Events extends Component {
         </div>
 
         <Stats />
+
+        <Social />
       </div>
     )
   }
