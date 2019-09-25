@@ -5,9 +5,9 @@ import { Grid } from '@material-ui/core'
 import EventDate from '../../common/eventDetails/EventDate'
 import './eventCard.scss'
 
-const EventCard = ({ id, date, title, hasPassed, url }) => (
-  <div className='card-home'>
-    <a href={url} target='_blank' className='card card-shadow'>
+const EventCard = ({ handleClick, id, date, title, hasPassed, url }) => (
+  <div className='card-home' onClick={handleClick}>
+    <a className='card card-shadow'>
       <div className='card-container'>
         <EventDate date={date} hasPassed={hasPassed} />
 

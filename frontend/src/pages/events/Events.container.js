@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 
+// router
+import { withRouter } from 'react-router-dom'
+
 // proptypes
 import { arrayOf, number, string} from 'prop-types'
 
@@ -13,7 +16,7 @@ import { requestEvents, requestMoreEvents } from '../../modules/events/actions'
 // types
 import {eventType} from '../../utils/types'
 
-const EventsContainer = () => {
+const EventsContainer = ({ history }) => {
     // state
     const [eventsShown, setEventsShown] = useState(0)
     const [showMore, setShowMore] = useState(false)
@@ -26,12 +29,6 @@ const pastEvents = useSelector(state => state.events.pastEvents)
 const upcomingEvents = useSelector(state => state.events.upcomingEvents)
 const totalEventsCount = useSelector(state => state.events.totalEventsCount)
 const nextApi = useSelector(state => state.events.nextApi)
-
-
-
-  const getMoreEvents = () => {
-    dispatch(requestMoreEvents(nextApi))
-  }
 
   useEffect(() => {
     dispatch(requestEvents())
@@ -47,10 +44,16 @@ const nextApi = useSelector(state => state.events.nextApi)
       setShowMore(_showMore)
   }, [currentFetchEvents])
 
+  const getMoreEvents = () => {
+    dispatch(requestMoreEvents(nextApi))
+  }
 
+  const handleEventCardClick = (id) => {
+    history.push(`/events/${id}`)
+  }
 
     return (
-        <Events pastEvents={pastEvents} upcomingEvents={upcomingEvents} getMoreEvents={getMoreEvents} showMore={showMore} />
+        <Events handleEventCardClick={handleEventCardClick} pastEvents={pastEvents} upcomingEvents={upcomingEvents} getMoreEvents={getMoreEvents} showMore={showMore} />
     )
 }
 
@@ -70,4 +73,4 @@ EventsContainer.defaultProps = {
   nextApi: '',
 }
 
-export default EventsContainer
+export default withRouter(EventsContainer)

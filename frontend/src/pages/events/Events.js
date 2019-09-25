@@ -27,7 +27,7 @@ const eventsBannerText = `Our events are open to anyone interested
 on the subject, regardless of previous
 experience`
 
-const Events = ({getMoreEvents, showMore, pastEvents, upcomingEvents}) => 
+const Events = ({getMoreEvents, showMore, pastEvents, upcomingEvents, handleEventCardClick}) => 
       (
       <div className={'events'}>
         <Header lightTheme />
@@ -44,6 +44,7 @@ const Events = ({getMoreEvents, showMore, pastEvents, upcomingEvents}) =>
                 return (
                   <UpcomingEventCard
                     key={`events-upcoming__${event.id}-${i}`}
+                    handleClick={() => handleEventCardClick(event.id)}
                     id={event.id}
                     title={event.title}
                     date={event.date}
@@ -66,6 +67,7 @@ const Events = ({getMoreEvents, showMore, pastEvents, upcomingEvents}) =>
                 <Grid item xs={12} md={6} lg={4} key={`events-past__${event.id}-${i}`}>
                   <EventCard
                     id={event.id}
+                    handleClick={() => handleEventCardClick(event.id)}
                     title={event.title}
                     date={event.date}
                     hasPassed={event.hasPassed}

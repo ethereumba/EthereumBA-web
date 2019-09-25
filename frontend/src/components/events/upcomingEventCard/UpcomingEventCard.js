@@ -7,10 +7,10 @@ import Button from '../../common/button/Button'
 import EventDetails from '../../common/eventDetails/EventDetails'
 import './upcomingEventCard.scss'
 
-const UpcomingEventCard = ({ id, title, date, time, address, url }) => {
+const UpcomingEventCard = ({ handleClick, id, title, date, time, address, url }) => {
   return (
     <Grid item xs={12} md={6}>
-      <div className='card-event'>
+      <div className='card-event' onClick={handleClick}>
         <div className='card card-shadow large'>
           <div className='upcoming-event'>
             <div className='upcoming-event__header'>
