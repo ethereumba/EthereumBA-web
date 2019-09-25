@@ -1,20 +1,23 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { Provider } from 'react-redux'
 
-import Home from './containers/home/Home'
-import Ecosystem from './containers/ecosystem/Ecosystem'
-import Education from './containers/education/Education'
-import Events from './containers/events/Events'
+// pages
+import Home from './pages/home'
+import Ecosystem from './pages/ecosystem'
+import Education from './pages/education'
+import Events from './pages/events'
+
+// styles
 import './styles/main.scss'
 
+// store
 import configureStore, { history } from './store/store'
 
 const { store } = configureStore()
 
-class App extends Component {
-  render() {
-    return (
+const App = () => 
+    (
       <Provider store={store}>
         <Router history={history}>
           <Switch>
@@ -26,7 +29,5 @@ class App extends Component {
         </Router>
       </Provider>
     )
-  }
-}
 
 export default App

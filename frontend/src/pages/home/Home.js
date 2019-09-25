@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
-import Header from './../../components/header/Header'
+import Header from '../../components/header/Header'
 import Community from '../../components/home/community/Community'
 import Partners from '../../components/home/partners/Partners'
 import Events from '../../components/home/events/Events'
@@ -16,15 +16,7 @@ const homeBannerText = `Ethereum Buenos Aires is a forum for
 developers, entrepreneurs, and enthusiasts
 to learn about and develop for Ethereum`
 
-class Home extends Component {
-  componentDidMount() {
-    this.props.requestEvents()
-  }
-
-  render() {
-    const { events } = this.props
-
-    return (
+const Home = ({events}) => (
       <div>
         <Header />
         <Banner text={homeBannerText} background={Background} bottom />
@@ -35,9 +27,8 @@ class Home extends Component {
           <Social />
         </div>
       </div>
-    )
-  }
-}
+
+) 
 
 Home.propTypes = {
   events: PropTypes.arrayOf(
@@ -50,19 +41,4 @@ Home.propTypes = {
   ).isRequired,
 }
 
-const mapStateToProps = state => {
-  return {
-    events: state.events.data,
-  }
-}
-
-const mapDispatchToProps = dispatch => {
-  return {
-    requestEvents: () => dispatch(requestEvents()),
-  }
-}
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Home)
+export default Home
