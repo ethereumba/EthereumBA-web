@@ -5,7 +5,7 @@ import Address from '../../../assets/icons/events/icon-address.svg'
 import AddressLight from '../../../assets/icons/events/icon-address-light.svg'
 import './eventDetails.scss'
 
-import { getFormattedAddress } from '../../../utils/helpers'
+import { getFormattedAddress } from '../../../lib/helpers'
 
 const EventAddress = ({ hasPassed, address }) => (
   <div className='event-address event-detail'>

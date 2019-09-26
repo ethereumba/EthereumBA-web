@@ -1,10 +1,17 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+
+// material ui
 import { Grid } from '@material-ui/core'
 
-import getCardBackground from '../../../utils/helpers'
+// utils
+import getCardBackground from '../../../lib/helpers'
+
+// components
 import Button from '../../common/button/Button'
 import EventDetails from '../../common/eventDetails/EventDetails'
+
+// styles
 import './upcomingEventCard.scss'
 
 const UpcomingEventCard = ({ handleClick, id, title, date, time, address, url }) => {

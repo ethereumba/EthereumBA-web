@@ -4,8 +4,6 @@ import React from 'react'
 import Container from '@material-ui/core/Container'
 import Grid from '@material-ui/core/Grid'
 
-// proptypes
-
 // components
 import EventDetailHeader from '../../components/eventDetail/EventDetailHeader'
 import EventDetailTitleAndDescription from '../../components/eventDetail/EventDetailTitleAndDescription'

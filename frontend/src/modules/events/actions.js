@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-import API_ROUTES from '../../utils/api'
+import API_ROUTES from '../../lib/api'
 import { EVENTS_REQUEST, EVENTS_SUCCESS, EVENTS_FAILURE, MORE_EVENTS_SUCCESS } from './constants'
 
 const requestEvents = () => {
