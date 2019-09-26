@@ -1,7 +1,7 @@
 import React from 'react'
 
 // material ui
-import Grid from '@material-ui/core/Grid'
+import Container from '@material-ui/core/Container'
 
 // proptypes
 
@@ -11,10 +11,10 @@ import EventDetailHeader from '../../components/eventDetail/EventDetailHeader'
 // styles
 import './eventDetail.scss'
 
-const EventDetail = () => (
-  <Grid container>
+const EventDetail = ({ event }) => (
+  <Container className='event-detail'>
     <EventDetailHeader />
-  </Grid>
+  </Container>
 )
 
 export default EventDetail 

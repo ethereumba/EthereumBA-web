@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@material-ui/core": "^3.8.3",
+    "@material-ui/core": "^4.4.3",
     "axios": "^0.16.2",
     "dayjs": "^1.8.16",
     "dotenv": "^6.2.0",

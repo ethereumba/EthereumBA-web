@@ -1,3 +1,3 @@
-import EventDetailHeaderContainer from './EventDetailHeader.container'
+import EventDetailHeader from './EventDetailHeader'
 
-export default EventDetailHeaderContainer
+export default EventDetailHeader 
