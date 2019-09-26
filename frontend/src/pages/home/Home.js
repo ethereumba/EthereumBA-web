@@ -1,7 +1,7 @@
 import React from 'react'
 
 // proptypes
-import {shape, arrayOf, string, number, bool} from 'prop-types'
+import { shape, arrayOf, string, number, bool } from 'prop-types'
 
 // components
 import Header from '../../components/header/Header'
@@ -19,19 +19,19 @@ const homeBannerText = `Ethereum Buenos Aires is a forum for
 developers, entrepreneurs, and enthusiasts
 to learn about and develop for Ethereum`
 
-const Home = ({events}) => (
-      <div>
-        <Header />
-        <Banner text={homeBannerText} background={Background} bottom />
-        <div className='gradient'>
-          <Events events={events} />
-          <Community />
-          <Partners />
-          <Social />
-        </div>
-      </div>
+const Home = ({ events }) => (
+  <div>
+    <Header />
+    <Banner text={homeBannerText} background={Background} bottom />
+    <div className='gradient'>
+      <Events events={events} />
+      <Community />
+      <Partners />
+      <Social />
+    </div>
+  </div>
 
-) 
+)
 
 Home.propTypes = {
   events: arrayOf(

@@ -12,12 +12,9 @@ import EventDetailHeader from '../../components/eventDetail/EventDetailHeader'
 import './eventDetail.scss'
 
 const EventDetail = () => (
-      <div className='container'>
-          <Grid container>
-              <EventDetailHeader /> 
-          </Grid> 
-      </div>
-
-) 
+  <Grid container>
+    <EventDetailHeader />
+  </Grid>
+)
 
 export default EventDetail 

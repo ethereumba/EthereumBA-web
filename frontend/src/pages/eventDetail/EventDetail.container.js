@@ -1,17 +1,20 @@
 import React from 'react'
-// import {useDispatch, useSelector} from 'react-redux'
+import { useSelector } from 'react-redux'
 
 // proptypes
-// import {} from 'prop-types'
 
 // components
 import EventDetail from './EventDetail'
 
 // action creators
-const EventDetailContainer = () => {
-    return (
-        <EventDetail />
-    )
+const EventDetailContainer = ({ match }) => {
+  const events = useSelector(state => state.events.data)
+
+  const event = events.find((event) => String(event.id) === String(match.params.id))
+
+  return (
+    <EventDetail event={event} />
+  )
 }
 
 export default EventDetailContainer 
