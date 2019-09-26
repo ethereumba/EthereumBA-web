@@ -1,4 +1,4 @@
-import { getChronologicallyOrderedEvents, getFilteredEvents } from '../../utils/helpers'
+import { getChronologicallyOrderedEvents, getFilteredEvents } from '../../lib/helpers'
 
 import { EVENTS_REQUEST, EVENTS_SUCCESS, EVENTS_FAILURE, MORE_EVENTS_SUCCESS } from './constants'
 

@@ -1,13 +1,16 @@
-import React, { Component } from 'react'
+import React from 'react'
 
+// components
 import Header from '../../components/header/Header'
 
-export default class Ecosystem extends Component {
-  render() {
-    return (
+// styles
+import './ecosystem.scss'
+
+const Ecosystem = () => 
+    (
       <div>
         <Header white selected selected={'ecosystem'} />
       </div>
     )
-  }
-}
+
+export default Ecosystem
