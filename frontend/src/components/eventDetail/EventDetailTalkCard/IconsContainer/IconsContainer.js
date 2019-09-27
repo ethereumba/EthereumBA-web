@@ -1,23 +1,23 @@
-import React from "react";
+import React from 'react';
 
 // styles
-import { Container } from "./styles";
+import { Container } from './styles';
 
 // components
-import IconTag from "./IconTag";
+import IconTag from './IconTag';
 
 // assets
-import BubbleIcon from "../../../../assets/eventDetail/chat-bubble-purple.svg";
-import MediumLevelIcon from "../../../../assets/eventDetail/medium-level-purple.svg";
+import BubbleIcon from '../../../../assets/eventDetail/chat-bubble-purple.svg';
+import MediumLevelIcon from '../../../../assets/eventDetail/medium-level-purple.svg';
 
 const IconsContainer = ({ talk }) => {
   const resolveLevelIcon = () => {
     switch (talk.level) {
-      case "INITIAL":
+      case 'INITIAL':
         return MediumLevelIcon;
-      case "MEDIUM":
+      case 'MEDIUM':
         return MediumLevelIcon;
-      case "ADVANCED":
+      case 'ADVANCED':
         return MediumLevelIcon;
       default:
         return MediumLevelIcon;
