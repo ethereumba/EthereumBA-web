@@ -7,6 +7,9 @@ const COLORS = {
     description: '#8d88a1',
     categoryText: '#5951177',
     pastGrey: '#c5c2cf',
+    talkCardBackground: '#F9F9FF',
+    talkCardBorder: '#CFCFCF',
+    orangeText: '#FF6D66',
 };
 
 export { COLORS };
