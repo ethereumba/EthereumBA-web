@@ -2,11 +2,16 @@ import React from 'react'
 
 // material ui
 import Grid from '@material-ui/core/Grid'
+import Hidden from '@material-ui/core/Hidden'
 
 // styles
-import { Container } from './styles'
+import { Container, Name, Description, DownloadMaterialContainer } from './styles'
 
-const EventDetailTalkCard = () => {
+// components
+import DownloadMaterial from './DownloadMaterial'
+import IconsContainer from './IconsContainer'
+
+const EventDetailTalkCard = ({ talk }) => {
     return (
         <Grid item xs={12}>
             <Grid container justify='flex-start' alignItems='center'>
@@ -15,7 +20,12 @@ const EventDetailTalkCard = () => {
                 </Hidden>
                 <Grid item xs={12} md={7}>
                     <Container>
-
+                        <Name>{talk.name}</Name>
+                        {talk.description && <Description>{talk.description}</Description>}
+                        <DownloadMaterialContainer>
+                            {talk.material && talk.material.map((_material) => <DownloadMaterial material={_material} />)}
+                        </DownloadMaterialContainer>
+                        {(talk.language || talk.level) && <IconsContainer talk={talk} />}
                     </Container>
                 </Grid>
             </Grid>
