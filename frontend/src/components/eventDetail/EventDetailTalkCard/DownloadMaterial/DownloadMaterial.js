@@ -1,13 +1,13 @@
-import React from "react";
+import React from 'react';
 
 // styles
-import { Container, IconWrapper, Icon, Text } from "./styles";
+import { Container, IconWrapper, Icon, Text } from './styles';
 
 // assets
-import DownloadIcon from "../../../../assets/eventDetail/download-orange.svg";
+import DownloadIcon from '../../../../assets/eventDetail/download-orange.svg';
 
 // lib
-import API_URL from "../../../../lib/api";
+import API_URL from '../../../../lib/api';
 
 const DownloadMaterial = ({ material }) => {
   return (
