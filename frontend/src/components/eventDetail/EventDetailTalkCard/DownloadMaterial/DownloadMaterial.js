@@ -6,14 +6,13 @@ import { Container, IconWrapper, Icon, Text } from './styles'
 // assets
 import DownloadIcon from '../../../../assets/eventDetail/download-orange.svg'
 
-const DownloadMaterial = ({ material }) => {
-    const handleDownloadClick = () => {
-        console.log('click')
-    }
+// lib
+import API_URL from '../../../../lib/api'
 
+const DownloadMaterial = ({ material }) => {
     return (
         <Container>
-            <IconWrapper onClick={handleDownloadClick}>
+            <IconWrapper href={`${API_URL}${material.file}`} target='_blank'>
                 <Icon src={DownloadIcon} />
             </IconWrapper>
             <Text>{material.name}</Text>
