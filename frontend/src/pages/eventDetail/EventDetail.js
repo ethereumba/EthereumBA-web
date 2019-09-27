@@ -7,6 +7,8 @@ import Grid from '@material-ui/core/Grid'
 // components
 import EventDetailHeader from '../../components/eventDetail/EventDetailHeader'
 import EventDetailTitleAndDescription from '../../components/eventDetail/EventDetailTitleAndDescription'
+import EventDetailTalkCard from '../../components/eventDetail/EventDetailTalkCard'
+
 
 // styles
 import './styles.scss'
@@ -16,6 +18,11 @@ const EventDetail = ({ event }) => (
     <Grid container direction='column' alignItems='stretch' justify='flex-start'>
       <EventDetailHeader />
       <EventDetailTitleAndDescription event={event} />
+      {
+        event.talks.map((talk) => (
+          <EventDetailTalkCard talk={talk} />
+        ))
+      }
     </Grid>
   </Container>
 )
