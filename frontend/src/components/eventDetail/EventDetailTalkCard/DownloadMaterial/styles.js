@@ -10,7 +10,7 @@ export const Container = styled.div`
   margin-bottom: 12px;
 `
 
-export const IconWrapper = styled.div`
+export const IconWrapper = styled.a`
   height: 19px;
   width: 19px;
 `
