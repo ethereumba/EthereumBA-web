@@ -1,3 +1,3 @@
-import EventDetailTitleAndDescription from './EventDetailTitleAndDescription'
+import EventDetailTitleAndDescription from './EventDetailTitleAndDescription';
 
-export default EventDetailTitleAndDescription
+export default EventDetailTitleAndDescription;
