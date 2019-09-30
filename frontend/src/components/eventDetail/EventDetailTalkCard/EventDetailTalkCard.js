@@ -22,7 +22,8 @@ const EventDetailTalkCard = ({ talk }) => (
           <Name>{talk.name}</Name>
           {talk.description && <Description>{talk.description}</Description>}
           <DownloadMaterialContainer>
-            {talk.material && talk.material.map(_material => <DownloadMaterial material={_material} />)}
+            {talk.material &&
+              talk.material.map(_material => <DownloadMaterial key={_material.id} material={_material} />)}
           </DownloadMaterialContainer>
           {(talk.language || talk.level) && <IconsContainer talk={talk} />}
         </Container>
