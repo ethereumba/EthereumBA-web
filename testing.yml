@@ -22,17 +22,35 @@ services:
     stdin_open: true
     tty: true
     networks:
-      - front-tier
+      - api-tier
       - back-tier
+
+  node:
+    restart: always
+    build: ./frontend
+    container_name: eth-buenos-aires-node
+    command: ["npm", "start"]
+    environment:
+      VIRTUAL_HOST: 'frontend'
+    volumes:
+      - ./frontend:/usr/src/app
+      - /usr/src/app/node_modules
+    expose:
+      - "3000"
+    stdin_open: true
+    tty: true
+    networks:
+      - front-tier
 
   nginx:
     restart: always
     build: ./nginx
-    container_name: tpl-nginx
+    container_name: eth-buenos-aires-nginx
     environment:
-      DEFAULT_HOST: 'xxxx'
+      REACT_DEFAULT_HOST: 'ethereumbuenosaires.com'
+      API_DEFAULT_HOST: 'api.ethereumbuenosaires.com'
     ports:
-      - "8002:80"
+      - "8025:80"
     volumes:
       - ./nginx/sites-enabled:/etc/nginx
       - /var/run/docker.sock:/tmp/docker.sock:ro
@@ -50,9 +68,9 @@ services:
   postgres:
     restart: always
     image: postgres:latest
-    container_name: tpl-postgres
+    container_name: eth-buenos-aires-postgres
     ports:
-      - "5434:5432"
+      - "5439:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data/
       - /etc/timezone:/etc/timezone:ro
@@ -66,6 +84,8 @@ volumes:
 
 networks:
   front-tier:
+    driver: bridge
+  api-tier:
     driver: bridge
   back-tier:
     driver: bridge

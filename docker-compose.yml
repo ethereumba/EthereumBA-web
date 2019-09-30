@@ -41,7 +41,6 @@ services:
     networks:
       - front-tier
 
-
   nginx:
     restart: always
     build: ./nginx
