@@ -64,6 +64,7 @@ services:
       - web
     networks:
       - front-tier
+      - api-tier
 
   postgres:
     restart: always
