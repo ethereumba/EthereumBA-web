@@ -1,7 +1,7 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 // lib
-import { COLORS } from "../../../../lib/styles";
+import { COLORS } from '../../../../lib/styles';
 
 export const Container = styled.div`
   display: flex;
