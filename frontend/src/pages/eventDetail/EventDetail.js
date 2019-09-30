@@ -9,6 +9,7 @@ import EventDetailHeader from '../../components/eventDetail/EventDetailHeader';
 import EventDetailTitleAndDescription from '../../components/eventDetail/EventDetailTitleAndDescription';
 import EventDetailTalkCard from '../../components/eventDetail/EventDetailTalkCard';
 import EventDetailSidebar from '../../components/eventDetail/EventDetailSidebar';
+import EventDetailSlider from '../../components/eventDetail/EventDetailSlider';
 
 // styles
 import './styles.scss';
@@ -29,6 +30,9 @@ const EventDetail = ({ event }) => (
         <Grid container direction="column" alignItems="stretch" justify="flex-start">
           <EventDetailSidebar event={event} />
         </Grid>
+      </Grid>
+      <Grid item xs={12} md={12}>
+        <EventDetailSlider event={event} />
       </Grid>
     </Grid>
   </Container>
