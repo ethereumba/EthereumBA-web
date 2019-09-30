@@ -3,12 +3,12 @@ import React from 'react';
 // styles
 import { Container, IconWrapper, Icon, Text } from './styles';
 
-const InfoDisplay = ({ icon, text }) => (
+const InfoDisplay = ({ icon, text, isUpcoming }) => (
   <Container>
-    <IconWrapper>
+    <IconWrapper isUpcoming={isUpcoming}>
       <Icon src={icon} />
     </IconWrapper>
-    <Text>{text}</Text>
+    <Text isUpcoming={isUpcoming}>{text}</Text>
   </Container>
 );
 

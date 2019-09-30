@@ -21,7 +21,7 @@ const EventDetail = ({ event }) => (
           <EventDetailHeader />
           <EventDetailTitleAndDescription event={event} />
           {event.talks.map(talk => (
-            <EventDetailTalkCard talk={talk} />
+            <EventDetailTalkCard key={talk.id} talk={talk} />
           ))}
         </Grid>
       </Grid>
