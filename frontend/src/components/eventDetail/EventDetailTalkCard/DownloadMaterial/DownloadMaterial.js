@@ -9,6 +9,9 @@ import DownloadIcon from '../../../../assets/eventDetail/download-orange.svg';
 // lib
 import API_URL from '../../../../lib/api';
 
+// types
+import { materialType } from '../../../../lib/types';
+
 const DownloadMaterial = ({ material }) => (
   <Container>
     <IconWrapper href={`${API_URL}${material.file}`} target="_blank">
@@ -17,5 +20,9 @@ const DownloadMaterial = ({ material }) => (
     <Text>{material.name}</Text>
   </Container>
 );
+
+DownloadMaterial.propTypes = {
+  material: materialType.isRequired,
+};
 
 export default DownloadMaterial;

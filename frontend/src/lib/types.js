@@ -1,19 +1,24 @@
-import { shape, string, bool, number, array } from 'prop-types'
-
-
+import { shape, string, bool, number, array } from 'prop-types';
 
 export const eventType = shape({
-      date: string,
-      description: string,
-      hasPassed: bool,
-      id: number,
-      meetup_url: string,
-      photos: array,
-      place_city: string,
-      place_number: string,
-      place_street: string,
-      sponsors: array,
-      talks: array,
-      time: string,
-      title: string,
-    })
+  date: string,
+  description: string,
+  hasPassed: bool,
+  id: number,
+  meetup_url: string,
+  photos: array,
+  place_city: string,
+  place_number: string,
+  place_street: string,
+  sponsors: array,
+  talks: array,
+  time: string,
+  title: string,
+});
+
+export const materialType = shape({
+  id: number,
+  name: string,
+  file: string,
+  is_active: bool,
+});
