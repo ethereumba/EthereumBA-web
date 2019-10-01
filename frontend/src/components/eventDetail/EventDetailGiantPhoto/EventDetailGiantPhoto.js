@@ -2,33 +2,30 @@ import React from 'react';
 import Slider from 'react-slick';
 
 // proptypes
-import { func } from 'prop-types';
+import { number } from 'prop-types';
 
 // material ui
 import Grid from '@material-ui/core/Grid';
 import Hidden from '@material-ui/core/Hidden';
+import { PhotoContainer, Image } from './styles';
 
-// styles
-import Container from './styles';
+// components
+import CustomArrow from '../../common/eventDetails/CustomArrow';
 
 // lib
 import photos from '../../../lib/photos';
 
-// components
-import CustomArrow from '../../common/eventDetails/CustomArrow';
-import CustomSlide from '../../common/eventDetails/CustomSlide';
-
 // types
 import { eventType } from '../../../lib/types';
 
-const EventDetailSlider = ({ event, onPhotoClick }) => {
+const EventDetailGiantPhoto = ({ event, indexOfSelectedPhoto }) => {
   const sliderSettings = {
     dots: false,
     infinite: true,
-    slidesToShow: 4,
+    slidesToShow: 1,
+    centerMode: true,
     slidesToScroll: 1,
-    variableWidth: true,
-    adaptiveHeight: true,
+    initialSlide: indexOfSelectedPhoto - 2,
     nextArrow: <CustomArrow isNextArrow />,
     prevArrow: <CustomArrow />,
   };
@@ -36,27 +33,29 @@ const EventDetailSlider = ({ event, onPhotoClick }) => {
   console.log(event);
 
   return (
-    <Container container direction="row">
+    <Grid container direction="row">
       <Hidden only={['xs', 'sm']}>
         <Grid item md={1} />
       </Hidden>
       <Grid item md={10}>
         <Slider {...sliderSettings}>
-          {photos.map((photo, index) => (
-            <CustomSlide onPhotoClick={onPhotoClick} photo={photo} index={index} />
+          {photos.map(photo => (
+            <PhotoContainer>
+              <Image src={photo.url} />
+            </PhotoContainer>
           ))}
         </Slider>
       </Grid>
       <Hidden only={['xs', 'sm']}>
         <Grid item md={1} />
       </Hidden>
-    </Container>
+    </Grid>
   );
 };
 
-EventDetailSlider.propTypes = {
+EventDetailGiantPhoto.propTypes = {
   event: eventType.isRequired,
-  onPhotoClick: func.isRequired,
+  indexOfSelectedPhoto: number.isRequired,
 };
 
-export default EventDetailSlider;
+export default EventDetailGiantPhoto;

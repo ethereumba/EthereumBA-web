@@ -11,13 +11,16 @@ import { Container, Name, Description, DownloadMaterialContainer } from './style
 import DownloadMaterial from './DownloadMaterial';
 import IconsContainer from './IconsContainer';
 
+// types
+import { talkType } from '../../../lib/types';
+
 const EventDetailTalkCard = ({ talk }) => (
   <Grid item>
     <Grid container justify="flex-start" alignItems="center">
       <Hidden only={['xs', 'sm']}>
-        <Grid item md={1}></Grid>
+        <Grid item md={1} />
       </Hidden>
-      <Grid item xs={12} md>
+      <Grid item xs={12} md={11}>
         <Container>
           <Name>{talk.name}</Name>
           {talk.description && <Description>{talk.description}</Description>}
@@ -31,5 +34,9 @@ const EventDetailTalkCard = ({ talk }) => (
     </Grid>
   </Grid>
 );
+
+EventDetailTalkCard.propTypes = {
+  talk: talkType.isRequired,
+};
 
 export default EventDetailTalkCard;

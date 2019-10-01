@@ -1,20 +1,36 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 
-// proptypes
+// types
+import { matchType } from '../../lib/types';
 
 // components
-import EventDetail from './EventDetail'
+import EventDetail from './EventDetail';
 
-// action creators
 const EventDetailContainer = ({ match }) => {
-  const events = useSelector(state => state.events.data)
+  const [isPhotoView, setIsPhotoView] = useState(false);
+  const [indexOfSelectedPhoto, setIndexOfSelectedPhoto] = useState(0);
+  const events = useSelector(state => state.events.data);
 
-  const event = events.find((event) => String(event.id) === String(match.params.id))
+  const event = events.find(_event => String(_event.id) === String(match.params.id));
+
+  const handlePhotoClick = index => {
+    setIndexOfSelectedPhoto(index);
+    setIsPhotoView(true);
+  };
 
   return (
-    <EventDetail event={event} />
-  )
-}
+    <EventDetail
+      event={event}
+      indexOfSelectedPhoto={indexOfSelectedPhoto}
+      isPhotoView={isPhotoView}
+      onPhotoClick={handlePhotoClick}
+    />
+  );
+};
 
-export default EventDetailContainer 
+EventDetailContainer.propTypes = {
+  match: matchType.isRequired,
+};
+
+export default EventDetailContainer;
