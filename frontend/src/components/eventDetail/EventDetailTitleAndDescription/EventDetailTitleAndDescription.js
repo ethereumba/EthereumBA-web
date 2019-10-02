@@ -12,7 +12,7 @@ const EventDetailTitleAndDescription = ({ event, isUpcomingEvent }) => (
   <Grid item>
     <Grid container>
       <Hidden only={['xs', 'sm']}>
-        <Grid item md={2}></Grid>
+        <Grid item md={2} />
       </Hidden>
       <Grid item xs={12} md={10}>
         <Grid container direction="column">

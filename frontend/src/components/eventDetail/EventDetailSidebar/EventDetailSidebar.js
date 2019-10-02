@@ -5,13 +5,13 @@ import Grid from '@material-ui/core/Grid';
 import Hidden from '@material-ui/core/Hidden';
 
 // styles
+import { useSelector } from 'react-redux';
 import { OrangeButton, Container } from './styles';
 
 // components
 import InfoDisplay from './InfoDisplay';
 
 // redux
-import { useSelector } from 'react-redux';
 
 // assets
 import CalendarIcon from '../../../assets/eventDetail/calendar-grey.svg';
@@ -32,7 +32,7 @@ const EventDetailSidebar = ({ event, isUpcomingEvent }) => {
     <Container item>
       <Grid container justify="flex-start" alignItems="center">
         <Hidden only={['xs', 'sm']}>
-          <Grid item md={3}></Grid>
+          <Grid item md={3} />
         </Hidden>
         <Grid item md>
           <Grid container direction="column" justify="flex-start" alignItems="flex-start">

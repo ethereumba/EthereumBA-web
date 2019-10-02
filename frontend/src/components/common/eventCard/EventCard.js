@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Grid } from '@material-ui/core';
 
-import EventDate from '../../common/eventDetails/EventDate';
+import EventDate from '../eventDetails/EventDate';
 import './eventCard.scss';
 
 const EventCard = ({ handleClick, id, date, title, hasPassed, url }) => (

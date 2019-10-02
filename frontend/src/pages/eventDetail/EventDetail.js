@@ -1,7 +1,6 @@
 import React from 'react';
 
 // styles
-import { StyledContainer } from './styles';
 
 // proptypes
 import { func, bool, number } from 'prop-types';
@@ -9,6 +8,7 @@ import { func, bool, number } from 'prop-types';
 // material ui
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
+import { StyledContainer } from './styles';
 
 // components
 import EventDetailHeader from '../../components/eventDetail/EventDetailHeader';

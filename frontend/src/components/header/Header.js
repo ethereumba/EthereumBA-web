@@ -16,8 +16,8 @@ export default class Header extends Component {
       <div className="main-header">
         <div className="container">
           <div className="header-logo">
-            <Link to={'/'}>
-              <img src={lightTheme ? LightThemeLogo : Logo} className={'logo'} alt={'Ethereum Buenos Aires'} />
+            <Link to="/">
+              <img src={lightTheme ? LightThemeLogo : Logo} className="logo" alt="Ethereum Buenos Aires" />
             </Link>
           </div>
 

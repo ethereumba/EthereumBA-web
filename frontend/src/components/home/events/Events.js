@@ -22,11 +22,11 @@ const Events = ({ events, history }) => {
   };
 
   return (
-    <div className={'background-events'}>
-      <div className={'events'}>
+    <div className="background-events">
+      <div className="events">
         <div className="card-events">
-          <div className={'center'}>
-            <p className={'title'}>Our meetups</p>
+          <div className="center">
+            <p className="title">Our meetups</p>
           </div>
 
           <div className="cards-events">
@@ -47,8 +47,8 @@ const Events = ({ events, history }) => {
           </div>
         </div>
 
-        <div className={'button-events'}>
-          <Button title={'View All Events'} url={'/events'} />
+        <div className="button-events">
+          <Button title="View All Events" url="/events" />
         </div>
       </div>
     </div>

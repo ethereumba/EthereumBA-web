@@ -5,11 +5,11 @@ import Slider from 'react-slick';
 import { number } from 'prop-types';
 
 // styles
-import { PhotoContainer, Image, Container, Icon, IconWrapper } from './styles';
 
 // material ui
 import Grid from '@material-ui/core/Grid';
 import Hidden from '@material-ui/core/Hidden';
+import { PhotoContainer, Image, Container, Icon, IconWrapper } from './styles';
 
 // components
 import CustomArrow from '../../common/eventDetails/CustomArrow';
