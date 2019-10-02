@@ -42,6 +42,14 @@
       color: white;
       font-weight: bold;
       font-family: Comfortaa;
+
+      @media (max-width: 760px) {
+        padding: 0 20px;
+      }
+
+      @media (max-width: 480px) {
+        font-size: 24px;
+      }
     }
   }
 }

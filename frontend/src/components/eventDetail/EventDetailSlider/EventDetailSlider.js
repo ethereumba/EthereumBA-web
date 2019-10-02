@@ -9,7 +9,7 @@ import Grid from '@material-ui/core/Grid';
 import Hidden from '@material-ui/core/Hidden';
 
 // styles
-import Container from './styles';
+import { Container, SliderContainer } from './styles';
 
 // lib
 import photos from '../../../lib/photos';
@@ -24,29 +24,60 @@ import { eventType } from '../../../lib/types';
 const EventDetailSlider = ({ event, onPhotoClick }) => {
   const sliderSettings = {
     dots: false,
-    infinite: true,
-    slidesToShow: 4,
+    infinite: false,
+    slidesToShow: 5,
     slidesToScroll: 1,
-    variableWidth: true,
     adaptiveHeight: true,
     nextArrow: <CustomArrow isNextArrow />,
     prevArrow: <CustomArrow />,
+    responsive: [
+      {
+        breakpoint: 1280,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 1,
+          adaptiveHeight: true,
+        },
+      },
+      {
+        breakpoint: 1030,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          adaptiveHeight: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          adaptiveHeight: true,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          adaptiveHeight: true,
+        },
+      },
+    ],
   };
-
-  console.log(event);
 
   return (
     <Container container direction="row">
       <Hidden only={['xs', 'sm']}>
         <Grid item md={1} />
       </Hidden>
-      <Grid item md={10}>
+      <SliderContainer item md={10}>
         <Slider {...sliderSettings}>
           {photos.map((photo, index) => (
             <CustomSlide onPhotoClick={onPhotoClick} photo={photo} index={index} />
           ))}
         </Slider>
-      </Grid>
+      </SliderContainer>
       <Hidden only={['xs', 'sm']}>
         <Grid item md={1} />
       </Hidden>

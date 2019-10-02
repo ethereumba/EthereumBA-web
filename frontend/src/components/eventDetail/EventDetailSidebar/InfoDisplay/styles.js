@@ -14,6 +14,7 @@ export const IconWrapper = styled.div`
   width: 23px;
   height: 23px;
   ${({ isUpcoming }) => !isUpcoming && `opacity: 0.3`}
+  margin: 0 10px;
 `;
 
 export const Icon = styled.img`
@@ -27,4 +28,10 @@ export const Text = styled.span`
   vertical-align: top;
   color: ${COLORS.violetTitle};
   ${({ isUpcoming }) => !isUpcoming && `opacity: 0.3`}
+`;
+
+export const ClickableText = styled(Text)`
+  :hover {
+    color: ${COLORS.orangeText};
+  }
 `;

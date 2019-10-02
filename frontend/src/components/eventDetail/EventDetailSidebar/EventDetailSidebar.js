@@ -18,19 +18,15 @@ import CalendarIcon from '../../../assets/eventDetail/calendar-grey.svg';
 import ClockIcon from '../../../assets/eventDetail/clock-grey.svg';
 import PositionIcon from '../../../assets/eventDetail/position-grey.svg';
 
-const EventDetailSidebar = ({ event }) => {
+const EventDetailSidebar = ({ event, isUpcomingEvent }) => {
   const generatePositionText = () => `
         ${event.place_street} ${event.place_number},
-        ${event.placer_city}
+        ${event.place_city}
     `;
 
-  const upcomingEvents = useSelector(state => state.events.upcomingEvents);
+  const handleOrangeButtonClick = () => (isUpcomingEvent ? event.meetup_url : event.youtube_url);
 
-  const checkEventStatus = () => upcomingEvents.includes(event);
-
-  const handleOrangeButtonClick = () => (checkEventStatus() ? event.meetup_url : event.youtube_url);
-
-  const handleOrangeButtonText = () => (checkEventStatus() ? 'Join Meetup' : 'Youtube Live');
+  const generateButtonText = () => (isUpcomingEvent ? 'Join Meetup' : 'Youtube Live');
 
   return (
     <Container item>
@@ -40,11 +36,16 @@ const EventDetailSidebar = ({ event }) => {
         </Hidden>
         <Grid item md>
           <Grid container direction="column" justify="flex-start" alignItems="flex-start">
-            <InfoDisplay isUpcoming={checkEventStatus()} icon={CalendarIcon} text={event.date} />
-            <InfoDisplay isUpcoming={checkEventStatus()} icon={ClockIcon} text={'19:00 hs'} />
-            <InfoDisplay isUpcoming={checkEventStatus()} icon={PositionIcon} text={generatePositionText()} />
+            <InfoDisplay isUpcoming={isUpcomingEvent} icon={CalendarIcon} text={event.date} />
+            <InfoDisplay isUpcoming={isUpcomingEvent} icon={ClockIcon} text={event.time} />
+            <InfoDisplay
+              isUpcoming={isUpcomingEvent}
+              icon={PositionIcon}
+              text={generatePositionText()}
+              googleUrl={event.place_map_url}
+            />
             <OrangeButton target="_blank" href={handleOrangeButtonClick()}>
-              {handleOrangeButtonText()}
+              {generateButtonText()}
             </OrangeButton>
           </Grid>
         </Grid>

@@ -8,26 +8,20 @@ import Hidden from '@material-ui/core/Hidden';
 // styles
 import { Title, Description } from './styles';
 
-const EventDetailTitleAndDescription = ({ event }) => {
-  const upcomingEvents = useSelector(state => state.events.upcomingEvents);
-
-  const checkEventStatus = () => upcomingEvents.includes(event);
-
-  return (
-    <Grid item>
-      <Grid container>
-        <Hidden only={['xs', 'sm']}>
-          <Grid item md={1}></Grid>
-        </Hidden>
-        <Grid item xs={12} md>
-          <Grid container direction="column">
-            <Title isUpcoming={checkEventStatus()}>{event.title}</Title>
-            <Description>{event.description}</Description>
-          </Grid>
+const EventDetailTitleAndDescription = ({ event, isUpcomingEvent }) => (
+  <Grid item>
+    <Grid container>
+      <Hidden only={['xs', 'sm']}>
+        <Grid item md={2}></Grid>
+      </Hidden>
+      <Grid item xs={12} md={10}>
+        <Grid container direction="column">
+          <Title isUpcoming={isUpcomingEvent}>{event.title}</Title>
+          <Description>{event.description}</Description>
         </Grid>
       </Grid>
     </Grid>
-  );
-};
+  </Grid>
+);
 
 export default EventDetailTitleAndDescription;

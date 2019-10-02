@@ -4,10 +4,12 @@ import Slider from 'react-slick';
 // proptypes
 import { number } from 'prop-types';
 
+// styles
+import { PhotoContainer, Image, Container, Icon, IconWrapper } from './styles';
+
 // material ui
 import Grid from '@material-ui/core/Grid';
 import Hidden from '@material-ui/core/Hidden';
-import { PhotoContainer, Image } from './styles';
 
 // components
 import CustomArrow from '../../common/eventDetails/CustomArrow';
@@ -15,10 +17,13 @@ import CustomArrow from '../../common/eventDetails/CustomArrow';
 // lib
 import photos from '../../../lib/photos';
 
+// assets
+import CloseIcon from '../../../assets/eventDetail/cross-purple.svg';
+
 // types
 import { eventType } from '../../../lib/types';
 
-const EventDetailGiantPhoto = ({ event, indexOfSelectedPhoto }) => {
+const EventDetailGiantPhoto = ({ event, indexOfSelectedPhoto, onCloseIconClick }) => {
   const sliderSettings = {
     dots: false,
     infinite: true,
@@ -37,7 +42,7 @@ const EventDetailGiantPhoto = ({ event, indexOfSelectedPhoto }) => {
       <Hidden only={['xs', 'sm']}>
         <Grid item md={1} />
       </Hidden>
-      <Grid item md={10}>
+      <Container item md={10}>
         <Slider {...sliderSettings}>
           {photos.map(photo => (
             <PhotoContainer>
@@ -45,7 +50,10 @@ const EventDetailGiantPhoto = ({ event, indexOfSelectedPhoto }) => {
             </PhotoContainer>
           ))}
         </Slider>
-      </Grid>
+        <IconWrapper>
+          <Icon onClick={onCloseIconClick} src={CloseIcon} />
+        </IconWrapper>
+      </Container>
       <Hidden only={['xs', 'sm']}>
         <Grid item md={1} />
       </Hidden>
