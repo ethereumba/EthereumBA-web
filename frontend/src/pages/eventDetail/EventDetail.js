@@ -1,14 +1,12 @@
 import React from 'react';
 
-// styles
-
 // proptypes
-import { func, bool, number } from 'prop-types';
+import { func, bool, number, arrayOf } from 'prop-types';
 
 // material ui
-import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
-import { StyledContainer } from './styles';
+import Hidden from '@material-ui/core/Hidden';
+import { StyledContainer, OuterContainer } from './styles';
 
 // components
 import EventDetailHeader from '../../components/eventDetail/EventDetailHeader';
@@ -19,7 +17,7 @@ import EventDetailSlider from '../../components/eventDetail/EventDetailSlider';
 import EventDetailGiantPhoto from '../../components/eventDetail/EventDetailGiantPhoto';
 
 // types
-import { eventType } from '../../lib/types';
+import { eventType, talkType } from '../../lib/types';
 
 const EventDetail = ({
   event,
@@ -31,7 +29,7 @@ const EventDetail = ({
   talks,
 }) => (
   <StyledContainer maxWidth="lg">
-    <Grid container direction="row" alignItems="flex-start" justify="flex-start">
+    <OuterContainer container direction="row" alignItems="flex-start" justify="flex-start">
       <Grid item xs={12} md={12}>
         <Grid container direction="column" alignItems="stretch" justify="flex-start">
           <EventDetailHeader />
@@ -46,32 +44,32 @@ const EventDetail = ({
           />
         </Grid>
       ) : (
-        <>
-          <Grid item xs={12} md={12}>
-            <Grid container direction="row">
-              <Grid item xs={12} md={8}>
-                <Grid container direction="column" alignItems="stretch" justify="flex-start">
-                  <EventDetailTitleAndDescription isUpcomingEvent={isUpcomingEvent} event={event} />
-                  {talks.map(talk => (
-                    <EventDetailTalkCard key={talk.id} talk={talk} />
-                  ))}
-                </Grid>
+        <Grid item xs={12} md={12}>
+          <Grid container direction="row">
+            <Grid item xs={12} md={8}>
+              <Grid container direction="column" alignItems="stretch" justify="flex-start">
+                <EventDetailTitleAndDescription isUpcomingEvent={isUpcomingEvent} event={event} />
+                {talks.map(talk => (
+                  <EventDetailTalkCard key={talk.id} talk={talk} />
+                ))}
               </Grid>
+            </Grid>
+            <Hidden mdDown>
               <Grid item xs={12} md={4}>
                 <Grid container direction="column" alignItems="stretch" justify="flex-start">
                   <EventDetailSidebar isUpcomingEvent={isUpcomingEvent} event={event} />
                 </Grid>
               </Grid>
-            </Grid>
+            </Hidden>
           </Grid>
-        </>
+        </Grid>
       )}
       {!isUpcomingEvent && !isPhotoView && (
         <Grid item xs={12} md={12}>
           <EventDetailSlider event={event} onPhotoClick={onPhotoClick} />
         </Grid>
       )}
-    </Grid>
+    </OuterContainer>
   </StyledContainer>
 );
 
@@ -80,6 +78,10 @@ EventDetail.propTypes = {
   isPhotoView: bool.isRequired,
   onPhotoClick: func.isRequired,
   indexOfSelectedPhoto: number.isRequired,
+  isUpcomingEvent: bool.isRequired,
+  onCloseIconClick: func.isRequired,
+
+  talks: arrayOf(talkType).isRequired,
 };
 
 export default EventDetail;

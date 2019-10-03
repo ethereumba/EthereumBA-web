@@ -1,22 +1,25 @@
 import React from 'react';
 
+// proptypes
+import { bool } from 'prop-types';
+
 // material ui
 import Grid from '@material-ui/core/Grid';
 import Hidden from '@material-ui/core/Hidden';
 
 // styles
-import { useSelector } from 'react-redux';
-import { OrangeButton, Container } from './styles';
+import { OrangeButton, Container, ContentContainer } from './styles';
 
 // components
 import InfoDisplay from './InfoDisplay';
-
-// redux
 
 // assets
 import CalendarIcon from '../../../assets/eventDetail/calendar-grey.svg';
 import ClockIcon from '../../../assets/eventDetail/clock-grey.svg';
 import PositionIcon from '../../../assets/eventDetail/position-grey.svg';
+
+// types
+import { eventType } from '../../../lib/types';
 
 const EventDetailSidebar = ({ event, isUpcomingEvent }) => {
   const generatePositionText = () => `
@@ -35,23 +38,34 @@ const EventDetailSidebar = ({ event, isUpcomingEvent }) => {
           <Grid item md={3} />
         </Hidden>
         <Grid item md>
-          <Grid container direction="column" justify="flex-start" alignItems="flex-start">
-            <InfoDisplay isUpcoming={isUpcomingEvent} icon={CalendarIcon} text={event.date} />
-            <InfoDisplay isUpcoming={isUpcomingEvent} icon={ClockIcon} text={event.time} />
-            <InfoDisplay
-              isUpcoming={isUpcomingEvent}
-              icon={PositionIcon}
-              text={generatePositionText()}
-              googleUrl={event.place_map_url}
-            />
-            <OrangeButton target="_blank" href={handleOrangeButtonClick()}>
-              {generateButtonText()}
-            </OrangeButton>
-          </Grid>
+          <ContentContainer container direction="column" justify="flex-start" alignItems="flex-start">
+            <Grid item xs={6}>
+              <Grid container direction="column" justify="flex-start" alignItems="flex-start">
+                <InfoDisplay isUpcoming={isUpcomingEvent} icon={CalendarIcon} text={event.date} />
+                <InfoDisplay isUpcoming={isUpcomingEvent} icon={ClockIcon} text={event.time} />
+                <InfoDisplay
+                  isUpcoming={isUpcomingEvent}
+                  icon={PositionIcon}
+                  text={generatePositionText()}
+                  googleUrl={event.place_map_url}
+                />
+              </Grid>
+            </Grid>
+            <Grid item xs={6}>
+              <OrangeButton target="_blank" href={handleOrangeButtonClick()}>
+                {generateButtonText()}
+              </OrangeButton>
+            </Grid>
+          </ContentContainer>
         </Grid>
       </Grid>
     </Container>
   );
+};
+
+EventDetailSidebar.propTypes = {
+  event: eventType.isRequired,
+  isUpcomingEvent: bool.isRequired,
 };
 
 export default EventDetailSidebar;

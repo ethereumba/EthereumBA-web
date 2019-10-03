@@ -22,8 +22,29 @@ export const OrangeButton = styled.a`
   margin-top: 16px;
   font-weight: regular;
   cursor: pointer;
+
+  @media (max-width: 960px) {
+    margin: 0;
+  }
 `;
 
 export const Container = styled(Grid)`
   padding-top: 150px;
+
+  @media (max-width: 960px) {
+    padding: 0;
+    margin: 16px 0;
+  }
+`;
+
+export const ContentContainer = styled(Grid)`
+  @media (max-width: 960px) {
+    flex-direction: row;
+    align-items: center;
+
+    div:nth-of-type(2) {
+      justify-content: center;
+      align-items: center;
+    }
+  }
 `;

@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 
+// proptypes
+import { object } from 'prop-types';
+
 // routing
 import { withRouter } from 'react-router-dom';
 
@@ -17,16 +20,14 @@ const EventDetailContainer = ({ match, history }) => {
   const events = useSelector(state => state.events.data);
   const upcomingEvents = useSelector(state => state.events.upcomingEvents);
 
-  const checkEventStatus = () => upcomingEvents.includes(event);
-
   const event = events.find(_event => String(_event.id) === String(match.params.id));
-
-  console.log(event);
 
   if (!event) {
     history.push('/events');
     return null;
   }
+
+  const checkEventStatus = () => upcomingEvents.includes(event);
 
   const handlePhotoClick = index => {
     setIndexOfSelectedPhoto(index);
@@ -37,7 +38,7 @@ const EventDetailContainer = ({ match, history }) => {
 
   const ascendingId = (a, b) => a.id - b.id;
 
-  const talks = event.talks ? event.talks.sort(ascendingId) : null;
+  const talks = event.talks ? event.talks.sort(ascendingId) : [];
 
   return (
     <EventDetail
@@ -54,6 +55,7 @@ const EventDetailContainer = ({ match, history }) => {
 
 EventDetailContainer.propTypes = {
   match: matchType.isRequired,
+  history: object.isRequired,
 };
 
 export default withRouter(EventDetailContainer);

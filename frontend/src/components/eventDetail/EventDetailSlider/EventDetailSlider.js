@@ -28,6 +28,7 @@ const EventDetailSlider = ({ event, onPhotoClick }) => {
     slidesToShow: 5,
     slidesToScroll: 1,
     adaptiveHeight: true,
+    variableWidth: true,
     nextArrow: <CustomArrow isNextArrow />,
     prevArrow: <CustomArrow />,
     responsive: [
@@ -74,7 +75,7 @@ const EventDetailSlider = ({ event, onPhotoClick }) => {
       <SliderContainer item md={10}>
         <Slider {...sliderSettings}>
           {photos.map((photo, index) => (
-            <CustomSlide onPhotoClick={onPhotoClick} photo={photo} index={index} />
+            <CustomSlide key={`photo_${index}_${photo.url}`} onPhotoClick={onPhotoClick} photo={photo} index={index} />
           ))}
         </Slider>
       </SliderContainer>

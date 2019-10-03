@@ -2,14 +2,14 @@ import React from 'react';
 import Slider from 'react-slick';
 
 // proptypes
-import { number } from 'prop-types';
+import { number, func } from 'prop-types';
 
 // styles
 
 // material ui
 import Grid from '@material-ui/core/Grid';
 import Hidden from '@material-ui/core/Hidden';
-import { PhotoContainer, Image, Container, Icon, IconWrapper } from './styles';
+import { PhotoContainer, Image, Container, Icon, IconWrapper, MainContainer } from './styles';
 
 // components
 import CustomArrow from '../../common/eventDetails/CustomArrow';
@@ -38,14 +38,14 @@ const EventDetailGiantPhoto = ({ event, indexOfSelectedPhoto, onCloseIconClick }
   console.log(event);
 
   return (
-    <Grid container direction="row">
+    <MainContainer container direction="row">
       <Hidden only={['xs', 'sm']}>
         <Grid item md={1} />
       </Hidden>
       <Container item md={10}>
         <Slider {...sliderSettings}>
           {photos.map(photo => (
-            <PhotoContainer>
+            <PhotoContainer key={`photo_${photo.url}`}>
               <Image src={photo.url} />
             </PhotoContainer>
           ))}
@@ -57,13 +57,14 @@ const EventDetailGiantPhoto = ({ event, indexOfSelectedPhoto, onCloseIconClick }
       <Hidden only={['xs', 'sm']}>
         <Grid item md={1} />
       </Hidden>
-    </Grid>
+    </MainContainer>
   );
 };
 
 EventDetailGiantPhoto.propTypes = {
   event: eventType.isRequired,
   indexOfSelectedPhoto: number.isRequired,
+  onCloseIconClick: func.isRequired,
 };
 
 export default EventDetailGiantPhoto;
