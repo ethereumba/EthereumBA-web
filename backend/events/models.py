@@ -43,6 +43,7 @@ class Event(TimeStampedModel):
     title = models.CharField(max_length=255, blank=True, null=True)
     description = models.TextField(blank=True, null=True)
     meetup_url = models.CharField(max_length=255, blank=True, null=True)
+    youtube_url = models.CharField(max_length=255, blank=True, null=True)
     date = models.DateTimeField()
 
     place_name = models.CharField(max_length=255, blank=True, null=True)
@@ -50,8 +51,6 @@ class Event(TimeStampedModel):
     place_number = models.CharField(max_length=255, blank=True, null=True)
     place_city = models.CharField(max_length=255, blank=True, null=True)
     place_map_url = models.CharField(max_length=255, blank=True, null=True)
-
-    sponsors = models.ManyToManyField(Sponsor)
 
     is_active = models.BooleanField(default=True)
 
@@ -78,6 +77,7 @@ class Talk(TimeStampedModel):
     language = models.CharField(max_length=255, choices=LANGUAGE.items, blank=True, null=True)
     level = models.CharField(max_length=255, choices=LEVEL.items, blank=True, null=True)
 
+    description = models.TextField(max_length=255, blank=True, null=True)
     is_active = models.BooleanField(default=True)
 
 
