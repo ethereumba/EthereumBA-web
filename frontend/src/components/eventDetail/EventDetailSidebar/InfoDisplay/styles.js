@@ -30,7 +30,7 @@ export const Text = styled.span`
   ${({ isUpcoming }) => !isUpcoming && `opacity: 0.3`}
 `;
 
-export const ClickableText = styled(Text)`
+export const ClickableText = styled(Text).attrs({ rel: 'noopener noreferrer' })`
   :hover {
     color: ${COLORS.orangeText};
   }

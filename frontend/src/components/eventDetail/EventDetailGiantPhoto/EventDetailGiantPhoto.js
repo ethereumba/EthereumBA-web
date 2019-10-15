@@ -4,8 +4,6 @@ import Slider from 'react-slick';
 // proptypes
 import { number, func } from 'prop-types';
 
-// styles
-
 // material ui
 import Grid from '@material-ui/core/Grid';
 import Hidden from '@material-ui/core/Hidden';
@@ -23,7 +21,7 @@ import CloseIcon from '../../../assets/eventDetail/cross-purple.svg';
 // types
 import { eventType } from '../../../lib/types';
 
-const EventDetailGiantPhoto = ({ event, indexOfSelectedPhoto, onCloseIconClick }) => {
+const EventDetailGiantPhoto = ({ indexOfSelectedPhoto, onCloseIconClick }) => {
   const sliderSettings = {
     dots: false,
     infinite: true,
@@ -34,8 +32,6 @@ const EventDetailGiantPhoto = ({ event, indexOfSelectedPhoto, onCloseIconClick }
     nextArrow: <CustomArrow isNextArrow />,
     prevArrow: <CustomArrow />,
   };
-
-  console.log(event);
 
   return (
     <MainContainer container direction="row">

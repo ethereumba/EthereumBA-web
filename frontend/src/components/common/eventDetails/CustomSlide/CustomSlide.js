@@ -4,8 +4,6 @@ import React from 'react';
 import { number, func } from 'prop-types';
 import { Container, Icon, IconWrapper, Image, HoverContainer } from './styles';
 
-// proptypes
-
 // assets
 import MagnifyingGlassIcon from '../../../../assets/eventDetail/magnifying-glass-purple.svg';
 

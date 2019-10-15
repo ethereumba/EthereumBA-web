@@ -1,11 +1,8 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 
-// proptypes
-import { object } from 'prop-types';
-
 // routing
-import { withRouter } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 // types
 import { matchType } from '../../lib/types';
@@ -13,7 +10,7 @@ import { matchType } from '../../lib/types';
 // components
 import EventDetail from './EventDetail';
 
-const EventDetailContainer = ({ match, history }) => {
+const EventDetailContainer = ({ match }) => {
   const [isPhotoView, setIsPhotoView] = useState(false);
   const [indexOfSelectedPhoto, setIndexOfSelectedPhoto] = useState(0);
 
@@ -22,10 +19,7 @@ const EventDetailContainer = ({ match, history }) => {
 
   const event = events.find(_event => String(_event.id) === String(match.params.id));
 
-  if (!event) {
-    history.push('/events');
-    return null;
-  }
+  if (!event) return <Redirect to="/events" />;
 
   const checkEventStatus = () => upcomingEvents.includes(event);
 
@@ -55,7 +49,6 @@ const EventDetailContainer = ({ match, history }) => {
 
 EventDetailContainer.propTypes = {
   match: matchType.isRequired,
-  history: object.isRequired,
 };
 
-export default withRouter(EventDetailContainer);
+export default EventDetailContainer;
