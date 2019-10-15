@@ -1,34 +1,47 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
+import React from 'react';
+
+// proptypes
+import { bool } from 'prop-types';
 
 // material ui
-import Grid from '@material-ui/core/Grid'
-import Hidden from '@material-ui/core/Hidden'
+import Grid from '@material-ui/core/Grid';
+import Hidden from '@material-ui/core/Hidden';
 
 // styles
-import { Title, Description } from './styles'
+import { Title, Description } from './styles';
 
-const EventDetailTitleAndDescription = ({ event }) => {
-    const upcomingEvents = useSelector(state => state.events.upcomingEvents)
+// components
+import EventDetailSidebar from '../EventDetailSidebar';
 
-    const checkEventStatus = () => upcomingEvents.includes(event)
+// types
+import { eventType } from '../../../lib/types';
 
-    return (
-        <Grid item xs={12}>
-            <Grid container>
-                <Hidden only={['xs', 'sm']}>
-                    <Grid item md={1}></Grid>
-                </Hidden>
-                <Grid item xs={12} md={7}>
-                    <Grid container direction='column'>
-                        <Title isUpcoming={checkEventStatus()}>{event.title}</Title>
-                        <Description>{event.description}</Description>
-                    </Grid>
-                </Grid>
+const EventDetailTitleAndDescription = ({ event, isUpcomingEvent }) => (
+  <Grid item>
+    <Grid container>
+      <Hidden only={['xs', 'sm']}>
+        <Grid item md={2} />
+      </Hidden>
+      <Grid item xs={12} md={10}>
+        <Grid container direction="column">
+          <Title isUpcoming={isUpcomingEvent}>{event.title}</Title>
+          <Hidden mdUp>
+            <Grid item xs={12} md={4}>
+              <Grid container direction="column" alignItems="stretch" justify="flex-start">
+                <EventDetailSidebar isUpcomingEvent={isUpcomingEvent} event={event} />
+              </Grid>
             </Grid>
+          </Hidden>
+          <Description>{event.description}</Description>
         </Grid>
+      </Grid>
+    </Grid>
+  </Grid>
+);
 
-    )
-}
+EventDetailTitleAndDescription.propTypes = {
+  event: eventType.isRequired,
+  isUpcomingEvent: bool.isRequired,
+};
 
-export default EventDetailTitleAndDescription 
+export default EventDetailTitleAndDescription;

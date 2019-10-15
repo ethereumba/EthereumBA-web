@@ -1,21 +1,27 @@
 @font-face {
-    font-family: "Comfortaa";
-    src: url("../assets/fonts/Comfortaa[wght].ttf") format("woff");
+  font-family: 'Comfortaa';
+  src: url('../assets/fonts/Comfortaa[wght].ttf') format('woff');
 }
 
 @font-face {
-    font-family: "PT Mono";
-    src: url("../assets/fonts/PTM55FT.ttf") format("woff");
+  font-family: 'PT Mono';
+  src: url('../assets/fonts/PTM55FT.ttf') format('woff');
 }
 
 body,
 html {
+  margin: 0;
+  padding: 0;
+  background-color: #fafbff;
+  box-sizing: border-box;
+  font-family: Confortaa;
+
+  span {
     margin: 0;
-    padding: 0;
-    background-color: #FAFBFF;
+  }
 }
 
 .center-item {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
