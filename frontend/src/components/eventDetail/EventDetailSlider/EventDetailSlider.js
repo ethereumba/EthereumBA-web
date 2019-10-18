@@ -67,6 +67,9 @@ const EventDetailSlider = ({ event, onPhotoClick }) => {
     ],
   };
 
+  // TO FIX
+  if (photos) { return <div /> }
+
   return (
     <Container container direction="row">
       <Hidden only={['xs', 'sm']}>

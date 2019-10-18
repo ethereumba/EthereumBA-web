@@ -23,7 +23,7 @@ const requestMoreEvents = nextApi => {
   return dispatch => {
     dispatch({ type: EVENTS_REQUEST });
     axios
-      .get(nextApi)
+      .get(nextApi.replace('http://api.', 'https://api.'))
       .then(res => {
         const events = res.data;
         dispatch(requestMoreEventsSuccess(events));
