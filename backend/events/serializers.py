@@ -42,8 +42,6 @@ class TalkSerializer(serializers.ModelSerializer):
 class EventSerializer(serializers.ModelSerializer):
     photos = serializers.SerializerMethodField('get_photos_')
     talks = serializers.SerializerMethodField('get_talks_')
-    sponsors = SponsorSerializer(read_only=True, many=True)
-
     class Meta:
         model = Event
         fields = (
