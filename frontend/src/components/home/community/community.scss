@@ -1,8 +1,17 @@
 @import '../../../styles/variables.scss';
 
 .community {
+  box-sizing: border-box;
   &__header {
     margin-bottom: 110px;
+
+    @media (max-width: 1280px) {
+      margin-top: 100px;
+    }
+
+    @media (max-width: 960px) {
+      margin-top: 500px;
+    }
   }
 
   .container-community {

@@ -1,8 +1,15 @@
 @import '../../../styles/variables.scss';
 
 .card-home {
+
+  
   display: flex;
   justify-content: center;
+
+:hover {
+    cursor: pointer;
+  }
+
   .card-container {
     padding: 15px;
     img {

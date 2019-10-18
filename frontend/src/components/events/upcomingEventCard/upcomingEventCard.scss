@@ -1,6 +1,10 @@
 .card-event {
   display: flex;
   justify-content: center;
+
+  :hover {
+    cursor: pointer;
+  }   
 }
 
 .card {

@@ -4,6 +4,7 @@
   &--background {
     background: url('../../../assets/stats.png') no-repeat;
     background-size: cover;
+    padding: 20px 0;
     height: 100%;
   }
 
@@ -11,6 +12,10 @@
     display: flex;
     justify-content: center;
     padding: 60px 0;
+
+    @media (max-width: 720px) {
+      padding: 60px 20px;
+    }
 
     .title {
       display: flex;
@@ -20,12 +25,24 @@
       font-size: 30px;
       line-height: 43px;
       margin: 0;
+
+      @media (max-width: 480px) {
+        font-size: 24px;
+      }
     }
   }
 
   &__container {
     display: flex;
     justify-content: center;
+
+    @media (max-width: 720px) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      align-items: center;
+      justify-items: center;
+    }
 
     &__stat {
       height: 140px;
@@ -36,6 +53,10 @@
       flex-direction: column;
       align-items: center;
       margin: 0 20px;
+
+      @media (max-width: 720px) {
+        margin-top: 30px;
+      }
 
       span {
         color: $violetCard;
