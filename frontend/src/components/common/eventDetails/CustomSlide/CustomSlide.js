@@ -12,7 +12,7 @@ import { photoType } from '../../../../lib/types';
 
 const CustomSlide = ({ index, tabIndex, photo, onPhotoClick }) => (
   <Container onClick={() => onPhotoClick(index)} index={index} tabIndex={tabIndex}>
-    <Image src={photo.url} />
+    <Image src={`${process.env.REACT_APP_API_ROOT}${photo.img}`} />
     <HoverContainer>
       <IconWrapper>
         <Icon src={MagnifyingGlassIcon} />

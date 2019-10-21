@@ -12,16 +12,13 @@ import { PhotoContainer, Image, Container, Icon, IconWrapper, MainContainer } fr
 // components
 import CustomArrow from '../../common/eventDetails/CustomArrow';
 
-// lib
-import photos from '../../../lib/photos';
-
 // assets
 import CloseIcon from '../../../assets/eventDetail/cross-purple.svg';
 
 // types
 import { eventType } from '../../../lib/types';
 
-const EventDetailGiantPhoto = ({ indexOfSelectedPhoto, onCloseIconClick }) => {
+const EventDetailGiantPhoto = ({ indexOfSelectedPhoto, onCloseIconClick, event }) => {
   const sliderSettings = {
     dots: false,
     infinite: true,
@@ -40,9 +37,9 @@ const EventDetailGiantPhoto = ({ indexOfSelectedPhoto, onCloseIconClick }) => {
       </Hidden>
       <Container item md={10}>
         <Slider {...sliderSettings}>
-          {photos.map(photo => (
+          {event.photos.map(photo => (
             <PhotoContainer key={`photo_${photo.url}`}>
-              <Image src={photo.url} />
+              <Image src={`${process.env.REACT_APP_API_ROOT}${photo.img}`} />
             </PhotoContainer>
           ))}
         </Slider>
