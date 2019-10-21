@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Grid } from '@material-ui/core';
 
@@ -15,7 +15,7 @@ const Events = ({ events, history }) => {
   if (eventsLength > 0) {
     eventsToDisplay = eventsLength <= 3 ? events : events.slice(0, 3);
   }
-  const orderedEventsToDisplay = [...eventsToDisplay].reverse();
+  const orderedEventsToDisplay = [...eventsToDisplay];
 
   const handleEventCardClick = id => {
     history.push(`/events/${id}`);
@@ -32,8 +32,8 @@ const Events = ({ events, history }) => {
           <div className="cards-events">
             <Grid container className="events__container">
               {orderedEventsToDisplay &&
-                orderedEventsToDisplay.map((event, i) => (
-                  <Grid item xs={12} md={4} lg={4} key={`home-events__${event.id}-${i}`}>
+                orderedEventsToDisplay.map(event => (
+                  <Grid item xs={12} md={4} lg={4} key={`home-events__${event.id}`}>
                     <EventCard
                       handleClick={() => handleEventCardClick(event.id)}
                       id={event.id}
@@ -64,6 +64,9 @@ Events.propTypes = {
       hasPassed: PropTypes.bool,
     })
   ).isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func,
+  }).isRequired,
 };
 
 export default withRouter(Events);
