@@ -29,7 +29,7 @@ const EventDetailSidebar = ({ event, isUpcomingEvent }) => {
 
   const handleOrangeButtonClick = () => (isUpcomingEvent ? event.meetup_url : event.youtube_url);
 
-  const generateButtonText = () => (isUpcomingEvent ? 'Join Meetup' : 'Youtube Live');
+  const generateButtonText = () => (isUpcomingEvent ? 'Join Meetup' : 'Youtube');
 
   return (
     <Container item>
