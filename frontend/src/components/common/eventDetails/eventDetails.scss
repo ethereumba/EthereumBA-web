@@ -20,6 +20,10 @@
     }
   }
 
+  &:not(.past) {
+    margin-bottom: 12px;
+  }
+
   &.event-date {
     span {
       text-transform: capitalize;
