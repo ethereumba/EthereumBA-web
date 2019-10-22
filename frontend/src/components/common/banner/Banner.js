@@ -33,6 +33,11 @@ Banner.propTypes = {
   text: PropTypes.string.isRequired,
   lightTheme: PropTypes.bool,
   positionTop: PropTypes.bool,
+  history: PropTypes.shape({
+    location: PropTypes.shape({
+      pathname: PropTypes.string,
+    }),
+  }),
 };
 
 Banner.defaultProps = {

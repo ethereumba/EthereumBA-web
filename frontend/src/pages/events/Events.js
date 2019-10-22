@@ -31,7 +31,7 @@ on the subject, regardless of previous
 experience`;
 
 const Events = ({ getMoreEvents, showMore, pastEvents, upcomingEvents, handleEventCardClick }) => (
-  <div className={'events'}>
+  <div className="events">
     <Header lightTheme />
     <Banner text={eventsBannerText} background={Background} lightTheme positionTop />
 
@@ -88,7 +88,7 @@ const Events = ({ getMoreEvents, showMore, pastEvents, upcomingEvents, handleEve
       </Grid>
 
       <div className="events__past-events__btn">
-        {showMore && <Button onClick={getMoreEvents} title={'view more'} button />}
+        {showMore && <Button onClick={getMoreEvents} title="view more" button />}
       </div>
     </div>
 
