@@ -54,7 +54,7 @@ const EventDetail = ({
                 ))}
               </Grid>
             </Grid>
-            <Hidden mdDown>
+            <Hidden smDown>
               <Grid item xs={12} md={4}>
                 <Grid container direction="column" alignItems="stretch" justify="flex-start">
                   <EventDetailSidebar isUpcomingEvent={isUpcomingEvent} event={event} />
@@ -64,7 +64,7 @@ const EventDetail = ({
           </Grid>
         </Grid>
       )}
-      {!isUpcomingEvent && !isPhotoView && (
+      {!isPhotoView && (
         <Grid item xs={12} md={12}>
           <EventDetailSlider event={event} onPhotoClick={onPhotoClick} />
         </Grid>

@@ -19,7 +19,7 @@ export const Container = styled.div`
 
 export const Image = styled.img`
   width: 100%;
-  height: 100%;
+  object-fit: cover;
 `;
 
 export const HoverContainer = styled.div`
@@ -38,7 +38,10 @@ export const HoverContainer = styled.div`
   }
 `;
 
-export const Icon = styled(Image)``;
+export const Icon = styled.img`
+  width: 100%;
+  height: 100%;
+`;
 
 export const IconWrapper = styled.div`
   width: 50px;

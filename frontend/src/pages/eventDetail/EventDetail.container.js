@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
-// routing
-import { Redirect } from 'react-router-dom';
+import { isAfter } from 'date-fns';
 
 // types
 import { matchType } from '../../lib/types';
@@ -10,18 +9,38 @@ import { matchType } from '../../lib/types';
 // components
 import EventDetail from './EventDetail';
 
+// redux
+import { getSingleEvent } from '../../modules/events/actions';
+
 const EventDetailContainer = ({ match }) => {
   const [isPhotoView, setIsPhotoView] = useState(false);
+  const [event, setEvent] = useState(null);
+  const [talks, setTalks] = useState([]);
   const [indexOfSelectedPhoto, setIndexOfSelectedPhoto] = useState(0);
 
+  const dispatch = useDispatch();
+
+  const eventId = match.params.id;
+
   const events = useSelector(state => state.events.data);
-  const upcomingEvents = useSelector(state => state.events.upcomingEvents);
 
-  const event = events.find(_event => String(_event.id) === String(match.params.id));
+  const getEventFromStore = () => events.find(_event => String(_event.id) === String(eventId));
 
-  if (!event) return <Redirect to="/events" />;
+  useEffect(() => {
+    if (getEventFromStore() !== undefined) {
+      setEvent(getEventFromStore());
+    } else {
+      dispatch(getSingleEvent(eventId));
+    }
 
-  const checkEventStatus = () => upcomingEvents.includes(event);
+    if (event) setTalks(event.talks.sort(ascendingId));
+  }, [event]);
+
+  useEffect(() => {
+    if (events.length === 1 && !event) setEvent(events[0]);
+  }, [events]);
+
+  const checkEventStatus = () => isAfter(new Date(event.date), new Date());
 
   const handlePhotoClick = index => {
     setIndexOfSelectedPhoto(index);
@@ -32,18 +51,19 @@ const EventDetailContainer = ({ match }) => {
 
   const ascendingId = (a, b) => a.id - b.id;
 
-  const talks = event.talks ? event.talks.sort(ascendingId) : [];
-
   return (
-    <EventDetail
-      event={event}
-      indexOfSelectedPhoto={indexOfSelectedPhoto}
-      isPhotoView={isPhotoView}
-      onPhotoClick={handlePhotoClick}
-      talks={talks}
-      onCloseIconClick={handleOnCloseIconClick}
-      isUpcomingEvent={checkEventStatus()}
-    />
+    event &&
+    talks && (
+      <EventDetail
+        event={event}
+        indexOfSelectedPhoto={indexOfSelectedPhoto}
+        isPhotoView={isPhotoView}
+        onPhotoClick={handlePhotoClick}
+        talks={talks}
+        onCloseIconClick={handleOnCloseIconClick}
+        isUpcomingEvent={checkEventStatus()}
+      />
+    )
   );
 };
 

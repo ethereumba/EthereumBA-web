@@ -21,6 +21,9 @@ import PositionIcon from '../../../assets/eventDetail/position-grey.svg';
 // types
 import { eventType } from '../../../lib/types';
 
+// lib
+import { getFormattedDate, getFormattedTime } from '../../../lib/helpers';
+
 const EventDetailSidebar = ({ event, isUpcomingEvent }) => {
   const generatePositionText = () => `
         ${event.place_street} ${event.place_number},
@@ -30,6 +33,9 @@ const EventDetailSidebar = ({ event, isUpcomingEvent }) => {
   const handleOrangeButtonClick = () => (isUpcomingEvent ? event.meetup_url : event.youtube_url);
 
   const generateButtonText = () => (isUpcomingEvent ? 'Join Meetup' : 'Youtube');
+
+  const eventDate = getFormattedDate(event.date);
+  const eventTime = getFormattedTime(event.date);
 
   return (
     <Container item>
@@ -41,8 +47,8 @@ const EventDetailSidebar = ({ event, isUpcomingEvent }) => {
           <ContentContainer container direction="column" justify="flex-start" alignItems="flex-start">
             <Grid item xs={6}>
               <Grid container direction="column" justify="flex-start" alignItems="flex-start">
-                <InfoDisplay isUpcoming={isUpcomingEvent} icon={CalendarIcon} text={event.date} />
-                <InfoDisplay isUpcoming={isUpcomingEvent} icon={ClockIcon} text={event.time} />
+                <InfoDisplay isUpcoming={isUpcomingEvent} icon={CalendarIcon} text={eventDate} />
+                <InfoDisplay isUpcoming={isUpcomingEvent} icon={ClockIcon} text={eventTime} />
                 <InfoDisplay
                   isUpcoming={isUpcomingEvent}
                   icon={PositionIcon}
