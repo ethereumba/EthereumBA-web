@@ -1,14 +1,14 @@
-import React, { Component } from 'react'
+import React from 'react';
 
-import openZeppelin from '../../../assets/partners/open-zepelling.png'
-import xivis from '../../../assets/partners/xivis.png'
-import rcn from '../../../assets/partners/rcn.png'
-import celo from '../../../assets/partners/celo.png'
-import wibson from '../../../assets/partners/wibson.png'
-import maker from '../../../assets/partners/maker.png'
-import a3 from '../../../assets/partners/a3.png'
+import openZeppelin from '../../../assets/partners/open-zepelling.png';
+import xivis from '../../../assets/partners/xivis.png';
+import rcn from '../../../assets/partners/rcn.png';
+import celo from '../../../assets/partners/celo.png';
+import wibson from '../../../assets/partners/wibson.png';
+import maker from '../../../assets/partners/maker.png';
+import a3 from '../../../assets/partners/a3.png';
 
-import './partners.scss'
+import './partners.scss';
 
 const logosPartner = [
   {
@@ -60,36 +60,34 @@ const logosPartner = [
     width: 43,
     url: 'https://areatresworkplace.com',
   },
-]
+];
 
 const Partners = () => {
   return (
-    <div className={'partners'}>
-      <div className={'sub-title'}>
+    <div className="partners">
+      <div className="sub-title">
         <p>partners</p>
       </div>
 
-      <div className='container-partners'>
+      <div className="container-partners">
         {logosPartner.map(logo => {
           return (
-            <div className={'partners-logo'} key={`partners-logo__${logo.url}`}>
-              <a href={logo.url} target='_blank'>
-                <img
-                  src={logo.image}
-                  alt={logo.alt}
-                  key={logo.image}
-                  style={{
-                    height: logo.height,
-                    width: logo.width,
-                  }}
-                />
-              </a>
-            </div>
-          )
+            <a href={logo.url} target="_blank" key={`partners-logo__${logo.url}`} rel="noopener noreferrer">
+              <img
+                src={logo.image}
+                alt={logo.alt}
+                key={logo.image}
+                style={{
+                  height: logo.height,
+                  width: logo.width,
+                }}
+              />
+            </a>
+          );
         })}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Partners
+export default Partners;
