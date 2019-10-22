@@ -8,7 +8,7 @@ import Grid from '@material-ui/core/Grid';
 import Hidden from '@material-ui/core/Hidden';
 
 // styles
-import { OrangeButton, Container, ContentContainer } from './styles';
+import { OrangeButton, Container, ContentContainer, ButtonContainer } from './styles';
 
 // components
 import InfoDisplay from './InfoDisplay';
@@ -57,11 +57,11 @@ const EventDetailSidebar = ({ event, isUpcomingEvent }) => {
                 />
               </Grid>
             </Grid>
-            <Grid item xs={6}>
+            <ButtonContainer item xs={6}>
               <OrangeButton target="_blank" href={handleOrangeButtonClick()}>
                 {generateButtonText()}
               </OrangeButton>
-            </Grid>
+            </ButtonContainer>
           </ContentContainer>
         </Grid>
       </Grid>

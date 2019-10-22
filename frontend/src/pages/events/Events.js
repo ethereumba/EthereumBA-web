@@ -22,6 +22,9 @@ import { eventType } from '../../lib/types';
 // styles
 import './events.scss';
 
+// lib
+import { getFormattedDate, getFormattedTime } from '../../lib/helpers';
+
 // constants
 const eventsBannerText = `Our events are open to anyone interested
 on the subject, regardless of previous
@@ -40,14 +43,17 @@ const Events = ({ getMoreEvents, showMore, pastEvents, upcomingEvents, handleEve
         <Grid container className="events__container">
           {upcomingEvents.map((event, i) => {
             const address = `${event.place_street} ${event.place_number}, ${event.place_city}`;
+            const eventDate = getFormattedDate(event.date);
+            const eventTime = getFormattedTime(event.date);
+
             return (
               <UpcomingEventCard
                 key={`events-upcoming__${event.id}-${i}`}
                 handleClick={() => handleEventCardClick(event.id)}
                 id={event.id}
                 title={event.title}
-                date={event.date}
-                time={event.time}
+                date={eventDate}
+                time={eventTime}
                 address={address}
                 url={event.meetup_url}
               />
@@ -63,18 +69,22 @@ const Events = ({ getMoreEvents, showMore, pastEvents, upcomingEvents, handleEve
       </div>
       <Grid container className="events__container">
         {pastEvents &&
-          pastEvents.map((event, i) => (
-            <Grid item xs={12} md={6} lg={4} key={`events-past__${event.id}-${i}`}>
-              <EventCard
-                id={event.id}
-                handleClick={() => handleEventCardClick(event.id)}
-                title={event.title}
-                date={event.date}
-                hasPassed={event.hasPassed}
-                url={event.meetup_url}
-              />
-            </Grid>
-          ))}
+          pastEvents.map((event, i) => {
+            const eventDate = getFormattedDate(event.date);
+
+            return (
+              <Grid item xs={12} md={6} lg={4} key={`events-past__${event.id}-${i}`}>
+                <EventCard
+                  id={event.id}
+                  handleClick={() => handleEventCardClick(event.id)}
+                  title={event.title}
+                  date={eventDate}
+                  hasPassed={event.hasPassed}
+                  url={event.meetup_url}
+                />
+              </Grid>
+            );
+          })}
       </Grid>
 
       <div className="events__past-events__btn">

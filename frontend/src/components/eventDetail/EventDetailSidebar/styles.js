@@ -48,3 +48,7 @@ export const ContentContainer = styled(Grid)`
     }
   }
 `;
+
+export const ButtonContainer = styled(Grid)`
+  height: 100%;
+`;
