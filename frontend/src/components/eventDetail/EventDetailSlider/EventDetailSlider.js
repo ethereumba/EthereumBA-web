@@ -64,8 +64,6 @@ const EventDetailSlider = ({ event, onPhotoClick }) => {
     ],
   };
 
-  console.log(event.photos);
-
   return (
     <Container container direction="row">
       <Hidden only={['xs', 'sm']}>
