@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Select the event</h2>
+    <select class="form-control">
+        {% for event in object_list %}
+            <option>{{event.title}}</option>
+        {% endfor %}
+    </select>
+    <div id="dropzone">
+        <form action="/upload" class="dropzone needsclick dz-clickable" id="demo-upload">
+            <div style="height: 100px; width: 500px; border: 4px dotted blue;" class="dz-message needsclick">
+                    Drop photos here to upload.
+                    <br>
+            </div>
+        </form>
+    </div>
+{% endblock %}

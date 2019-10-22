@@ -24,6 +24,8 @@ SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv('SECRET_KEY', 'fake_key')
 
+PROJECT_ROOT = os.path.normpath(os.path.join(os.path.dirname(__file__), ".."))
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True if os.getenv('DEBUG', 'true') == 'true' else False
 
@@ -85,7 +87,7 @@ ROOT_URLCONF = 'backend.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(PROJECT_ROOT, "templates")],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
