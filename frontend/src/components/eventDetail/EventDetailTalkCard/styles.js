@@ -1,9 +1,12 @@
 import styled from 'styled-components';
 
+// material ui
+import Grid from '@material-ui/core/Grid';
+
 // lib
 import { COLORS } from '../../../lib/styles';
 
-export const Container = styled.div`
+export const Container = styled(Grid)`
   width: 100%;
   background-color: ${COLORS.talkCardBackground};
   border: 1px solid ${COLORS.talkCardBorder};
@@ -11,6 +14,8 @@ export const Container = styled.div`
   margin-bottom: 14px;
   box-sizing: border-box;
   padding: 20px;
+
+  flex-direction: column !important;
 `;
 
 export const Description = styled.p`

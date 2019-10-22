@@ -9,6 +9,9 @@ import Button from '../../common/button/Button';
 import EventCard from '../../common/eventCard/EventCard';
 import './events.scss';
 
+// lib
+import { getFormattedDate } from '../../../lib/helpers';
+
 const Events = ({ events, history }) => {
   const eventsLength = events.length;
   let eventsToDisplay = [];
@@ -32,17 +35,21 @@ const Events = ({ events, history }) => {
           <div className="cards-events">
             <Grid container className="events__container">
               {orderedEventsToDisplay &&
-                orderedEventsToDisplay.map(event => (
-                  <Grid item xs={12} md={4} lg={4} key={`home-events__${event.id}`}>
-                    <EventCard
-                      handleClick={() => handleEventCardClick(event.id)}
-                      id={event.id}
-                      title={event.title}
-                      date={event.date}
-                      hasPassed={event.hasPassed}
-                    />
-                  </Grid>
-                ))}
+                orderedEventsToDisplay.map(event => {
+                  const eventDate = getFormattedDate(event.date);
+
+                  return (
+                    <Grid item xs={12} md={4} lg={4} key={`home-events__${event.id}`}>
+                      <EventCard
+                        handleClick={() => handleEventCardClick(event.id)}
+                        id={event.id}
+                        title={event.title}
+                        date={eventDate}
+                        hasPassed={event.hasPassed}
+                      />
+                    </Grid>
+                  );
+                })}
             </Grid>
           </div>
         </div>

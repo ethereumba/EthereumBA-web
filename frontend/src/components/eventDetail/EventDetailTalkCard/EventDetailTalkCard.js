@@ -20,7 +20,7 @@ const EventDetailTalkCard = ({ talk }) => (
       <Grid item md={2} />
     </Hidden>
     <Grid item xs={12} md={10}>
-      <Container>
+      <Container container direction="column">
         <Name>{talk.name}</Name>
         {talk.description && <Description>{talk.description}</Description>}
         <DownloadMaterialContainer>

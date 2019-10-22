@@ -11,8 +11,8 @@ export const Container = styled.div`
 `;
 
 export const IconWrapper = styled.div`
-  width: 23px;
-  height: 23px;
+  min-width: 23px;
+  min-height: 23px;
   ${({ isUpcoming }) => !isUpcoming && `opacity: 0.3`}
   margin: 0 10px;
 `;

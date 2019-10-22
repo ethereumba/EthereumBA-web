@@ -4,8 +4,9 @@
   &--background {
     background: url('../../../assets/stats.png') no-repeat;
     background-size: cover;
-    padding: 20px 0;
+    background-position: 70% 0%;
     height: 100%;
+    padding: 20px 0;
   }
 
   &__title {
