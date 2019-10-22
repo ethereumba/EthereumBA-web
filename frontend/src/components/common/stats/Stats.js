@@ -1,15 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Button from '../../common/button/Button';
+import Button from '../button/Button';
 import './stats.scss';
 
 const Stats = ({ stats }) => {
   return (
     <div className="stats--background">
       <div className="stats">
-        <div className={'stats__title'}>
-          <p className={'title'}>Our community is growing</p>
+        <div className="stats__title">
+          <p className="title">Our community is growing</p>
         </div>
 
         <div className="stats__container">
@@ -25,7 +25,7 @@ const Stats = ({ stats }) => {
         </div>
 
         <div className="stats__btn">
-          <Button title={'Join'} url={'https://www.meetup.com/ethereum-ba/'} anchor />
+          <Button title="Join" url="https://www.meetup.com/ethereum-ba/" anchor />
         </div>
       </div>
     </div>
