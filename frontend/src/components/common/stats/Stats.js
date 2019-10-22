@@ -1,18 +1,18 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from 'react';
+import PropTypes from 'prop-types';
 
-import Button from '../../common/button/Button'
-import './stats.scss'
+import Button from '../../common/button/Button';
+import './stats.scss';
 
 const Stats = ({ stats }) => {
   return (
-    <div className='stats--background'>
-      <div className='stats'>
+    <div className="stats--background">
+      <div className="stats">
         <div className={'stats__title'}>
           <p className={'title'}>Our community is growing</p>
         </div>
 
-        <div className='stats__container'>
+        <div className="stats__container">
           {stats &&
             stats.map(stat => {
               return (
@@ -20,17 +20,17 @@ const Stats = ({ stats }) => {
                   <span>{stat.value}</span>
                   <span>{stat.name}</span>
                 </div>
-              )
+              );
             })}
         </div>
 
-        <div className='stats__btn'>
-          <Button title={'Join us on Meetup'} url={'https://www.meetup.com/ethereum-ba/'} anchor />
+        <div className="stats__btn">
+          <Button title={'Join'} url={'https://www.meetup.com/ethereum-ba/'} anchor />
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 Stats.propTypes = {
   stats: PropTypes.arrayOf(
@@ -40,7 +40,7 @@ Stats.propTypes = {
       name: PropTypes.string.isRequired,
     })
   ),
-}
+};
 
 Stats.defaultProps = {
   stats: [
@@ -49,6 +49,6 @@ Stats.defaultProps = {
     { id: 'attendeesPerMeetup', value: '+80', name: 'Attendees at each event' },
     { id: 'averageRating', value: '4.8', name: 'Average rating' },
   ],
-}
+};
 
-export default Stats
+export default Stats;

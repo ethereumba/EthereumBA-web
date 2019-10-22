@@ -10,4 +10,6 @@ export const MeetupButton = styled(OrangeButton)`
 
   display: inline-flex;
   padding: 5px 15px;
+
+  margin-top: 60px;
 `;

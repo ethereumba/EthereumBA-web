@@ -20,7 +20,7 @@ const Banner = ({ background, text, lightTheme, positionTop, history }) => {
         <h4>{text}</h4>
         {isHome && (
           <MeetupButton href="https://www.meetup.com/es/ethereum-ba/" target="_blank" rel="noopener noreferrer">
-            Go to our Meeutup
+            Join our Meeutup
           </MeetupButton>
         )}
       </div>
