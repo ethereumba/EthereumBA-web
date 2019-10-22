@@ -16,6 +16,7 @@ export const Description = styled.p`
   line-height: 22px;
   font-family: Comfortaa;
   font-weight: bold;
+  white-space: pre-wrap;
 
   margin: 20px 0 55px 0;
 `;
