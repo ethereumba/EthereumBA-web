@@ -11,9 +11,6 @@ import Hidden from '@material-ui/core/Hidden';
 // styles
 import { Container, SliderContainer } from './styles';
 
-// lib
-import photos from '../../../lib/photos';
-
 // components
 import CustomArrow from '../../common/eventDetails/CustomArrow';
 import CustomSlide from '../../common/eventDetails/CustomSlide';
@@ -67,9 +64,6 @@ const EventDetailSlider = ({ event, onPhotoClick }) => {
     ],
   };
 
-  // TO FIX
-  if (photos) { return <div /> }
-
   return (
     <Container container direction="row">
       <Hidden only={['xs', 'sm']}>
@@ -77,9 +71,10 @@ const EventDetailSlider = ({ event, onPhotoClick }) => {
       </Hidden>
       <SliderContainer item md={10}>
         <Slider {...sliderSettings}>
-          {photos.map((photo, index) => (
-            <CustomSlide key={`photo_${index}_${photo.url}`} onPhotoClick={onPhotoClick} photo={photo} index={index} />
-          ))}
+          {event.photos &&
+            event.photos.map((photo, index) => (
+              <CustomSlide key={`photo_${photo.url}`} onPhotoClick={onPhotoClick} photo={photo} index={index} />
+            ))}
         </Slider>
       </SliderContainer>
       <Hidden only={['xs', 'sm']}>
