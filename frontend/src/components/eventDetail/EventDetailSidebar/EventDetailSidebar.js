@@ -58,9 +58,11 @@ const EventDetailSidebar = ({ event, isUpcomingEvent }) => {
               </Grid>
             </Grid>
             <ButtonContainer item xs={6}>
-              <OrangeButton target="_blank" href={handleOrangeButtonClick()}>
-                {generateButtonText()}
-              </OrangeButton>
+              {((!isUpcomingEvent && event.youtube_url) || isUpcomingEvent) && (
+                <OrangeButton target="_blank" href={handleOrangeButtonClick()}>
+                  {generateButtonText()}
+                </OrangeButton>
+              )}
             </ButtonContainer>
           </ContentContainer>
         </Grid>
