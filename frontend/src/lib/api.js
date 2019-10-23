@@ -9,4 +9,4 @@ const API_ROUTES = {
   baseEvent: `${API_URL}/api/v1/events`,
 };
 
-export { API_ROUTES as default };
+export { API_ROUTES as default, API_URL };

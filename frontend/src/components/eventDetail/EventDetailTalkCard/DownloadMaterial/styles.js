@@ -8,16 +8,19 @@ export const Container = styled.div`
   justify-content: flex-start;
   align-items: center;
   margin-bottom: 12px;
+  width: 100%;
 `;
 
 export const IconWrapper = styled.a`
+  width: 100%;
   height: 19px;
-  width: 19px;
+  margin: 5px 0;
 `;
 
 export const Icon = styled.img`
-  height: 100%;
-  width: 100%;
+  display: inline-block;
+  height: 15px;
+  margin-right: 5px;
 
   :hover {
     cursor: pointer;
@@ -25,6 +28,7 @@ export const Icon = styled.img`
 `;
 
 export const Text = styled.span`
+  display: inline-block;
   color: ${COLORS.orangeText};
   font-size: 14px;
   font-weight: bold;
