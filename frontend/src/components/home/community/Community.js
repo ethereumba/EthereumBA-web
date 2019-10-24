@@ -14,25 +14,25 @@ const communityData = [
     image: CommunityImage1,
     title: 'Community',
     text:
-      "We didn't have enought time",
+      "We encourage developers, technologists, cypher punks, coders, crypto-economists, designers, makers to get involved. Our ecosystem is bottom up. Emergent.",
   },
   {
     image: CommunityImage2,
     title: 'Networking',
     text:
-      'TBD',
+      'We want to create a unique space that helps the community to Grow and connect with the World.',
   },
   {
     image: CommunityImage3,
     title: 'Education',
     text:
-      'You get the point.',
+      'Due it’s political and economic history, Argentina has become a very fertile ground for blockchain ideas. We encourage newcomers to learn while experiencing the technology.',
   },
   {
     image: CommunityImage4,
-    title: 'Future',
+    title: 'Get Involved',
     text:
-      'It will be ready for next time!',
+      'We welcome and encourage any company that wants to be involved in LATAM or the local community to join us.',
   },
 ]
 
