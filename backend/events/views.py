@@ -43,4 +43,5 @@ class PhotoCreateView(APIView):
 
 class PhotoCreate(ListView):
     template_name = 'events/photo_create.html'
+    queryset = Event.objects.order_by('created_at')
     model = Event
