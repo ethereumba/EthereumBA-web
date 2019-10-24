@@ -9,7 +9,7 @@ django-rosetta==0.9.0
 raven==6.3.0
 django-cors-headers==2.2.0
 django-import-export==1.1.0
-
+django-extensions==2.2.5
 
 # Rest framework
 djangorestframework==3.8.0
