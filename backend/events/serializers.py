@@ -77,5 +77,7 @@ class EventPhotoWriterSerializer(serializers.ModelSerializer):
         )
 
     def create(self, validated_data):
-        photo = EventPhoto.objects.create(**validated_data)
+        photo = EventPhoto(**validated_data)
+        photo.name = photo.img.name
+        photo.save()
         return photo
