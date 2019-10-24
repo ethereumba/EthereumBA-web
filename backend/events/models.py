@@ -54,6 +54,12 @@ class Event(TimeStampedModel):
 
     is_active = models.BooleanField(default=True)
 
+    def __str__(self):
+        if self.title:
+            return self.title
+        else:
+            return super(Event).__str__()
+
 
 class EventPhoto(TimeStampedModel):
     class Meta:
