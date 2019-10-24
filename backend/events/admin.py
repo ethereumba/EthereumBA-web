@@ -13,6 +13,7 @@ class SponsorAdmin(ImportExportModelAdmin):
 
 @admin.register(Event)
 class EventAdmin(ImportExportModelAdmin):
+    change_list_template = 'admin/eth-buenos-aires/events/change_list.html'
     list_display = (
         'title', 'meetup_url', 'date', 'place_name', 'place_street', 'place_number', 'place_city', 'is_active'
     )
