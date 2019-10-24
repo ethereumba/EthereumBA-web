@@ -14,25 +14,25 @@ const communityData = [
     image: CommunityImage1,
     title: 'Community',
     text:
-      'We encourage developers, technologists, cypher punks, coders, crypto-economists, designers, makers, and the like to apply. Our ecosystem is bottom up. Emergent.',
+      "We didn't have enought time",
   },
   {
     image: CommunityImage2,
     title: 'Networking',
     text:
-      'Note that we’ve rebranded for the 2019 event. We feel that “hackathons”, are great technological experiences, but the ETHDenver 2018 turned out to be so much more.',
+      'TBD',
   },
   {
     image: CommunityImage3,
     title: 'Education',
     text:
-      'The ETHDenver #BUIDLATHON is about bringing together like minds around a common purpose. Distributed computing is the future, and Colorado is a leading community supporting this emerging technology.',
+      'You get the point.',
   },
   {
     image: CommunityImage4,
     title: 'Future',
     text:
-      'Our event is about empowering participants to shape this new world, while cementing the Rocky Mountain region and the State of Colorado as a thriving hub of Ethereum blockchain innovation.',
+      'It will be ready for next time!',
   },
 ]
 
