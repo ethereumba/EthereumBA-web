@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="col-lg-6">
+
+        <h2>Select the event</h2>
+        <select id="selector" class="form-control" onchange="editEventInput()">
+            {% for event in object_list %}
+                <option value="{{ event.id }}">{{event.title}}</option>
+            {% endfor %}
+        </select>
+        <div id="dropzone">
+            <form action="/api/v1/upload-event-photo/" class="dropzone needsclick dz-clickable" id="demo-upload">
+                {% csrf_token %}
+                <div class="dz-message needsclick">
+                        Drop photos here to upload.
+                        <br>
+                </div>
+                <input type="hidden" id="eventInput" name="event" value="">
+            </form>
+        </div>
+        <script>
+        // Set initial value
+        editEventInput();
+
+        function editEventInput() {
+            let select = document.getElementById("selector");
+            document.getElementById("eventInput").value = select.options[select.selectedIndex].value;
+        }
+
+        Dropzone.options.demoUpload = {
+          paramName: "img", // The name that will be used to transfer the file
+        };
+        </script>
+    </div>
+{% endblock %}

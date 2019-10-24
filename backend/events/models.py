@@ -15,6 +15,7 @@ class LEVEL:
     ]
     values = dict(items)
 
+
 class LANGUAGE:
     SPANISH = 'SPANISH'
     ENGLISH = 'ENGLISH'
@@ -35,6 +36,12 @@ class Sponsor(TimeStampedModel):
 
     is_active = models.BooleanField(default=True)
 
+    def __str__(self):
+        if self.name:
+            return self.name
+        else:
+            return super(Sponsor).__str__()
+
 
 class Event(TimeStampedModel):
     class Meta:
@@ -54,6 +61,12 @@ class Event(TimeStampedModel):
 
     is_active = models.BooleanField(default=True)
 
+    def __str__(self):
+        if self.title:
+            return self.title
+        else:
+            return super(Event).__str__()
+
 
 class EventPhoto(TimeStampedModel):
     class Meta:
@@ -64,6 +77,12 @@ class EventPhoto(TimeStampedModel):
     img = models.FileField()
 
     is_active = models.BooleanField(default=True)
+
+    def __str__(self):
+        if self.name:
+            return self.name
+        else:
+            return super(EventPhoto).__str__()
 
 
 class Talk(TimeStampedModel):
@@ -80,6 +99,12 @@ class Talk(TimeStampedModel):
     description = models.TextField(max_length=255, blank=True, null=True)
     is_active = models.BooleanField(default=True)
 
+    def __str__(self):
+        if self.name:
+            return self.name
+        else:
+            return super(Talk).__str__()
+
 
 class TalkMaterial(TimeStampedModel):
     class Meta:
@@ -90,3 +115,9 @@ class TalkMaterial(TimeStampedModel):
     file = models.FileField()
 
     is_active = models.BooleanField(default=True)
+
+    def __str__(self):
+        if self.name:
+            return self.name
+        else:
+            return super(TalkMaterial).__str__()

@@ -66,3 +66,18 @@ class ShortEventSerializer(serializers.ModelSerializer):
             'id', 'title', 'description', 'meetup_url', 'date', 'place_name', 'place_street', 'place_number',
             'place_city', 'place_map_url',
         )
+
+
+class EventPhotoWriterSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = EventPhoto
+        fields = (
+            'event', 'name', 'img'
+        )
+
+    def create(self, validated_data):
+        photo = EventPhoto(**validated_data)
+        photo.name = photo.img.name
+        photo.save()
+        return photo

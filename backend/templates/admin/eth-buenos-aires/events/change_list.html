@@ -1,0 +1,10 @@
+{% extends "admin/change_list.html" %}
+{% load i18n %}
+{% block object-tools-items %}
+  <li>
+    <a href="{% url 'import-event-photos' %}" class="addlink">
+     {% blocktrans %}subir fotos del evento{% endblocktrans %}
+    </a>
+  </li>
+  {{ block.super }}
+{% endblock %}
