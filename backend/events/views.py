@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView
 from django_filters import rest_framework as filters
 from rest_framework import viewsets, status
@@ -41,7 +42,7 @@ class PhotoCreateView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-class PhotoCreate(ListView):
+class PhotoCreate(LoginRequiredMixin, ListView):
     template_name = 'events/photo_create.html'
     queryset = Event.objects.order_by('created_at')
     model = Event
