@@ -3,7 +3,7 @@
 {% block object-tools-items %}
   <li>
     <a href="{% url 'import-event-photos' %}" class="addlink">
-     {% trans 'upload event photos' %}
+     {% blocktrans %}subir fotos del evento{% endblocktrans %}
     </a>
   </li>
   {{ block.super }}
