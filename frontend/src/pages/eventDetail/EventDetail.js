@@ -26,6 +26,7 @@ const EventDetail = ({
   indexOfSelectedPhoto,
   isUpcomingEvent,
   onCloseIconClick,
+  onChangeIndex,
   talks,
 }) => (
   <StyledContainer maxWidth="lg">
@@ -66,7 +67,12 @@ const EventDetail = ({
       )}
       {!isPhotoView && (
         <Grid item xs={12} md={12}>
-          <EventDetailSlider event={event} onPhotoClick={onPhotoClick} />
+          <EventDetailSlider
+            event={event}
+            onPhotoClick={onPhotoClick}
+            onChangeIndex={onChangeIndex}
+            indexOfSelectedPhoto={indexOfSelectedPhoto}
+          />
         </Grid>
       )}
     </OuterContainer>
@@ -80,7 +86,7 @@ EventDetail.propTypes = {
   indexOfSelectedPhoto: number.isRequired,
   isUpcomingEvent: bool.isRequired,
   onCloseIconClick: func.isRequired,
-
+  onChangeIndex: func.isRequired,
   talks: arrayOf(talkType).isRequired,
 };
 

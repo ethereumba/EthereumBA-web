@@ -36,6 +36,12 @@ const EventDetailContainer = ({ match }) => {
     if (event) setTalks(event.talks.sort(ascendingId));
   }, [event]);
 
+  const handleChangeIndexOfSelectedPhoto = newIndex => {
+    setIndexOfSelectedPhoto(newIndex);
+  };
+
+  if (!event) return <Redirect to="/events" />;
+
   useEffect(() => {
     if (events.length === 1 && !event) setEvent(events[0]);
   }, [events]);
@@ -61,6 +67,7 @@ const EventDetailContainer = ({ match }) => {
         onPhotoClick={handlePhotoClick}
         talks={talks}
         onCloseIconClick={handleOnCloseIconClick}
+        onChangeIndex={handleChangeIndexOfSelectedPhoto}
         isUpcomingEvent={checkEventStatus()}
       />
     )
