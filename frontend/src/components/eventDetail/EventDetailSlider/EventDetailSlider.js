@@ -4,6 +4,9 @@ import Slider from 'react-slick';
 // proptypes
 import { func, number } from 'prop-types';
 
+//types
+import { eventType } from '../../../lib/types';
+
 // material ui
 import Grid from '@material-ui/core/Grid';
 import Hidden from '@material-ui/core/Hidden';
@@ -15,7 +18,7 @@ import { Container, SliderContainer } from './styles';
 import CustomArrow from '../../common/eventDetails/CustomArrow';
 import CustomSlide from '../../common/eventDetails/CustomSlide';
 
-const EventDetailSlider = ({ onPhotoClick, onChangeIndex, indexOfSelectedPhoto }) => {
+const EventDetailSlider = ({ event, onPhotoClick, onChangeIndex, indexOfSelectedPhoto }) => {
   const sliderSettings = {
     dots: false,
     infinite: false,
@@ -63,11 +66,6 @@ const EventDetailSlider = ({ onPhotoClick, onChangeIndex, indexOfSelectedPhoto }
     ],
   };
 
-  // TO FIX
-  if (photos) {
-    return <div />;
-  }
-
   return (
     <Container container direction="row">
       <Hidden only={['xs', 'sm']}>
@@ -89,6 +87,7 @@ const EventDetailSlider = ({ onPhotoClick, onChangeIndex, indexOfSelectedPhoto }
 };
 
 EventDetailSlider.propTypes = {
+  event: eventType.isRequired,
   onPhotoClick: func.isRequired,
   onChangeIndex: func.isRequired,
   indexOfSelectedPhoto: number.isRequired,

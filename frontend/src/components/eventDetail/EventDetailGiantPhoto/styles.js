@@ -5,8 +5,10 @@ import Grid from '@material-ui/core/Grid';
 
 export const PhotoContainer = styled.div`
   box-sizing: border-box;
-  padding: 50px 55px;
-  margin-top: 16px;
+  padding: 50px 55px 100px 55px;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
 
   @media (max-width: 960px) {
     padding: 0 55px;
@@ -16,7 +18,7 @@ export const PhotoContainer = styled.div`
 export const Image = styled.img`
   height: 100%;
   width: 100%;
-  object-fit: cover;
+  object-fit: contain;
 `;
 
 export const IconWrapper = styled.div`
@@ -45,6 +47,18 @@ export const Icon = styled.img`
 
 export const Container = styled(Grid)`
   position: relative;
+
+  .slick-list {
+    height: calc(100vh - 147px);
+
+    .slick-track {
+      height: 100%;
+
+      div {
+        height: 100%;
+      }
+    }
+  }
 
   @media (max-width: 960px) {
     .MuiGrid-item {

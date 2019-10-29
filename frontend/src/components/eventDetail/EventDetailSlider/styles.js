@@ -7,7 +7,7 @@ export const Container = styled(Grid)`
   margin: 100px 0;
 
   @media (max-width: 960px) {
-    margin: 50px 0;
+    display: none !important;
   }
 `;
 

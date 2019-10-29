@@ -27,9 +27,6 @@ const HomeContainer = () => {
 };
 
 HomeContainer.propTypes = {
-  // required attributes
-  currentFetchEvents: arrayOf(eventType).isRequired,
-
   // non required attributes
   totalEventsCount: number,
   nextApi: string,

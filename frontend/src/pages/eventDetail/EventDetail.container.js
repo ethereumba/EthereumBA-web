@@ -40,8 +40,6 @@ const EventDetailContainer = ({ match }) => {
     setIndexOfSelectedPhoto(newIndex);
   };
 
-  if (!event) return <Redirect to="/events" />;
-
   useEffect(() => {
     if (events.length === 1 && !event) setEvent(events[0]);
   }, [events]);

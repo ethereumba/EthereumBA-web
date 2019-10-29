@@ -18,7 +18,7 @@ import CloseIcon from '../../../assets/eventDetail/cross-purple.svg';
 // types
 import { eventType } from '../../../lib/types';
 
-const EventDetailGiantPhoto = ({ indexOfSelectedPhoto, onCloseIconClick }) => {
+const EventDetailGiantPhoto = ({ event, indexOfSelectedPhoto, onCloseIconClick }) => {
   const [currentSlideIndex, setCurrentSlideIndex] = useState(null);
   const [isEnding, setIsEnding] = useState(true);
   const [lastPhotoIndex, setLastPhotoIndex] = useState(null);
@@ -62,7 +62,7 @@ const EventDetailGiantPhoto = ({ indexOfSelectedPhoto, onCloseIconClick }) => {
   }, [currentSlideIndex]);
 
   useEffect(() => {
-    setLastPhotoIndex(photos.length - 1);
+    setLastPhotoIndex(event.photos.length - 1);
   }, []);
 
   return (
@@ -72,7 +72,7 @@ const EventDetailGiantPhoto = ({ indexOfSelectedPhoto, onCloseIconClick }) => {
       </Hidden>
       <Container item md={10}>
         <Slider {...sliderSettings} afterChange={current => handleAfterChange(current)} ref={sliderRef}>
-          {photos.map(photo => (
+          {event.photos.map(photo => (
             <PhotoContainer key={`photo_${photo.url}`}>
               <Image src={`${process.env.REACT_APP_API_ROOT}${photo.img}`} />
             </PhotoContainer>
