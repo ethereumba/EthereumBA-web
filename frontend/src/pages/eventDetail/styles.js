@@ -15,6 +15,8 @@ export const StyledContainer = styled(Container)`
 
 export const OuterContainer = styled(Grid)`
   @media (max-width: 960px) {
+    margin-bottom: 100px;
+
     > div .MuiGrid-item {
       width: 100%;
     }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import Slider from 'react-slick';
 
 // proptypes
@@ -18,17 +18,52 @@ import CloseIcon from '../../../assets/eventDetail/cross-purple.svg';
 // types
 import { eventType } from '../../../lib/types';
 
-const EventDetailGiantPhoto = ({ indexOfSelectedPhoto, onCloseIconClick, event }) => {
+const EventDetailGiantPhoto = ({ event, indexOfSelectedPhoto, onCloseIconClick }) => {
+  const [currentSlideIndex, setCurrentSlideIndex] = useState(null);
+  const [isEnding, setIsEnding] = useState(true);
+  const [lastPhotoIndex, setLastPhotoIndex] = useState(null);
+  const sliderRef = useRef(null);
+
   const sliderSettings = {
     dots: false,
-    infinite: true,
+    infinite: false,
     slidesToShow: 1,
-    centerMode: true,
     slidesToScroll: 1,
-    initialSlide: indexOfSelectedPhoto - 2,
+    centerMode: true,
+    initialSlide: indexOfSelectedPhoto,
     nextArrow: <CustomArrow isNextArrow />,
     prevArrow: <CustomArrow />,
   };
+
+  const goToBeginning = () => {
+    if (isEnding && currentSlideIndex === lastPhotoIndex) sliderRef.current.slickGoTo(0);
+  };
+
+  const goToEnd = () => {
+    if (isEnding && currentSlideIndex === 0) sliderRef.current.slickGoTo(lastPhotoIndex);
+  };
+
+  const handleAfterChange = current => {
+    setIsEnding(current === lastPhotoIndex || current === 0);
+    setCurrentSlideIndex(current);
+  };
+
+  useEffect(() => {
+    const nextBtn = document.getElementsByClassName('slick-next')[0];
+    const prevBtn = document.getElementsByClassName('slick-prev')[0];
+
+    nextBtn.addEventListener('click', goToBeginning);
+    prevBtn.addEventListener('click', goToEnd);
+
+    return () => {
+      nextBtn.removeEventListener('click', goToBeginning);
+      prevBtn.removeEventListener('click', goToEnd);
+    };
+  }, [currentSlideIndex]);
+
+  useEffect(() => {
+    setLastPhotoIndex(event.photos.length - 1);
+  }, []);
 
   return (
     <MainContainer container direction="row">
@@ -36,7 +71,7 @@ const EventDetailGiantPhoto = ({ indexOfSelectedPhoto, onCloseIconClick, event }
         <Grid item md={1} />
       </Hidden>
       <Container item md={10}>
-        <Slider {...sliderSettings}>
+        <Slider {...sliderSettings} afterChange={current => handleAfterChange(current)} ref={sliderRef}>
           {event.photos.map(photo => (
             <PhotoContainer key={`photo_${photo.url}`}>
               <Image src={`${process.env.REACT_APP_API_ROOT}${photo.img}`} />

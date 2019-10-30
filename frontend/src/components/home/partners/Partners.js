@@ -72,17 +72,19 @@ const Partners = () => {
       <div className="container-partners">
         {logosPartner.map(logo => {
           return (
-            <a href={logo.url} target="_blank" key={`partners-logo__${logo.url}`} rel="noopener noreferrer">
-              <img
-                src={logo.image}
-                alt={logo.alt}
-                key={logo.image}
-                style={{
-                  height: logo.height,
-                  width: logo.width,
-                }}
-              />
-            </a>
+            <div className={'partners-logo'} key={`partners-logo__${logo.url}`}>
+              <a href={logo.url} target="_blank" rel="noopener noreferrer">
+                <img
+                  src={logo.image}
+                  alt={logo.alt}
+                  key={logo.image}
+                  style={{
+                    height: logo.height,
+                    width: logo.width,
+                  }}
+                />
+              </a>
+            </div>
           );
         })}
       </div>
