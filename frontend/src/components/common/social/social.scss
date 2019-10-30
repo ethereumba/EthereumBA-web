@@ -50,17 +50,28 @@
 .footer {
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  align-items: center;
   margin: 140px;
   margin-bottom: 40px;
-}
 
-.footer p {
-  width: 224px;
-  color: $violetTitle;
-  font-family: 'PT Mono';
-  font-size: 13px;
-  line-height: 26px;
-  text-transform: capitalize;
-  text-align: center;
-  margin: 0;
+  a {
+    text-decoration: none;
+  }
+
+  p {
+    padding-top: 36px;
+    text-transform: capitalize;
+    width: 224px;
+  }
+
+  p,
+  a {
+    color: $violetTitle;
+    font-family: 'PT Mono';
+    font-size: 13px;
+    line-height: 26px;
+    text-align: center;
+    margin: 0;
+  }
 }

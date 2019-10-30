@@ -2,7 +2,10 @@ import React from 'react';
 import Slider from 'react-slick';
 
 // proptypes
-import { func } from 'prop-types';
+import { func, number } from 'prop-types';
+
+//types
+import { eventType } from '../../../lib/types';
 
 // material ui
 import Grid from '@material-ui/core/Grid';
@@ -15,10 +18,7 @@ import { Container, SliderContainer } from './styles';
 import CustomArrow from '../../common/eventDetails/CustomArrow';
 import CustomSlide from '../../common/eventDetails/CustomSlide';
 
-// types
-import { eventType } from '../../../lib/types';
-
-const EventDetailSlider = ({ event, onPhotoClick }) => {
+const EventDetailSlider = ({ event, onPhotoClick, onChangeIndex, indexOfSelectedPhoto }) => {
   const sliderSettings = {
     dots: false,
     infinite: false,
@@ -28,6 +28,8 @@ const EventDetailSlider = ({ event, onPhotoClick }) => {
     variableWidth: true,
     nextArrow: <CustomArrow isNextArrow />,
     prevArrow: <CustomArrow />,
+    afterChange: () => onChangeIndex(indexOfSelectedPhoto + 1),
+    beforeChange: (current, next) => onChangeIndex(next),
     responsive: [
       {
         breakpoint: 1280,
@@ -87,6 +89,8 @@ const EventDetailSlider = ({ event, onPhotoClick }) => {
 EventDetailSlider.propTypes = {
   event: eventType.isRequired,
   onPhotoClick: func.isRequired,
+  onChangeIndex: func.isRequired,
+  indexOfSelectedPhoto: number.isRequired,
 };
 
 export default EventDetailSlider;

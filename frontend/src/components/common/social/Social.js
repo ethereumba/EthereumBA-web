@@ -35,6 +35,7 @@ const iconSocial = [
 
 const Social = () => {
   const date = new Date().getFullYear();
+
   return (
     <div className="social">
       <div className="sub-title">
@@ -54,6 +55,7 @@ const Social = () => {
       </div>
 
       <div className="footer">
+        <a href="mailto:contact@ethereumbuenosaires.com">contact@ethereumbuenosaires.com</a>
         <p>Ethereum Buenos Aires {date}</p>
       </div>
     </div>
