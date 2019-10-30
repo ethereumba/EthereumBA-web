@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import Meetup from '../../../assets/social/meetup.svg';
 import Youtube from '../../../assets/social/youtube.svg';
 import Telegram from '../../../assets/social/telegram.svg';
+import Twitter from '../../../assets/social/twitter-brands.svg';
 import './social.scss';
 
 const iconSocial = [
@@ -24,35 +25,41 @@ const iconSocial = [
     name: 'Telegram',
     url: 'https://t.me/ethbuenosaires',
   },
+  {
+    icon: Twitter,
+    class: 'twitter img',
+    name: 'Twitter',
+    url: 'https://twitter.com/ethbuenosaires',
+  },
 ];
 
-export default class Social extends Component {
-  render() {
-    const date = new Date().getFullYear();
+const Social = () => {
+  const date = new Date().getFullYear();
 
-    return (
-      <div className="social">
-        <div className={'sub-title'}>
-          <p>get in touch</p>
-        </div>
-
-        <div className="container-social">
-          {iconSocial.map(social => {
-            return (
-              <div key={social.icon} className={`${social.class} box-social`}>
-                <a href={social.url} target="_blank">
-                  <img src={social.icon} alt={social.name} />
-                </a>
-              </div>
-            );
-          })}
-        </div>
-
-        <div className="footer">
-          <a href="mailto:contact@ethereumbuenosaires.com">contact@ethereumbuenosaires.com</a>
-          <p>Ethereum Buenos Aires {date}</p>
-        </div>
+  return (
+    <div className="social">
+      <div className="sub-title">
+        <p>get in touch</p>
       </div>
-    );
-  }
-}
+
+      <div className="container-social">
+        {iconSocial.map(social => {
+          return (
+            <div key={social.icon} className={`${social.class} box-social`}>
+              <a href={social.url} target="_blank" rel="noopener noreferrer">
+                <img src={social.icon} alt={social.name} />
+              </a>
+            </div>
+          );
+        })}
+      </div>
+
+      <div className="footer">
+        <a href="mailto:contact@ethereumbuenosaires.com">contact@ethereumbuenosaires.com</a>
+        <p>Ethereum Buenos Aires {date}</p>
+      </div>
+    </div>
+  );
+};
+
+export default Social;
