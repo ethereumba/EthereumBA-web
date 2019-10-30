@@ -110,17 +110,4 @@ server {
     }
 }
 
-
-{{ if eq $api_default_host "sacshell.com.ar" }}
-server {
-    server_name www.{{ $api_default_host }};
-    return 301 $scheme://{{ $api_default_host }}$request_uri;
-}
-
-server {
-    listen 80 default_server;
-    return 500;
-}
-{{ end }}
-
 } ## http close
