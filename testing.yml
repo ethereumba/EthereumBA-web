@@ -13,8 +13,6 @@ services:
       - ./backend:/usr/src/app
       - /usr/src/app/static
       - mediadata:/usr/src/app/media
-      - /etc/timezone:/etc/timezone:ro
-      - /etc/localtime:/etc/localtime:ro
     env_file: .env
     environment:
       VIRTUAL_HOST: 'backend'
@@ -29,7 +27,7 @@ services:
     restart: always
     build: ./frontend
     container_name: eth-buenos-aires-node
-    command: ["npm", "start"]
+    command: ["npm", "run", "start:production"]
     environment:
       VIRTUAL_HOST: 'frontend'
     volumes:
@@ -47,21 +45,23 @@ services:
     build: ./nginx
     container_name: eth-buenos-aires-nginx
     environment:
-      REACT_DEFAULT_HOST: 'ethereumbuenosaires.com'
-      API_DEFAULT_HOST: 'api.ethereumbuenosaires.com'
+      REACT_DEFAULT_HOST: 'localhost'
+      API_DEFAULT_HOST: 'api.localhost'
     ports:
-      - "8025:80"
+      - "80:80"
+      - "443:443"
     volumes:
       - ./nginx/sites-enabled:/etc/nginx
       - /var/run/docker.sock:/tmp/docker.sock:ro
-      - /etc/timezone:/etc/timezone:ro
-      - /etc/localtime:/etc/localtime:ro
     volumes_from:
       - web
+      - node
     depends_on:
       - web
+      - node
     links:
       - web
+      - node
     networks:
       - front-tier
       - api-tier
@@ -70,12 +70,8 @@ services:
     restart: always
     image: postgres:latest
     container_name: eth-buenos-aires-postgres
-    ports:
-      - "5439:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data/
-      - /etc/timezone:/etc/timezone:ro
-      - /etc/localtime:/etc/localtime:ro
     networks:
       - back-tier
 
