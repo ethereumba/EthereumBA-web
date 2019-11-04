@@ -167,3 +167,6 @@ clean-nginx-conf:
 
 deploy-dev:clean-nginx-conf
 	make clean build up set-django FILE=docker-compose.yml
+
+deploy-production:clean-nginx-conf
+	make clean build up set-django FILE=production.yml
