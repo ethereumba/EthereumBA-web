@@ -27,7 +27,7 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'fake_key')
 PROJECT_ROOT = os.path.normpath(os.path.join(os.path.dirname(__file__), ".."))
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False #True if os.getenv('DEBUG', 'true') == 'true' else False
+DEBUG = True if os.getenv('DEBUG', 'true') == 'true' else False
 
 ADMINS = (
     ('VonPix', 'info@vonpix.com'),
