@@ -37,7 +37,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "node src/lib/prepopulate-head.js && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "start:server": "node server",
@@ -61,7 +61,8 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "eslint": "6.5.1",
+    "cheerio": "^1.0.0-rc.3",
+    "eslint": "^6.7.2",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-config-prettier": "^6.3.0",
     "eslint-config-react-app": "^5.0.2",
