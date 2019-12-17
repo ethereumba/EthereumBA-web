@@ -8,6 +8,7 @@
   "rules": {
     "no-console": "off",
     "consistent-return": "off",
+    "import/no-extraneous-dependencies": "off",
     "prettier/prettier": "error",
     "react/jsx-filename-extension": [
       1,
