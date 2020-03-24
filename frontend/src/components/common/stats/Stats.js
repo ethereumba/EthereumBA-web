@@ -44,7 +44,7 @@ Stats.propTypes = {
 
 Stats.defaultProps = {
   stats: [
-    { id: 'members', value: '+1100', name: 'Members' },
+    { id: 'members', value: '+1500', name: 'Members' },
     { id: 'meetupsPerMonth', value: 'x1', name: 'Meetup per month' },
     { id: 'attendeesPerMeetup', value: '+80', name: 'Attendees at each event' },
     { id: 'averageRating', value: '4.8', name: 'Average rating' },

@@ -3,10 +3,12 @@ import React from 'react';
 import openZeppelin from '../../../assets/partners/open-zepelling.png';
 import xivis from '../../../assets/partners/xivis.png';
 import rcn from '../../../assets/partners/rcn.png';
-import celo from '../../../assets/partners/celo.png';
+// import celo from '../../../assets/partners/celo.png';
 import wibson from '../../../assets/partners/wibson.png';
 import maker from '../../../assets/partners/maker.png';
 import a3 from '../../../assets/partners/a3.png';
+import atix from '../../../assets/partners/atix.png';
+import local from '../../../assets/partners/local-cryptos.png';
 
 import './partners.scss';
 
@@ -26,19 +28,26 @@ const logosPartner = [
     url: 'https://xivis.com/',
   },
   {
+    image: maker,
+    alt: 'Maker',
+    height: 55,
+    width: 55,
+    url: 'https://makerdao.com/',
+  },
+  {
     image: rcn,
     alt: 'RCN',
     height: 36,
     width: 89,
     url: 'https://ripiocredit.network/',
   },
-  {
-    image: celo,
-    alt: 'Celo',
-    height: 27,
-    width: 90,
-    url: 'https://celo.org/',
-  },
+  // {
+  //   image: celo,
+  //   alt: 'Celo',
+  //   height: 27,
+  //   width: 90,
+  //   url: 'https://celo.org/',
+  // },
   {
     image: wibson,
     alt: 'Wibson',
@@ -47,11 +56,18 @@ const logosPartner = [
     url: 'https://wibson.org/',
   },
   {
-    image: maker,
-    alt: 'Maker',
-    height: 51,
-    width: 51,
-    url: 'https://makerdao.com/',
+    image: atix,
+    alt: 'Atix Labs',
+    height: 55,
+    width: 55,
+    url: 'https://www.atixlabs.com/',
+  },
+  {
+    image: local,
+    alt: 'Local Cryptos',
+    height: 55,
+    width: 55,
+    url: 'https://localcryptos.com/es/',
   },
   {
     image: a3,
@@ -72,8 +88,8 @@ const Partners = () => {
       <div className="container-partners">
         {logosPartner.map(logo => {
           return (
-            <div className={'partners-logo'} key={`partners-logo__${logo.url}`}>
-              <a href={logo.url} target="_blank" rel="noopener noreferrer">
+            <div className="partners-logo" key={`partners-logo__${logo.url}`}>
+              <a href={logo.url} target="_blank" rel="noopener noreferrer" className="partner-link">
                 <img
                   src={logo.image}
                   alt={logo.alt}
