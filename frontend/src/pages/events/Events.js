@@ -9,6 +9,7 @@ import { Grid } from '@material-ui/core';
 // components
 import Stats from '../../components/common/stats/Stats';
 import Header from '../../components/header/Header';
+import Footer from '../../components/footer';
 import Social from '../../components/common/social/Social';
 import Banner from '../../components/common/banner/Banner';
 import Background from '../../assets/events-main-banner.svg';
@@ -95,6 +96,7 @@ const Events = ({ getMoreEvents, showMore, pastEvents, upcomingEvents, handleEve
     <Stats />
 
     <Social />
+    <Footer />
   </div>
 );
 
