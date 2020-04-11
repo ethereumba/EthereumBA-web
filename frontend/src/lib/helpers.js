@@ -1,9 +1,6 @@
 import dayjs from 'dayjs';
-import 'dayjs/locale/es';
 
 import upcomingEventCardBackgrounds from './constants';
-
-dayjs.locale('es');
 
 const getFormattedAddress = address => {
   const formattedAddress = address.replace(',', ',\n');
@@ -39,8 +36,8 @@ const getFormattedTime = date => {
 };
 
 const getFilteredEvents = events => {
-  let pastEvents = [],
-    upcomingEvents = [];
+  const pastEvents = [];
+  const upcomingEvents = [];
   events.forEach(event => {
     if (event.hasPassed) {
       pastEvents.push(event);

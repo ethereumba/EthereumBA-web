@@ -1,5 +1,8 @@
 import React from 'react';
 
+// i18n
+import { useTranslation } from 'react-i18next';
+
 import openZeppelin from '../../../assets/partners/open-zepelling.png';
 import xivis from '../../../assets/partners/xivis.png';
 import rcn from '../../../assets/partners/rcn.png';
@@ -79,10 +82,13 @@ const logosPartner = [
 ];
 
 const Partners = () => {
+  // Hooks
+  const { t } = useTranslation();
+
   return (
     <div className="partners">
       <div className="sub-title">
-        <p>partners</p>
+        <p>{t('partners')}</p>
       </div>
 
       <div className="container-partners">
