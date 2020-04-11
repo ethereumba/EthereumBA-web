@@ -11,7 +11,7 @@ const Stats = () => {
   const { t } = useTranslation();
 
   const stats = [
-    { id: 'members', value: '+1500', name: t('members') },
+    { id: 'members', value: '+1600', name: t('members') },
     { id: 'meetupsPerMonth', value: 'x1', name: t('preMonth') },
     { id: 'attendeesPerMeetup', value: '+80', name: t('atendees') },
     { id: 'averageRating', value: '4.8', name: t('averageRating') },
