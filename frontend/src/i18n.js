@@ -17,8 +17,7 @@ i18n
   // for all options read: https://www.i18next.com/overview/configuration-options
   .init({
     fallbackLng: 'en',
-    // TODO: Enable  'pt' when translation is done.
-    whitelist: ['en', 'es'],
+    whitelist: ['en', 'es', 'pt'],
     debug: true,
 
     interpolation: {
