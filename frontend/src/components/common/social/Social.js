@@ -1,4 +1,6 @@
 import React from 'react';
+// i18n
+import { useTranslation } from 'react-i18next';
 
 import Meetup from '../../../assets/social/meetup.svg';
 import Youtube from '../../../assets/social/youtube.svg';
@@ -34,12 +36,13 @@ const iconSocial = [
 ];
 
 const Social = () => {
-  const date = new Date().getFullYear();
+  // Hooks
+  const { t } = useTranslation();
 
   return (
     <div className="social">
       <div className="sub-title">
-        <p>get in touch</p>
+        <p>{t('getInTouch')}</p>
       </div>
 
       <div className="container-social">

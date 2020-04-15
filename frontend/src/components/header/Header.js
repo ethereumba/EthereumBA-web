@@ -1,41 +1,49 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { slide as Menu } from 'react-burger-menu';
 
+// i18n
+import { useTranslation } from 'react-i18next';
+
 /* Components */
 import Logo from '../../assets/temporary-white-logo.svg';
 import LightThemeLogo from '../../assets/ethereum-temp-logo.png';
+import LanguageSwitch from '../i18n/LanguageSwitch';
 import './header.scss';
 
-export default class Header extends Component {
-  render() {
-    const { lightTheme } = this.props;
+const Header = props => {
+  // Hooks
+  const { t } = useTranslation();
 
-    return (
-      <div className="main-header">
-        <div className="container">
-          <div className="header-logo">
-            <Link to="/">
-              <img src={lightTheme ? LightThemeLogo : Logo} className="logo" alt="Ethereum Buenos Aires" />
+  const { lightTheme } = props;
+
+  return (
+    <div className="main-header">
+      <div className="container">
+        <div className="header-logo">
+          <Link to="/">
+            <img src={lightTheme ? LightThemeLogo : Logo} className="logo" alt="Ethereum Buenos Aires" />
+          </Link>
+        </div>
+
+        <div className={`menu ${lightTheme ? 'lightTheme' : ''}`}>
+          <Menu right>
+            <Link to="/" className="menu-item">
+              {t('home')}
             </Link>
-          </div>
-
-          <div className={`menu ${lightTheme ? 'lightTheme' : ''}`}>
-            <Menu right>
-              <Link to="/" className="menu-item">
-                HOME
-              </Link>
-              <Link to="/events" className="menu-item">
-                EVENTS
-              </Link>
-            </Menu>
-          </div>
+            <Link to="/events" className="menu-item">
+              {t('events')}
+            </Link>
+            <LanguageSwitch />
+          </Menu>
         </div>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
+
+export default Header;
 
 Header.propTypes = {
   logo: PropTypes.bool,

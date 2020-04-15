@@ -2,6 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Grid } from '@material-ui/core';
 
+// i18n
+import { useTranslation } from 'react-i18next';
+
 // routing
 import { withRouter } from 'react-router-dom';
 
@@ -13,6 +16,9 @@ import './events.scss';
 import { getFormattedDate } from '../../../lib/helpers';
 
 const Events = ({ events, history }) => {
+  // Hooks
+  const { t } = useTranslation();
+
   const eventsLength = events.length;
   let eventsToDisplay = [];
   if (eventsLength > 0) {
@@ -29,7 +35,7 @@ const Events = ({ events, history }) => {
       <div className="events">
         <div className="card-events">
           <div className="center">
-            <p className="title">Our meetups</p>
+            <p className="title">{t('ourMeetups')}</p>
           </div>
 
           <div className="cards-events">
@@ -55,7 +61,7 @@ const Events = ({ events, history }) => {
         </div>
 
         <div className="button-events">
-          <Button title="View All Events" url="/events" />
+          <Button title={t('allEvents')} url="/events" />
         </div>
       </div>
     </div>

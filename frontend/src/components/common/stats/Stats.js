@@ -1,15 +1,26 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// i18n
+import { useTranslation } from 'react-i18next';
 
 import Button from '../button/Button';
 import './stats.scss';
 
-const Stats = ({ stats }) => {
+const Stats = () => {
+  // Hooks
+  const { t } = useTranslation();
+
+  const stats = [
+    { id: 'members', value: '+1600', name: t('members') },
+    { id: 'meetupsPerMonth', value: 'x1', name: t('preMonth') },
+    { id: 'attendeesPerMeetup', value: '+80', name: t('atendees') },
+    { id: 'averageRating', value: '4.8', name: t('averageRating') },
+  ];
+
   return (
     <div className="stats--background">
       <div className="stats">
         <div className="stats__title">
-          <p className="title">Our community is growing</p>
+          <p className="title">{t('communityGrowing')}</p>
         </div>
 
         <div className="stats__container">
@@ -25,30 +36,11 @@ const Stats = ({ stats }) => {
         </div>
 
         <div className="stats__btn">
-          <Button title="Join" url="https://www.meetup.com/ethereum-ba/" anchor />
+          <Button title={t('join')} url="https://www.meetup.com/ethereum-ba/" anchor />
         </div>
       </div>
     </div>
   );
-};
-
-Stats.propTypes = {
-  stats: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      value: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-    })
-  ),
-};
-
-Stats.defaultProps = {
-  stats: [
-    { id: 'members', value: '+1500', name: 'Members' },
-    { id: 'meetupsPerMonth', value: 'x1', name: 'Meetup per month' },
-    { id: 'attendeesPerMeetup', value: '+80', name: 'Attendees at each event' },
-    { id: 'averageRating', value: '4.8', name: 'Average rating' },
-  ],
 };
 
 export default Stats;

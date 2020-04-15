@@ -1,4 +1,6 @@
 import React from 'react';
+// i18n
+import { useTranslation } from 'react-i18next';
 
 // router
 import { withRouter } from 'react-router-dom';
@@ -13,6 +15,9 @@ import './styles.scss';
 import BackArrowLogo from '../../../assets/eventDetail/back-arrow-orange.svg';
 
 const EventDetailHeader = ({ history }) => {
+  // Hooks
+  const { t } = useTranslation();
+
   const handleBackArrowClick = () => history.push('/events');
 
   return (
@@ -24,7 +29,7 @@ const EventDetailHeader = ({ history }) => {
           </div>
         </Grid>
         <Grid item xs className="event-header__title-container">
-          <h3>MEETUP</h3>
+          <h3>{t('meetup')}</h3>
         </Grid>
       </Grid>
     </Grid>
