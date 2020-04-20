@@ -31,7 +31,7 @@ const iconSocial = [
     icon: Twitter,
     class: 'twitter img',
     name: 'Twitter',
-    url: 'https://twitter.com/ethbuenosaires',
+    url: 'https://twitter.com/ethereumba',
   },
 ];
 

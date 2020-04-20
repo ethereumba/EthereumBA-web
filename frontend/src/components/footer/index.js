@@ -6,7 +6,7 @@ const Footer = () => {
 
   return (
     <div className="footer">
-      <a href="mailto:contact@ethereumbuenosaires.com">contact@ethereumbuenosaires.com</a>
+      <a href="mailto:info@ethereumba.com">info@ethereumba.com</a>
       <p>Ethereum Buenos Aires {date}</p>
     </div>
   );
