@@ -1,0 +1,76 @@
+@import '../../styles/variables.scss';
+
+$break-small: 320px;
+$break-medium: 0px;
+$break-large: 1200px;
+
+/* Dropdown styles */
+.drop-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.drop-down {
+    font-family: Comfortaa;
+    background-color: transparent;
+    border: 2px solid #fff;
+    border-radius: 20px;
+    color: #fff;
+    padding: 8px 30px 8px 40px;
+}
+
+.menu-class {
+  background-color: transparent;
+    border: 0px solid #ccc;
+    box-shadow: 0px 0 rgba(0, 0, 0, 0.06);
+    box-sizing: border-box;
+    padding: 8px 20px 8px 30px;
+}
+
+
+.arrow-open {
+  border-color: transparent transparent #fff ;
+  border-width: 0 5px 5px;
+  @extend .arrow;
+}
+.arrow-closed {
+  border-color: #fff transparent transparent;
+  border-width: 5px 5px 0;
+  @extend .arrow;
+}
+
+.arrow {
+    border-style: solid;
+    content: ' ';
+    display: block;
+    height: 0;
+    margin-top: -ceil(2.5);
+    position: absolute;
+    left: 15px;
+    top: 18px;
+    width: 0;
+}
+
+// Option Styles
+.option-class {
+  font-family: Comfortaa;
+  background-color: transparent;
+  border: 0px solid #fff;
+  color: #fff;
+  cursor: pointer;
+
+  box-sizing: border-box;
+  display: block;
+  padding: 8px 10px;
+
+  &:hover {
+      background-color: transparent;
+      color: $orangeAlpha;
+  }
+
+  &.is-selected {
+    display: none;
+  }
+}
+
+

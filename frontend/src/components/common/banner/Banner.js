@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+// i18n
+import { useTranslation } from 'react-i18next';
+
 import './banner.scss';
 
 // router
@@ -10,6 +13,9 @@ import { withRouter } from 'react-router-dom';
 import { MeetupButton } from './styles';
 
 const Banner = ({ background, text, lightTheme, positionTop, history }) => {
+  // Hooks
+  const { t } = useTranslation();
+
   const isHome = history.location.pathname === '/';
 
   return (
@@ -20,7 +26,7 @@ const Banner = ({ background, text, lightTheme, positionTop, history }) => {
         <h4>{text}</h4>
         {isHome && (
           <MeetupButton href="https://www.meetup.com/es/ethereum-ba/" target="_blank" rel="noopener noreferrer">
-            Join our Meetup
+            {t('joinMeetup')}
           </MeetupButton>
         )}
       </div>

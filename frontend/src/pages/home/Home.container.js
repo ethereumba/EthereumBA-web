@@ -2,16 +2,13 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 // propstypes
-import { arrayOf, number, string } from 'prop-types';
+import { number, string } from 'prop-types';
 
 // components
 import Home from './Home';
 
 // action creators
 import { requestEvents } from '../../modules/events/actions';
-
-// types
-import { eventType } from '../../lib/types';
 
 const HomeContainer = () => {
   const dispatch = useDispatch();

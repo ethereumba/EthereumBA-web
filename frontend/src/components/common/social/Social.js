@@ -1,4 +1,6 @@
 import React from 'react';
+// i18n
+import { useTranslation } from 'react-i18next';
 
 import Meetup from '../../../assets/social/meetup.svg';
 import Youtube from '../../../assets/social/youtube.svg';
@@ -29,17 +31,18 @@ const iconSocial = [
     icon: Twitter,
     class: 'twitter img',
     name: 'Twitter',
-    url: 'https://twitter.com/ethbuenosaires',
+    url: 'https://twitter.com/ethereumba',
   },
 ];
 
 const Social = () => {
-  const date = new Date().getFullYear();
+  // Hooks
+  const { t } = useTranslation();
 
   return (
     <div className="social">
       <div className="sub-title">
-        <p>get in touch</p>
+        <p>{t('getInTouch')}</p>
       </div>
 
       <div className="container-social">
@@ -52,11 +55,6 @@ const Social = () => {
             </div>
           );
         })}
-      </div>
-
-      <div className="footer">
-        <a href="mailto:contact@ethereumbuenosaires.com">contact@ethereumbuenosaires.com</a>
-        <p>Ethereum Buenos Aires {date}</p>
       </div>
     </div>
   );
