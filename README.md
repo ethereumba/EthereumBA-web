@@ -1,4 +1,4 @@
-#eth-buenos-aires#
+#EthereumBA-web#
 
 ## First steps & general Info ##
 This template include the following:
