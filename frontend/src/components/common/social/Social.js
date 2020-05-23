@@ -19,7 +19,7 @@ const iconSocial = [
     icon: Youtube,
     class: 'youtube img',
     name: 'Youtube',
-    url: 'https://www.youtube.com/channel/UCSFiCr8d3ej_pC57E75pPew',
+    url: 'https://ethereumba.com/youtube',
   },
   {
     icon: Telegram,
