@@ -143,6 +143,14 @@ backup-db:
 	$(eval DUMP_NAME = $(BACKUPS_DIR)/`date +%Y%m%d`$(ENV_STAGE)_sac_dump_.gz)
 	docker exec -t eth-buenos-aires-postgres pg_dumpall -c -U postgres | gzip > $(DUMP_NAME)
 
+azure-backup:
+	docker exec $(WEB) /bin/sh -c "python manage.py azure_backup_process"
+
+clean-backups:
+	find $(BACKUPS_DIR)/*.gz -mtime +2 -type f -delete
+
+daily-backup-process: backup-db azure-backup clean-backups
+
 
 #############
 #DEVELOPMENT#
