@@ -2,7 +2,7 @@ WEB=`docker-compose ps | grep gunicorn | cut -d\  -f 1 | head -n 1`
 NODE=`docker-compose ps | grep npm | cut -d\  -f 1 | head -n 1`
 WEBS=`docker-compose ps | grep gunicorn | cut -d\  -f 1 `
 FILE=docker-compose.yml
-BACKUPS_DIR := $(abspath $(dir $(lastword $(MAKEFILE_LIST)))/../backups/)
+BACKUPS_DIR := $(abspath $(dir $(lastword $(MAKEFILE_LIST)))/backups/)
 ENV_STAGE = ``
 
 #########
@@ -11,15 +11,6 @@ ENV_STAGE = ``
 
 build:
 	docker-compose -f $(FILE) build
-
-scaleweb:
-	docker-compose -f $(FILE) scale web=5
-
-loadinitialdb:
-	docker exec $(WEB) /bin/sh -c "python manage.py loaddata fixtures/initial/*.json"
-
-loadtestdb: loadinitialdb
-	docker exec $(WEB) /bin/sh -c "python manage.py loaddata fixtures/testing/*.json"
 
 up:
 	docker-compose -f $(FILE) up -d web nginx postgres node

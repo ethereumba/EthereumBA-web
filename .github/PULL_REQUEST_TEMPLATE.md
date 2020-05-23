@@ -1,9 +1,6 @@
 ## What's new?
 - Describe your addition
 
-## Closes issue(s)
-- [JRA-35](https://xivis.atlassian.net/browse/PROJECT_KEY)
-
 ## Changes include
 - [ ] Bugfix (non-breaking change that solves an issue)
 - [ ] New feature (non-breaking change that adds functionality)

@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 import os
 import datetime
 from .local_settings import *
+import sentry_sdk
+from sentry_sdk.integrations.django import DjangoIntegration
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -49,10 +51,13 @@ INSTALLED_APPS = [
     'core',
     'events',
 
+    # Custom apps
+    # Backup
+    'django_azure_backup',
+
     # Third-party apps
     'rest_framework',
     'django_extensions',
-    'hijack',
     'compat',
     'corsheaders',
     'import_export',
@@ -63,10 +68,11 @@ INSTALLED_APPS = [
 if DEBUG:
     INSTALLED_APPS += ['rosetta']
 else:
-    INSTALLED_APPS += ['raven.contrib.django.raven_compat']
-    RAVEN_CONFIG = {
-        'dsn': 'https://bb3de6a27fa441a0a161763a02368d1d:6532db6fef23492eae22b929d02796f4@sentry.io/254318'
-    }
+    sentry_sdk.init(
+        dsn="https://af429c1f3ee149d0a716fedac206854f@o91972.ingest.sentry.io/5251124",
+        integrations=[DjangoIntegration()],
+        send_default_pii=True
+    )
 
 
 # IMPORTANT - CUSTOM MODEL FOR USER
@@ -191,8 +197,14 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
 )
 
-HIJACK_LOGIN_REDIRECT_URL = '/'
-HIJACK_LOGOUT_REDIRECT_URL = '/'
-HIJACK_ALLOW_GET_REQUESTS = True
+# Azure backups
+BK_AZURE_ACCOUNT_NAME = os.getenv('AZURE_ACCOUNT_NAME', '')
+BK_AZURE_ACCOUNT_KEY = os.getenv('AZURE_ACCOUNT_KEY', '')
+BK_AZURE_CONTAINER = os.getenv('AZURE_CONTAINER', '')
+BK_LOCAL_PATHS = [
+    {"name": "backups", "path": "/usr/src/backups"},
+    {"name": "media", "path": "/usr/src/app/media"},
+]
+
 
 FRONTEND_URL = os.getenv('FRONTEND_URL', None)
