@@ -6,17 +6,19 @@ django-filter==2.0.0
 dj-static==0.0.6
 django-hijack==2.1.4
 django-rosetta==0.9.0
-raven==6.3.0
 django-cors-headers==2.2.0
 django-import-export==1.1.0
 django-extensions==2.2.5
+
+# Sentry
+sentry-sdk==0.14.1
 
 # Rest framework
 djangorestframework==3.8.0
 djangorestframework-jwt==1.11.0
 
-# Azure Storage
-git+https://github.com/ragonzal/django-azure-backup.git@master#egg=django_azure_backup
+# Azure Storage for backupsse
+git+https://github.com/Xivis/django-azure-backup.git@master#egg=django_azure_backup==0.0.2
 
 # Linters and tests
 pytest==4.0.1

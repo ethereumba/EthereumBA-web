@@ -1,5 +1,6 @@
-FROM python:3.5-onbuild
+FROM python:3.6-stretch
 RUN apt-get update && apt-get install -y gettext
+RUN pip install --upgrade pip
 
 RUN mkdir -p /config
 ADD requirements.txt /config/
