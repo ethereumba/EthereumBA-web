@@ -19,7 +19,7 @@ const iconSocial = [
     icon: Youtube,
     class: 'youtube img',
     name: 'Youtube',
-    url: 'https://www.youtube.com/channel/UCSFiCr8d3ej_pC57E75pPew',
+    url: 'https://www.youtube.com/channel/UCxjpRkAqct3TJX1vAONgX2w?view_as=subscriber',
   },
   {
     icon: Telegram,

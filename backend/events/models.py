@@ -88,6 +88,7 @@ class EventPhoto(TimeStampedModel):
 class Talk(TimeStampedModel):
     class Meta:
         verbose_name = _('talk')
+        ordering = ['-event']
 
     event = models.ForeignKey(Event, on_delete=models.CASCADE)
     name = models.CharField(max_length=255, blank=True, null=True)
@@ -101,7 +102,7 @@ class Talk(TimeStampedModel):
 
     def __str__(self):
         if self.name:
-            return self.name
+            return '{} - {}'.format(self.event.title, self.name)
         else:
             return super(Talk).__str__()
 
