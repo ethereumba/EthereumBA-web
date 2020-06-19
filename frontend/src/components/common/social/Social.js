@@ -6,6 +6,8 @@ import Meetup from '../../../assets/social/meetup.svg';
 import Youtube from '../../../assets/social/youtube.svg';
 import Telegram from '../../../assets/social/telegram.svg';
 import Twitter from '../../../assets/social/twitter-brands.svg';
+import Spotify from '../../../assets/social/spotify.svg';
+import Substack from '../../../assets/social/substack.svg';
 import './social.scss';
 
 const iconSocial = [
@@ -33,6 +35,18 @@ const iconSocial = [
     name: 'Twitter',
     url: 'https://twitter.com/ethereumba',
   },
+  {
+    icon: Spotify,
+    class: 'spotify img',
+    name: 'Spotify',
+    url: 'https://open.spotify.com/show/2WPeBSDNqG2YDPGfYHoKPN',
+  },
+  {
+    icon: Substack,
+    class: 'substack img',
+    name: 'Substack',
+    url: 'https://ethereumba.substack.com/',
+  },
 ];
 
 const Social = () => {
@@ -56,6 +70,9 @@ const Social = () => {
           );
         })}
       </div>
+      <iframe src="https://ethereumba.substack.com/embed" 
+      width="480" height="320" className="blog-iframe" scrolling="no">
+      </iframe>
     </div>
   );
 };
