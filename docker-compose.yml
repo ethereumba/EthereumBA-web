@@ -5,12 +5,14 @@ services:
     restart: always
     build: ./backend
     image: webworkerimage
+    working_dir: /usr/src/app
     expose:
       - "8000"
     links:
       - postgres:postgres
     volumes:
       - ./backend:/usr/src/app
+      - ./backups:/usr/src/backups
       - /usr/src/app/static
       - mediadata:/usr/src/app/media
       - /etc/timezone:/etc/timezone:ro
@@ -71,7 +73,7 @@ services:
 
   postgres:
     restart: always
-    image: postgres:latest
+    image: postgres:10.4
     container_name: eth-buenos-aires-postgres
     volumes:
       - pgdata:/var/lib/postgresql/data/
