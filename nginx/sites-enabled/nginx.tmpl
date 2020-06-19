@@ -95,7 +95,7 @@ server {
 
 server {
     listen 80;
-    server_name {{ $react_default_host }};
+    server_name {{ $react_default_host }} www.{{ $react_default_host }};
     charset utf-8;
 
     location / {
@@ -108,6 +108,11 @@ server {
 
         proxy_pass http://frontend;
     }
+}
+
+server {
+    listen 80 default_server;
+    return 500;
 }
 
 } ## http close
