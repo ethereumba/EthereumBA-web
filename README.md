@@ -1,38 +1,38 @@
-#EthereumBA-web#
+# EthereumBA Web project #
 
 ## First steps & general Info ##
-This template include the following:
+This project include the following:
 
-  *  basic django requirements
-  *  docker yml files for local development, testing server and production server
-  *  common css and js files located in `core/static`
+  *  Nginx container as a web server
+  *  Python Django container for the backend
+  *  React JS container for the frontend
+  *  PostgreSQL container for the database
 
 First steps:
 
-  *  modify and copy the environment file `cp docs/env.txt .env`
-  *  modify and copy the local_settings file `cp backend/backend/local_settings.py.tpl backend/backend/local_settings.py`
-  *  modify `yml` files, including: container names and DEFAULT_HOST
-  *  Build and run the project
+  1.  Modify and copy the environment file:
+      ```bash
+      $ cp .env.template
+      $ cp frontend/.env.template frontend/.env
+      ```
+  2.  Modify and copy the local_settings file:
+      ```bash
+      $ cp backend/backend/local_settings.py.tpl backend/backend/local_settings.py
+      ```
+  3.  Build and run the project
+     ```
+     $ make deploy
+     ```
 
 
 ## Docker & make instructions ##
 To deploy locally or remotely you'll need [docker-compose](https://docs.docker.com/compose/install/) and [docker-engine](https://docs.docker.com/engine/installation/linux/ubuntulinux/)
-You can just copy and paste the following commands:
 
-```bash
-sudo apt-get install apt-transport-https ca-certificates
-sudo apt-get install linux-image-extra-$(uname -r) linux-image-extra-virtual
-wget -qO- https://get.docker.com/ | sh
-sudo usermod -aG docker $USER
-sudo curl -L "https://github.com/docker/compose/releases/download/1.9.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-sudo chmod +x /usr/local/bin/docker-compose
-```
 
 Once set up you can run `make [tab][tab]` to see a list of actions:
 
   *  `make deploy` to build, scale and deploy containers on the server
   *  `make build` to initially build the containers
-  *  `make scale` now would be a nice time to scale
   *  `make up` to deploy the containers
   *  `make stop` to turn off containers
   *  `make clean` to remove the containers
@@ -44,3 +44,9 @@ Once set up you can run `make [tab][tab]` to see a list of actions:
 
 Normally you'll only run `make build` only once in a while, `make up` every time you start your env.
 `make collectstatic` only if statics were changed or added, and `make migrate` only if there are new migrations or you have a brand new db.
+
+## Get in touch ##
+  * [Twitter](https://twitter.com/ethereumba)
+  * [Meetup](https://www.meetup.com/ethereum-ba/)
+  * [Telegram](https://t.me/ethbuenosaires)
+  * [Youtube](https://ethereumba.com/youtube)

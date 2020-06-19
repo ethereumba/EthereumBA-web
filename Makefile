@@ -15,9 +15,6 @@ build:
 up:
 	docker-compose -f $(FILE) up -d web nginx postgres node
 
-deploy: FILE=production.yml
-deploy: build scaleweb up set-django loadinitialdb ps
-
 start:
 	docker-compose -f $(FILE) start
 
@@ -164,7 +161,7 @@ dev-restart:
 clean-nginx-conf:
 	rm -f nginx/sites-enabled/nginx.conf
 
-deploy-dev:clean-nginx-conf
+deploy:clean-nginx-conf
 	make clean build up set-django FILE=docker-compose.yml
 
 deploy-production:clean-nginx-conf

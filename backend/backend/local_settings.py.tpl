@@ -1,13 +1,6 @@
-# Dear dev,
-#    Please copy this file into a .py file and write here any custom setting
-#    you need to run this project locally.
-#    Below you'll find the basics
-#    Regards,
-#    rama
-
 import os
 
-ALLOWED_HOSTS = ['api.localhost']
+ALLOWED_HOSTS = ['*']
 
 # DATABASE
 DATABASES = {
@@ -22,12 +15,12 @@ DATABASES = {
 }
 
 # EMAIL
-EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST = ''
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'django.cas.server@gmail.com'
-EMAIL_HOST_PASSWORD = '404_password_not_found'
-EMAIL_FROM_ADDRESS = 'django.cas.server@gmail.com'
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
+EMAIL_FROM_ADDRESS = ''
 
 
 # Development server

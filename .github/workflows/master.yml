@@ -1,0 +1,29 @@
+name: master workflow
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    name: deploys
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Deploy recipe in Linode server
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
+          script: |
+            cd ~/eth-buenos-aires
+            git pull origin master
+            make deploy-production
+      - name: Slack Notify
+        uses: rtCamp/action-slack-notify@master
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_MESSAGE: New deployment available at ethereumba.com
+          SLACK_USERNAME: cd-bot
