@@ -15,7 +15,7 @@ class SponsorAdmin(ImportExportModelAdmin):
 class EventAdmin(ImportExportModelAdmin):
     change_list_template = 'admin/eth-buenos-aires/events/change_list.html'
     list_display = (
-        'title', 'meetup_url', 'date', 'place_name', 'place_street', 'place_number', 'place_city', 'is_active'
+        'title_es', 'meetup_url', 'date', 'place_name', 'place_street', 'place_number', 'place_city', 'is_active'
     )
 
 
@@ -29,7 +29,7 @@ class EventPhotoAdmin(ImportExportModelAdmin):
 @admin.register(Talk)
 class TalkAdmin(ImportExportModelAdmin):
     list_display = (
-        'id', 'event', 'name', 'speaker', 'time', 'language', 'level', 'is_active'
+        'id', 'event', 'name_es', 'speaker', 'time', 'language', 'level', 'is_active'
     )
 
 

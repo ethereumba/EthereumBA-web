@@ -47,8 +47,12 @@ class Event(TimeStampedModel):
     class Meta:
         verbose_name = _('event')
 
-    title = models.CharField(max_length=255, blank=True, null=True)
-    description = models.TextField(blank=True, null=True)
+    title_es = models.CharField(max_length=255, blank=True, null=True)
+    title_en = models.CharField(max_length=255, blank=True, null=True)
+    title_pt = models.CharField(max_length=255, blank=True, null=True)
+    description_es = models.TextField(blank=True, null=True)
+    description_en = models.TextField(blank=True, null=True)
+    description_pt = models.TextField(blank=True, null=True)
     meetup_url = models.CharField(max_length=255, blank=True, null=True)
     youtube_url = models.CharField(max_length=255, blank=True, null=True)
     date = models.DateTimeField()
@@ -62,8 +66,8 @@ class Event(TimeStampedModel):
     is_active = models.BooleanField(default=True)
 
     def __str__(self):
-        if self.title:
-            return self.title
+        if self.title_es:
+            return self.title_es
         else:
             return super(Event).__str__()
 
@@ -91,18 +95,22 @@ class Talk(TimeStampedModel):
         ordering = ['-event']
 
     event = models.ForeignKey(Event, on_delete=models.CASCADE)
-    name = models.CharField(max_length=255, blank=True, null=True)
+    name_es = models.CharField(max_length=255, blank=True, null=True)
+    name_en = models.CharField(max_length=255, blank=True, null=True)
+    name_pt = models.CharField(max_length=255, blank=True, null=True)
     speaker = models.CharField(max_length=255, blank=True, null=True)
     time = models.TimeField()
     language = models.CharField(max_length=255, choices=LANGUAGE.items, blank=True, null=True)
     level = models.CharField(max_length=255, choices=LEVEL.items, blank=True, null=True)
 
-    description = models.TextField(max_length=255, blank=True, null=True)
+    description_es = models.TextField(max_length=255, blank=True, null=True)
+    description_en = models.TextField(max_length=255, blank=True, null=True)
+    description_pt = models.TextField(max_length=255, blank=True, null=True)
     is_active = models.BooleanField(default=True)
 
     def __str__(self):
-        if self.name:
-            return '{} - {}'.format(self.event.title, self.name)
+        if self.name_es:
+            return '{} - {}'.format(self.event.title_es, self.name_es)
         else:
             return super(Talk).__str__()
 
