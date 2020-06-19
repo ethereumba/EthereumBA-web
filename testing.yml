@@ -71,7 +71,7 @@ services:
 
   postgres:
     restart: always
-    image: postgres:latest
+    image: postgres:10.4
     container_name: eth-buenos-aires-postgres
     volumes:
       - pgdata:/var/lib/postgresql/data/
