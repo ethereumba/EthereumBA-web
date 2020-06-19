@@ -42,3 +42,7 @@ export const DownloadMaterialContainer = styled.div`
   flex-direction: column;
   align-items: flex-start;
 `;
+
+export const PodcastContainer = styled.div`
+  margin-top: 10px;
+`;

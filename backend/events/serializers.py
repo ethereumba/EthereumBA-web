@@ -30,8 +30,9 @@ class TalkSerializer(serializers.ModelSerializer):
     class Meta:
         model = Talk
         fields = (
-            'id', 'name', 'speaker', 'time', 'language', 'language_display', 'level', 'level_display', 'material',
-            'is_active', 'description',
+            'id', 'name_es', 'name_en', 'name_pt', 'speaker', 'time', 'language', 'language_display',
+            'level', 'level_display', 'material', 'is_active', 'description_es', 'description_en',
+            'description_pt', 'podcast',
         )
 
     def get_material_(self, st):
@@ -45,7 +46,8 @@ class EventSerializer(serializers.ModelSerializer):
     class Meta:
         model = Event
         fields = (
-            'id', 'title', 'description', 'meetup_url', 'youtube_url', 'date', 'place_name', 'place_street',
+            'id', 'title_es', 'title_en', 'title_pt', 'description_es', 'description_en',
+            'description_pt', 'meetup_url', 'youtube_url', 'date', 'place_name', 'place_street',
             'place_number', 'place_city', 'place_map_url', 'talks', 'photos', 'is_active'
         )
 

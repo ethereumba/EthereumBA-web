@@ -1,5 +1,5 @@
 {{ $CurrentContainer := where $ "ID" .Docker.CurrentContainerID | first }}
-{{ $api_default_host := or ($CurrentContainer.Env.API_DEFAULT_HOST) "localhost" }}
+{{ $api_default_host := or ($CurrentContainer.Env.API_DEFAULT_HOST) "api.localhost" }}
 {{ $react_default_host := or ($CurrentContainer.Env.REACT_DEFAULT_HOST) "localhost" }}
 daemon off;
 worker_processes 4;

@@ -27,11 +27,11 @@ import { eventType } from '../../lib/types';
 import './events.scss';
 
 // lib
-import { getFormattedDate, getFormattedTime } from '../../lib/helpers';
+import { getFormattedDate, getFormattedTime, getI18nField } from '../../lib/helpers'
 
 const Events = ({ getMoreEvents, showMore, pastEvents, upcomingEvents, handleEventCardClick }) => {
   // Hooks
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   return (
     <div className="events">
@@ -54,7 +54,7 @@ const Events = ({ getMoreEvents, showMore, pastEvents, upcomingEvents, handleEve
                   key={`events-upcoming__${event.id}-${i}`}
                   handleClick={() => handleEventCardClick(event.id)}
                   id={event.id}
-                  title={event.title}
+                  title={getI18nField(event, 'title', i18n.language)}
                   date={eventDate}
                   time={eventTime}
                   address={address}
@@ -80,7 +80,7 @@ const Events = ({ getMoreEvents, showMore, pastEvents, upcomingEvents, handleEve
                   <EventCard
                     id={event.id}
                     handleClick={() => handleEventCardClick(event.id)}
-                    title={event.title}
+                    title={getI18nField(event, 'title', i18n.language)}
                     date={eventDate}
                     hasPassed={event.hasPassed}
                     url={event.meetup_url}
