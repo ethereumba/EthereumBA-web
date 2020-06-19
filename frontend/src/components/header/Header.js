@@ -36,7 +36,7 @@ const Header = props => {
               {t('events')}
             </Link>
             <a target="_blank" href="https://ethereumba.substack.com/" className="menu-item">
-              {t('blogs')}
+              {t('blog')}
             </a>
             <LanguageSwitch />
           </Menu>
