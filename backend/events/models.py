@@ -106,6 +106,8 @@ class Talk(TimeStampedModel):
     description_es = models.TextField(max_length=255, blank=True, null=True)
     description_en = models.TextField(max_length=255, blank=True, null=True)
     description_pt = models.TextField(max_length=255, blank=True, null=True)
+    podcast = models.URLField(blank=True, null=True)
+
     is_active = models.BooleanField(default=True)
 
     def __str__(self):

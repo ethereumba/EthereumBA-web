@@ -32,7 +32,7 @@ class TalkSerializer(serializers.ModelSerializer):
         fields = (
             'id', 'name_es', 'name_en', 'name_pt', 'speaker', 'time', 'language', 'language_display',
             'level', 'level_display', 'material', 'is_active', 'description_es', 'description_en',
-            'description_pt',
+            'description_pt', 'podcast',
         )
 
     def get_material_(self, st):
