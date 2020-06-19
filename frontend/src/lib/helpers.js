@@ -48,6 +48,16 @@ const getFilteredEvents = events => {
   return { pastEvents, upcomingEvents };
 };
 
+const getI18nField = (obj, attribute, lang='en') => {
+  const new_attribute = `${attribute}_${lang}`
+  let value = obj[new_attribute]
+
+  // Default Spanish
+  if (!value) {value = obj[`${attribute}_es`]}
+
+  return value
+}
+
 export {
   getCardBackground as default,
   getFormattedAddress,
@@ -55,4 +65,5 @@ export {
   getFilteredEvents,
   getFormattedDate,
   getFormattedTime,
+  getI18nField
 };

@@ -15,8 +15,6 @@ services:
       - ./backups:/usr/src/backups
       - /usr/src/app/static
       - mediadata:/usr/src/app/media
-      - /etc/timezone:/etc/timezone:ro
-      - /etc/localtime:/etc/localtime:ro
     env_file: .env
     environment:
       DEBUG: 'true'
@@ -56,8 +54,6 @@ services:
     volumes:
       - ./nginx/sites-enabled:/etc/nginx
       - /var/run/docker.sock:/tmp/docker.sock:ro
-      - /etc/timezone:/etc/timezone:ro
-      - /etc/localtime:/etc/localtime:ro
     volumes_from:
       - web
       - node
@@ -77,8 +73,6 @@ services:
     container_name: eth-buenos-aires-postgres
     volumes:
       - pgdata:/var/lib/postgresql/data/
-      - /etc/timezone:/etc/timezone:ro
-      - /etc/localtime:/etc/localtime:ro
     networks:
       - back-tier
 

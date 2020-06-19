@@ -13,11 +13,11 @@ import EventCard from '../../common/eventCard/EventCard';
 import './events.scss';
 
 // lib
-import { getFormattedDate } from '../../../lib/helpers';
+import { getFormattedDate, getI18nField } from '../../../lib/helpers';
 
 const Events = ({ events, history }) => {
   // Hooks
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const eventsLength = events.length;
   let eventsToDisplay = [];
@@ -49,7 +49,7 @@ const Events = ({ events, history }) => {
                       <EventCard
                         handleClick={() => handleEventCardClick(event.id)}
                         id={event.id}
-                        title={event.title}
+                        title={getI18nField(event, 'title', i18n.language)}
                         date={eventDate}
                         hasPassed={event.hasPassed}
                       />
@@ -72,7 +72,9 @@ Events.propTypes = {
   events: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number,
-      title: PropTypes.string,
+      title_es: PropTypes.string,
+      title_en: PropTypes.string,
+      title_pt: PropTypes.string,
       date: PropTypes.string,
       hasPassed: PropTypes.bool,
     })

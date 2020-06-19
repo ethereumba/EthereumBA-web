@@ -2,7 +2,9 @@ import { shape, string, bool, number, array, arrayOf } from 'prop-types';
 
 export const eventType = shape({
   date: string,
-  description: string,
+  description_es: string,
+  description_en: string,
+  description_pt: string,
   hasPassed: bool,
   id: number,
   meetup_url: string,
@@ -13,7 +15,9 @@ export const eventType = shape({
   sponsors: array,
   talks: array,
   time: string,
-  title: string,
+  title_es: string,
+  title_en: string,
+  title_pt: string,
 });
 
 export const materialType = shape({
@@ -30,13 +34,18 @@ export const photoType = shape({
 
 export const talkType = shape({
   id: number,
-  name: string,
+  name_es: string,
+  name_en: string,
+  name_pt: string,
   speaker: string,
   language: string,
   language_display: string,
   level: string,
   level_display: string,
-  description: string,
+  description_es: string,
+  description_en: string,
+  description_pt: string,
+  podcast: string,
   material: arrayOf(materialType),
   is_active: bool,
 });
