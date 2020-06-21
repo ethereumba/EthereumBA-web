@@ -48,5 +48,5 @@ Normally you'll only run `make build` only once in a while, `make up` every time
 ## Get in touch ##
   * [Twitter](https://twitter.com/ethereumba)
   * [Meetup](https://www.meetup.com/ethereum-ba/)
-  * [Telegram](https://t.me/ethbuenosaires)
+  * [Telegram](https://t.me/EthereumBA)
   * [Youtube](https://ethereumba.com/youtube)
