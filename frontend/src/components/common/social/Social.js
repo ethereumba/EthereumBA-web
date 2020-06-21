@@ -27,7 +27,7 @@ const iconSocial = [
     icon: Telegram,
     class: 'telegram img',
     name: 'Telegram',
-    url: 'https://t.me/ethbuenosaires',
+    url: 'https://t.me/EthereumBA',
   },
   {
     icon: Twitter,
@@ -70,7 +70,7 @@ const Social = () => {
           );
         })}
       </div>
-      <iframe src="https://ethereumba.substack.com/embed" 
+      <iframe src="https://ethereumba.substack.com/embed"
       width="480" height="320" className="blog-iframe" scrolling="no">
       </iframe>
     </div>
