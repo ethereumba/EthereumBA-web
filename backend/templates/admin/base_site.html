@@ -1,0 +1,29 @@
+{% extends "admin/base.html" %}
+{% load static %}
+
+{% block title %}Admin | {{ site_title|default:_('Django site admin') }}{% endblock %}
+
+
+{% block extrastyle %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}">
+
+    <!--Icons-->
+
+    {# Add custom CSS for overight admin styles #}
+    <link type="text/css" rel="stylesheet" href="{% static 'css/custom_admin.css' %}" media="screen,projection">
+{% endblock %}
+
+{% block branding %}
+<div>
+    <h1 id="site-name">
+        <a href="{% url 'admin:index' %}">
+            <img class="logo" src="{% static 'img/ethereumBA.svg' %}">
+        </a>
+    </h1>
+</div>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}

@@ -1,6 +1,7 @@
 from django.db import models
 from core.models import TimeStampedModel, User
 from django.utils.translation import ugettext as _
+from solo.models import SingletonModel
 
 
 class LEVEL:
@@ -132,3 +133,13 @@ class TalkMaterial(TimeStampedModel):
             return self.name
         else:
             return super(TalkMaterial).__str__()
+
+
+class MeetupData(SingletonModel):
+    amount_of_members = models.PositiveIntegerField(default=0, verbose_name=_("amount of members"))
+
+    def __str__(self):
+        return _("MeetUp Data")
+
+    class Meta:
+        verbose_name = _("MeetUp Data")

@@ -8,7 +8,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 
 from events.filters import EventFilter
-from events.models import Event
+from events.models import Event, MeetupData
 from events.serializers import ShortEventSerializer, EventSerializer, EventPhotoSerializer, EventPhotoWriterSerializer
 
 
@@ -46,3 +46,18 @@ class PhotoCreate(LoginRequiredMixin, ListView):
     template_name = 'events/photo_create.html'
     queryset = Event.objects.order_by('created_at')
     model = Event
+
+
+class MeetupViewSet(viewsets.ViewSet):
+    authentication_classes = []
+    permission_classes = [AllowAny, ]
+    http_method_names = ['get']
+
+    @staticmethod
+    def list(request):
+        data = MeetupData.get_solo()
+        results = {
+            'amount_of_members': data.amount_of_members
+        }
+
+        return Response(results, status=status.HTTP_200_OK)

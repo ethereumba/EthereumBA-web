@@ -37,7 +37,8 @@
     "react-slick": "^0.25.2",
     "redux": "^4.0.4",
     "redux-thunk": "^2.3.0",
-    "styled-components": "^4.4.0"
+    "styled-components": "^4.4.0",
+    "websocket-extensions": "^0.1.4"
   },
   "scripts": {
     "start": "react-scripts start",

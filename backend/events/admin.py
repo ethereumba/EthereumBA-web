@@ -1,7 +1,7 @@
 from django.contrib import admin
 from import_export.admin import ImportExportModelAdmin
-
-from events.models import Sponsor, Event, EventPhoto, Talk, TalkMaterial
+from solo.admin import SingletonModelAdmin
+from events.models import Sponsor, Event, EventPhoto, Talk, TalkMaterial, MeetupData
 
 
 @admin.register(Sponsor)
@@ -38,3 +38,6 @@ class TalkAdmin(ImportExportModelAdmin):
     list_display = (
         'id', 'talk', 'name', 'is_active'
     )
+
+
+admin.site.register(MeetupData, SingletonModelAdmin)
