@@ -10,6 +10,7 @@ import Footer from '../../components/footer';
 import Community from '../../components/home/community/Community';
 import Partners from '../../components/home/partners/Partners';
 import Events from '../../components/home/events/Events';
+import Paragraph from '../../components/common/paragraph';
 import Social from '../../components/common/social/Social';
 import Banner from '../../components/common/banner/Banner';
 
@@ -22,7 +23,7 @@ import './home.scss';
 // types
 import { eventType } from '../../lib/types';
 
-const Home = ({ events }) => {
+const Home = ({ events, upcomingEvents }) => {
   // Hooks
   const { t } = useTranslation();
 
@@ -31,7 +32,8 @@ const Home = ({ events }) => {
       <Header />
       <Banner text={t('heroTitle')} background={Background} bottom />
       <div className="gradient">
-        <Events events={events} />
+        <Events events={events} upcomingEvents={upcomingEvents} />
+        <Paragraph />
         <Community />
         <Social />
         <Partners />
@@ -43,6 +45,7 @@ const Home = ({ events }) => {
 
 Home.propTypes = {
   events: arrayOf(eventType).isRequired,
+  upcomingEvents: arrayOf(eventType).isRequired,
 };
 
 export default Home;

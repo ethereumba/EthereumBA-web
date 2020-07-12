@@ -1,9 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-// propstypes
-import { number, string } from 'prop-types';
-
 // components
 import Home from './Home';
 
@@ -15,18 +12,15 @@ const HomeContainer = () => {
 
   // selectors
   const events = useSelector(state => state.events.data);
+  const upcomingEvents = useSelector(state => state.events.upcomingEvents);
 
   useEffect(() => {
     dispatch(requestEvents());
   }, []);
 
-  return <Home events={events} />;
+  return <Home events={events} upcomingEvents={upcomingEvents} />;
 };
 
-HomeContainer.propTypes = {
-  // non required attributes
-  totalEventsCount: number,
-  nextApi: string,
-};
+HomeContainer.propTypes = {};
 
 export default HomeContainer;

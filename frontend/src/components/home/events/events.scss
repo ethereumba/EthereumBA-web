@@ -1,5 +1,56 @@
 @import '../../../styles/variables.scss';
 
+
+.events {
+  background: white;
+
+  &__subtitle {
+    padding: 0 5%;
+
+    h4 {
+      color: $violetTitle;
+      text-transform: uppercase;
+      font-family: Comfortaa;
+      font-size: 15px;
+      line-height: 28px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      margin-bottom: 30px;
+
+      @media (max-width: 480px) {
+        margin-top: 50px;
+      }
+    }
+  }
+
+  &__container {
+    padding-left: calc(5% - 16px);
+    padding-right: calc(5% - 16px);
+  }
+
+  &__upcoming-home {
+    z-index: 10;
+    background: transparent;
+    margin-bottom: 80px;
+    width: 100%;
+  }
+
+  &__past-events {
+    margin-bottom: 110px;
+
+    &__btn {
+      display: flex;
+      justify-content: center;
+      height: 93px;
+
+      button {
+        margin-top: 40px;
+      }
+    }
+  }
+}
+
+
 .title {
   display: flex;
   text-align: center;
@@ -10,7 +61,7 @@
 
 .cards-events {
   .title {
-    margin-top: 120px;
+    margin-top: 80px;
     color: $violetTitle;
   }
 }
@@ -82,14 +133,23 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: 500px;
-  height: 900px;
+  height: 100%;
   max-width: 100%;
   display: flex;
   flex-direction: column;
 
   .events {
-    height: 900px;
+    height: 100%;
     background-color: transparent;
+  }
+
+  @media (max-width: 480px) {
+    height: 1400px;
+
+    .events {
+      height: 1400px;
+    }
+
   }
 }
 
@@ -98,11 +158,11 @@
   justify-content: center;
 
   .title {
-    margin: 140px 0 40px 0;
+    margin: 70px 0 40px 0;
   }
 }
 
 .button-events {
-  margin-top: 40px;
+  margin-top: 50px;
   text-align: center;
 }

@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+
 // i18n
 import { useTranslation } from 'react-i18next';
 
@@ -7,10 +9,22 @@ import './stats.scss';
 
 const Stats = () => {
   // Hooks
+  const [members, setMembers] = useState(null);
+
   const { t } = useTranslation();
 
+  useEffect(() => {
+    const requestMembers = async () => {
+      const response = await axios.get('https://api.ethereumba.com/api/v1/meetup-data/');
+      console.log('response', response.data.amount_of_members);
+      setMembers(response.data.amount_of_members);
+    };
+
+    requestMembers();
+  }, [setMembers]);
+
   const stats = [
-    { id: 'members', value: '+1600', name: t('members') },
+    { id: 'members', value: `+${members}`, name: t('members') },
     { id: 'meetupsPerMonth', value: 'x1', name: t('preMonth') },
     { id: 'attendeesPerMeetup', value: '+80', name: t('atendees') },
     { id: 'averageRating', value: '4.8', name: t('averageRating') },
