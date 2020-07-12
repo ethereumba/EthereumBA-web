@@ -14,4 +14,4 @@ export const MeetupButton = styled(OrangeButton)`
   margin: 80px 0 0 0;
 `;
 
-export const Button = styled.View``;
+export const Button = styled.div``;
