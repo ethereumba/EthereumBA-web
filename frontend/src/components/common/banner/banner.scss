@@ -7,6 +7,16 @@
   height: 600px;
   display: flex;
 
+
+  @media (max-width: 760px) {
+    height: 800px;
+  }
+
+  @media (max-width: 480px) {
+    height: 800px;
+
+  }
+
   &.top {
     img {
       object-position: center top;
@@ -23,12 +33,11 @@
   .banner__text {
     position: absolute;
     width: 100%;
-    top: 35%;
+    top: 30%;
     text-align: center;
 
     &.lightTheme {
       top: 28%;
-
       h4 {
         color: $violetCard;
       }
@@ -48,7 +57,9 @@
       }
 
       @media (max-width: 480px) {
-        font-size: 24px;
+        font-size: 22px;
+        margin: 40px 0;
+
       }
     }
   }

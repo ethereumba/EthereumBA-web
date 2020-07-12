@@ -1,7 +1,7 @@
 import React from 'react';
 
 // proptypes
-import { arrayOf } from 'prop-types';
+import PropTypes, { arrayOf } from 'prop-types';
 
 // material ui
 import { Grid } from '@material-ui/core';
@@ -27,7 +27,7 @@ import { eventType } from '../../lib/types';
 import './events.scss';
 
 // lib
-import { getFormattedDate, getFormattedTime, getI18nField } from '../../lib/helpers'
+import { getFormattedDate, getFormattedTime, getI18nField } from '../../lib/helpers';
 
 const Events = ({ getMoreEvents, showMore, pastEvents, upcomingEvents, handleEventCardClick }) => {
   // Hooks
@@ -44,14 +44,14 @@ const Events = ({ getMoreEvents, showMore, pastEvents, upcomingEvents, handleEve
             <h4>upcoming events</h4>
           </div>
           <Grid container className="events__container">
-            {upcomingEvents.map((event, i) => {
+            {upcomingEvents.map(event => {
               const address = `${event.place_street} ${event.place_number}, ${event.place_city}`;
               const eventDate = getFormattedDate(event.date);
               const eventTime = getFormattedTime(event.date);
 
               return (
                 <UpcomingEventCard
-                  key={`events-upcoming__${event.id}-${i}`}
+                  key={`events-upcoming__${event.id}-${event.date}`}
                   handleClick={() => handleEventCardClick(event.id)}
                   id={event.id}
                   title={getI18nField(event, 'title', i18n.language)}
@@ -72,11 +72,11 @@ const Events = ({ getMoreEvents, showMore, pastEvents, upcomingEvents, handleEve
         </div>
         <Grid container className="events__container">
           {pastEvents &&
-            pastEvents.map((event, i) => {
+            pastEvents.map(event => {
               const eventDate = getFormattedDate(event.date);
 
               return (
-                <Grid item xs={12} md={6} lg={4} key={`events-past__${event.id}-${i}`}>
+                <Grid item xs={12} md={6} lg={4} key={`events-past__${event.id}-${event.date}`}>
                   <EventCard
                     id={event.id}
                     handleClick={() => handleEventCardClick(event.id)}
@@ -91,7 +91,7 @@ const Events = ({ getMoreEvents, showMore, pastEvents, upcomingEvents, handleEve
         </Grid>
 
         <div className="events__past-events__btn">
-          {showMore && <Button onClick={getMoreEvents} title={t('communityGrowing')} button />}
+          {showMore && <Button onClick={getMoreEvents} title={t('viewMoreEvents')} button />}
         </div>
       </div>
 
@@ -107,11 +107,17 @@ Events.propTypes = {
   // non required attributes
   pastEvents: arrayOf(eventType),
   upcomingEvents: arrayOf(eventType),
+  getMoreEvents: PropTypes.func,
+  showMore: PropTypes.func,
+  handleEventCardClick: PropTypes.func,
 };
 
 Events.defaultProps = {
   pastEvents: [],
   upcomingEvents: [],
+  getMoreEvents: () => {},
+  showMore: () => {},
+  handleEventCardClick: () => {}
 };
 
 export default Events;

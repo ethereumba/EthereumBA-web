@@ -11,5 +11,7 @@ export const MeetupButton = styled(OrangeButton)`
   display: inline-flex;
   padding: 5px 15px;
 
-  margin-top: 60px;
+  margin: 80px 0 0 0;
 `;
+
+export const Button = styled.div``;

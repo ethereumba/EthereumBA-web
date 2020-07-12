@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Grid } from '@material-ui/core';
 
 // i18n
@@ -41,16 +41,6 @@ export default () => {
 
   return (
     <div className="community">
-      <div className="community__header">
-        <div className="sub-title">
-          <h1>{t('learn')}</h1>
-        </div>
-
-        <div className="center">
-          <p className="title-2">{t('about')}</p>
-        </div>
-      </div>
-
       <Stats />
 
       <Grid container className="container-community community-text" spacing={0}>

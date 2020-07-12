@@ -10,12 +10,13 @@ import { withRouter } from 'react-router-dom';
 
 import Button from '../../common/button/Button';
 import EventCard from '../../common/eventCard/EventCard';
+import UpcomingEventCard from '../../events/upcomingEventCard/UpcomingEventCard';
 import './events.scss';
 
 // lib
-import { getFormattedDate, getI18nField } from '../../../lib/helpers';
+import { getFormattedDate, getFormattedTime, getI18nField } from '../../../lib/helpers';
 
-const Events = ({ events, history }) => {
+const Events = ({ events, history, upcomingEvents }) => {
   // Hooks
   const { t, i18n } = useTranslation();
 
@@ -33,12 +34,45 @@ const Events = ({ events, history }) => {
   return (
     <div className="background-events">
       <div className="events">
+        <div className="center">
+          <p className="title">{t('ourMeetups')}</p>
+        </div>
+
         <div className="card-events">
-          <div className="center">
-            <p className="title">{t('ourMeetups')}</p>
+          <div className="cards-events">
+            {upcomingEvents && upcomingEvents.length > 0 && (
+              <div className="events__upcoming-home">
+                <div className="events__subtitle">
+                  <h4>{t('upcomingEvents')}</h4>
+                </div>
+                <Grid container className="events__container">
+                  {upcomingEvents.map(event => {
+                    const address = `${event.place_street} ${event.place_number}, ${event.place_city}`;
+                    const eventDate = getFormattedDate(event.date);
+                    const eventTime = getFormattedTime(event.date);
+
+                    return (
+                      <UpcomingEventCard
+                        key={`events-upcoming__${event.date}`}
+                        handleClick={() => handleEventCardClick(event.id)}
+                        id={event.id}
+                        title={getI18nField(event, 'title', i18n.language)}
+                        date={eventDate}
+                        time={eventTime}
+                        address={address}
+                        url={event.meetup_url}
+                      />
+                    );
+                  })}
+                </Grid>
+              </div>
+            )}
           </div>
 
           <div className="cards-events">
+            <div className="events__subtitle">
+              <h4>{t('pastEvents')}</h4>
+            </div>
             <Grid container className="events__container">
               {orderedEventsToDisplay &&
                 orderedEventsToDisplay.map(event => {
@@ -82,6 +116,16 @@ Events.propTypes = {
   history: PropTypes.shape({
     push: PropTypes.func,
   }).isRequired,
+  upcomingEvents: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      title_es: PropTypes.string,
+      title_en: PropTypes.string,
+      title_pt: PropTypes.string,
+      date: PropTypes.string,
+      hasPassed: PropTypes.bool,
+    })
+  ).isRequired,
 };
 
 export default withRouter(Events);

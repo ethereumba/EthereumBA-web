@@ -70,9 +70,14 @@ const Social = () => {
           );
         })}
       </div>
-      <iframe src="https://ethereumba.substack.com/embed"
-      width="480" height="320" className="blog-iframe" scrolling="no">
-      </iframe>
+      <iframe
+        src="https://ethereumba.substack.com/embed"
+        width="100%"
+        height="320"
+        className="blog-iframe"
+        scrolling="no"
+        title="substack"
+      />
     </div>
   );
 };
