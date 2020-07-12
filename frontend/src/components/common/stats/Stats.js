@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
+import API_ROUTES from '../../../lib/api';
+
 // i18n
 import { useTranslation } from 'react-i18next';
 
@@ -15,8 +17,7 @@ const Stats = () => {
 
   useEffect(() => {
     const requestMembers = async () => {
-      const response = await axios.get('https://api.ethereumba.com/api/v1/meetup-data/');
-      console.log('response', response.data.amount_of_members);
+      const response = await axios.get(API_ROUTES.stats);
       setMembers(response.data.amount_of_members);
     };
 
