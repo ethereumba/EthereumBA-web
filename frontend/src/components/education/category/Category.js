@@ -3,7 +3,6 @@ import React, { Component, Fragment } from 'react'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import PropTypes from 'prop-types'
 
-import Search from '../../common/search/Search'
 import LinkCard from '../../common/linkCard/LinkCard'
 import down from '../../../assets/icons/baseline-keyboard_arrow_down-24px.svg'
 
@@ -17,7 +16,7 @@ export default class Category extends Component {
 
   _fadeOutButton = () => {
     let visibleChange = this.state.visible
-    if (visibleChange == true) {
+    if (visibleChange === true) {
       this.setState({ visible: false })
     } else {
       this.setState({ visible: true })

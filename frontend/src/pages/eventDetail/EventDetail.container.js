@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React, { useState } from 'react';
 
 import { isAfter } from 'date-fns';
 
@@ -9,40 +8,21 @@ import { matchType } from '../../lib/types';
 // components
 import EventDetail from './EventDetail';
 
-// redux
-import { getSingleEvent } from '../../modules/events/actions';
+// constants
+import EVENTS from '../../constants/events';
 
 const EventDetailContainer = ({ match }) => {
   const [isPhotoView, setIsPhotoView] = useState(false);
-  const [event, setEvent] = useState(null);
-  const [talks, setTalks] = useState([]);
   const [indexOfSelectedPhoto, setIndexOfSelectedPhoto] = useState(0);
-
-  const dispatch = useDispatch();
 
   const eventId = match.params.id;
 
-  const events = useSelector(state => state.events.data);
-
-  const getEventFromStore = () => events.find(_event => String(_event.id) === String(eventId));
-
-  useEffect(() => {
-    if (getEventFromStore() !== undefined) {
-      setEvent(getEventFromStore());
-    } else {
-      dispatch(getSingleEvent(eventId));
-    }
-
-    if (event) setTalks(event.talks.sort(ascendingId));
-  }, [event]);
+  const event = EVENTS.find(ev => ev.id.toString() === eventId);
+  const talks = event.talks ? event.talks.sort((a, b) => a.id - b.id) : [];
 
   const handleChangeIndexOfSelectedPhoto = newIndex => {
     setIndexOfSelectedPhoto(newIndex);
   };
-
-  useEffect(() => {
-    if (events.length === 1 && !event) setEvent(events[0]);
-  }, [events]);
 
   const checkEventStatus = () => isAfter(new Date(event.date), new Date());
 
@@ -52,8 +32,6 @@ const EventDetailContainer = ({ match }) => {
   };
 
   const handleOnCloseIconClick = () => setIsPhotoView(false);
-
-  const ascendingId = (a, b) => a.id - b.id;
 
   return (
     event &&

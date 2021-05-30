@@ -21,7 +21,7 @@ const UpcomingEventCard = ({ handleClick, id, title, date, time, address, url })
         <div className="card card-shadow large">
           <div className="upcoming-event">
             <div className="upcoming-event__header">
-              <img src={getCardBackground(id)} />
+              <img src={getCardBackground(id)} alt="background" />
               <div className="upcoming-event__header__title card-container">
                 <span>{`#${id} ${title}`}</span>
               </div>

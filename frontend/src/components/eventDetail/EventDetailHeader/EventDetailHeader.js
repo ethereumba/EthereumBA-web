@@ -25,7 +25,7 @@ const EventDetailHeader = ({ history }) => {
       <Grid container>
         <Grid item xs={1} className="event-header__icon-container">
           <div onClick={handleBackArrowClick} className="event-header__icon-wrapper">
-            <img src={BackArrowLogo} />
+            <img src={BackArrowLogo} alt="back" />
           </div>
         </Grid>
         <Grid item xs className="event-header__title-container">

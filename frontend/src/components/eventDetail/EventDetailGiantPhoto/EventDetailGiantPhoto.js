@@ -63,7 +63,7 @@ const EventDetailGiantPhoto = ({ event, indexOfSelectedPhoto, onCloseIconClick }
 
   useEffect(() => {
     setLastPhotoIndex(event.photos.length - 1);
-  }, []);
+  }, [event]);
 
   return (
     <MainContainer container direction="row">

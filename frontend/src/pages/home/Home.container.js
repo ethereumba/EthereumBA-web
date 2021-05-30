@@ -1,24 +1,13 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react';
 
 // components
 import Home from './Home';
 
-// action creators
-import { requestEvents } from '../../modules/events/actions';
+// constants
+import EVENTS from '../../constants/events';
 
 const HomeContainer = () => {
-  const dispatch = useDispatch();
-
-  // selectors
-  const events = useSelector(state => state.events.data);
-  const upcomingEvents = useSelector(state => state.events.upcomingEvents);
-
-  useEffect(() => {
-    dispatch(requestEvents());
-  }, []);
-
-  return <Home events={events} upcomingEvents={upcomingEvents} />;
+  return <Home events={EVENTS.splice(0, 3)} upcomingEvents={[]} />;
 };
 
 HomeContainer.propTypes = {};

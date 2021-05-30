@@ -20,7 +20,7 @@ const Banner = ({ background, text, lightTheme, positionTop, history }) => {
 
   return (
     <div className={`banner ${positionTop ? 'top' : ''}`}>
-      <img src={background} />
+      <img src={background} alt="background" />
 
       <div className={`banner__text ${lightTheme ? 'lightTheme' : ''}`}>
         <h4>{text}</h4>

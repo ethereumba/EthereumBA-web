@@ -48,11 +48,6 @@
     "start:server": "node server",
     "start:production": "npm run build && npm run start:server"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "lint-staged": {
     "./src/**/*.+(js)": [
       "eslint --fix",

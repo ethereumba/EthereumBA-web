@@ -1,9 +1,8 @@
-import React from 'react'
-import { Grid } from '@material-ui/core'
-import Card from '@material-ui/core/Card'
-import PropTypes from 'prop-types'
+import React from 'react';
+import { Grid } from '@material-ui/core';
+import PropTypes from 'prop-types';
 
-import './linkCard.scss'
+import './linkCard.scss';
 
 const LinkCard = ({ title, url }) => (
   <Grid item md={12} className="box-linkCard">
@@ -14,11 +13,11 @@ const LinkCard = ({ title, url }) => (
       </div>
     </div>
   </Grid>
-)
+);
 
 LinkCard.propTypes = {
   title: PropTypes.string,
   url: PropTypes.string,
-}
+};
 
-export default LinkCard
+export default LinkCard;

@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
-import { Grid } from '@material-ui/core'
 import './categories.scss'
 import _groupBy from 'lodash/groupBy'
-import _forEach from 'lodash/forEach'
 import Category from '../category/Category'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import { withStyles } from '@material-ui/core/styles'

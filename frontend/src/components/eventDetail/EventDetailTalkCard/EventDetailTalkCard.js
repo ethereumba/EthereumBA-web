@@ -16,12 +16,12 @@ import IconsContainer from './IconsContainer';
 
 // types
 import { talkType } from '../../../lib/types';
-import { getI18nField } from '../../../lib/helpers'
+import { getI18nField } from '../../../lib/helpers';
 
 const EventDetailTalkCard = ({ talk }) => {
   // Hooks
   const { i18n } = useTranslation();
-  const lang = i18n.language
+  const lang = i18n.language;
 
   return (
     <Grid container justify="flex-start" alignItems="center">
@@ -31,23 +31,30 @@ const EventDetailTalkCard = ({ talk }) => {
       <Grid item xs={12} md={10}>
         <Container container direction="column">
           <Name>{getI18nField(talk, 'name', lang)}</Name>
-          {(talk.description_en || talk.description_es ||  talk.description_pt) &&
+          {(talk.description_en || talk.description_es || talk.description_pt) && (
             <Description>{getI18nField(talk, 'description', lang)}</Description>
-          }
+          )}
           <DownloadMaterialContainer>
             {talk.material &&
-            talk.material.map(_material => <DownloadMaterial key={_material.id} material={_material} />)}
+              talk.material.map(_material => <DownloadMaterial key={_material.id} material={_material} />)}
           </DownloadMaterialContainer>
           {(talk.language || talk.level) && <IconsContainer talk={talk} />}
-          {talk.podcast &&
+          {talk.podcast && (
             <PodcastContainer>
-              <iframe src={talk.podcast} width="100%" height="232" frameBorder="0" allow="encrypted-media" />
+              <iframe
+                title="podcast"
+                src={talk.podcast}
+                width="100%"
+                height="232"
+                frameBorder="0"
+                allow="encrypted-media"
+              />
             </PodcastContainer>
-          }
+          )}
         </Container>
       </Grid>
     </Grid>
-  )
+  );
 };
 
 EventDetailTalkCard.propTypes = {

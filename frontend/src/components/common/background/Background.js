@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
-import './background.scss'
+import React from 'react';
+import './background.scss';
 
 const Background = props => {
-  return <div className="background">{props.children}</div>
-}
+  return <div className="background">{props.children}</div>;
+};
 
-export default Background
+export default Background;
